@@ -1,5 +1,7 @@
 # Schulferien API
 
+[![Deployment status from DeployBot](https://maxleistner.deploybot.com/badge/77558060233260/207735.svg)](https://deploybot.com)
+
 ## Einleitung
 
 Die Schulferien aller Bundesländer in Deutschland werden hier bereitgestellt.
@@ -39,3 +41,5 @@ https://ferien-api.maxleistner.de/api/v1/2022/BY/
 
 Solltest du die API auch nutzen wollen, findest aber Fehler oder es fehlen Daten, melde dich gerne und stelle einen Merge-Request mit der Anpassung. Die Dateien für die jeweiligen Jahre findest du unter `routes/years`
 Verbesserungsvorschläge, Wünsche,... gerne gesehen.
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V8GDFQJ)

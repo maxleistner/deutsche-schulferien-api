@@ -1,0 +1,22 @@
+{
+  "name": "schulferien-api",
+  "version": "1.0.0",
+  "description": "API für die Schulferien in Deutschland, filterbar nach Jahr und/oder Bundesland",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon --exec 'npm start'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maximilian Leistner (https://maxleistner.de)",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

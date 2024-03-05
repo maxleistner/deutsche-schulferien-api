@@ -1,0 +1,754 @@
+[
+    {
+        "start": "2020-04-06",
+        "end": "2020-04-18",
+        "year": 2020,
+        "stateCode": "BW",
+        "name": "osterferien baden-württemberg 2020",
+        "slug": "osterferien baden-württemberg 2020-2020-BW"
+    },
+    {
+        "start": "2020-06-02",
+        "end": "2020-06-13",
+        "year": 2020,
+        "stateCode": "BW",
+        "name": "pfingstferien baden-württemberg 2020",
+        "slug": "pfingstferien baden-württemberg 2020-2020-BW"
+    },
+    {
+        "start": "2020-07-30",
+        "end": "2020-09-12",
+        "year": 2020,
+        "stateCode": "BW",
+        "name": "sommerferien baden-württemberg 2020",
+        "slug": "sommerferien baden-württemberg 2020-2020-BW"
+    },
+    {
+        "start": "2020-10-26",
+        "end": "2020-10-30",
+        "year": 2020,
+        "stateCode": "BW",
+        "name": "herbstferien baden-württemberg 2020",
+        "slug": "herbstferien baden-württemberg 2020-2020-BW"
+    },
+    {
+        "start": "2020-10-31",
+        "end": "2020-10-31",
+        "year": 2020,
+        "stateCode": "BW",
+        "name": "herbstferien beweglicher ferientag baden-württemberg 2020",
+        "slug": "herbstferien beweglicher ferientag baden-württemberg 2020-2020-BW"
+    },
+    {
+        "start": "2020-12-23",
+        "end": "2021-01-09",
+        "year": 2020,
+        "stateCode": "BW",
+        "name": "weihnachtsferien baden-württemberg 2020",
+        "slug": "weihnachtsferien baden-württemberg 2020-2020-BW"
+    },
+    {
+        "start": "2020-03-04",
+        "end": "2020-03-08",
+        "year": 2020,
+        "stateCode": "BY",
+        "name": "winterferien bayern  2019",
+        "slug": "winterferien bayern  2019-2020-BY"
+    },
+    {
+        "start": "2020-02-24",
+        "end": "2020-02-28",
+        "year": 2020,
+        "stateCode": "BY",
+        "name": "winterferien bayern  2020",
+        "slug": "winterferien bayern  2020-2020-BY"
+    },
+    {
+        "start": "2020-04-06",
+        "end": "2020-04-18",
+        "year": 2020,
+        "stateCode": "BY",
+        "name": "osterferien bayern  2020",
+        "slug": "osterferien bayern  2020-2020-BY"
+    },
+    {
+        "start": "2020-06-02",
+        "end": "2020-06-13",
+        "year": 2020,
+        "stateCode": "BY",
+        "name": "pfingstferien bayern  2020",
+        "slug": "pfingstferien bayern  2020-2020-BY"
+    },
+    {
+        "start": "2020-07-27",
+        "end": "2020-09-07",
+        "year": 2020,
+        "stateCode": "BY",
+        "name": "sommerferien bayern  2020",
+        "slug": "sommerferien bayern  2020-2020-BY"
+    },
+    {
+        "start": "2020-10-31",
+        "end": "2020-11-06",
+        "year": 2020,
+        "stateCode": "BY",
+        "name": "herbstferien bayern  2020",
+        "slug": "herbstferien bayern  2020-2020-BY"
+    },
+    {
+        "start": "2020-11-18",
+        "end": "2020-11-18",
+        "year": 2020,
+        "stateCode": "BY",
+        "name": "herbstferien bayern 2020 (beweglicher ferientag)",
+        "slug": "herbstferien bayern 2020 (beweglicher ferientag)-2020-BY"
+    },
+    {
+        "start": "2020-12-23",
+        "end": "2021-01-09",
+        "year": 2020,
+        "stateCode": "BY",
+        "name": "weihnachtsferien bayern  2020",
+        "slug": "weihnachtsferien bayern  2020-2020-BY"
+    },
+    {
+        "start": "2020-02-03",
+        "end": "2020-02-08",
+        "year": 2020,
+        "stateCode": "BE",
+        "name": "winterferien berlin 2020",
+        "slug": "winterferien berlin 2020-2020-BE"
+    },
+    {
+        "start": "2020-04-06",
+        "end": "2020-04-17",
+        "year": 2020,
+        "stateCode": "BE",
+        "name": "osterferien berlin 2020",
+        "slug": "osterferien berlin 2020-2020-BE"
+    },
+    {
+        "start": "2020-05-08",
+        "end": "2020-05-08",
+        "year": 2020,
+        "stateCode": "BE",
+        "name": "pfingstferien berlin 2020 (beweglicher ferientag)",
+        "slug": "pfingstferien berlin 2020 (beweglicher ferientag)-2020-BE"
+    },
+    {
+        "start": "2020-05-22",
+        "end": "2020-05-22",
+        "year": 2020,
+        "stateCode": "BE",
+        "name": "pfingstferien berlin 2020 (beweglicher ferientag 2)",
+        "slug": "pfingstferien berlin 2020 (beweglicher ferientag 2)-2020-BE"
+    },
+    {
+        "start": "2020-06-25",
+        "end": "2020-08-07",
+        "year": 2020,
+        "stateCode": "BE",
+        "name": "sommerferien berlin 2020",
+        "slug": "sommerferien berlin 2020-2020-BE"
+    },
+    {
+        "start": "2020-10-12",
+        "end": "2020-10-24",
+        "year": 2020,
+        "stateCode": "BE",
+        "name": "herbstferien berlin 2020",
+        "slug": "herbstferien berlin 2020-2020-BE"
+    },
+    {
+        "start": "2020-12-21",
+        "end": "2021-01-02",
+        "year": 2020,
+        "stateCode": "BE",
+        "name": "weihnachtsferien berlin 2020",
+        "slug": "weihnachtsferien berlin 2020-2020-BE"
+    },
+    {
+        "start": "2020-02-03",
+        "end": "2020-02-08",
+        "year": 2020,
+        "stateCode": "BB",
+        "name": "winterferien brandenburg 2020",
+        "slug": "winterferien brandenburg 2020-2020-BB"
+    },
+    {
+        "start": "2020-04-06",
+        "end": "2020-04-17",
+        "year": 2020,
+        "stateCode": "BB",
+        "name": "osterferien brandenburg 2020",
+        "slug": "osterferien brandenburg 2020-2020-BB"
+    },
+    {
+        "start": "2020-06-25",
+        "end": "2020-08-08",
+        "year": 2020,
+        "stateCode": "BB",
+        "name": "sommerferien brandenburg 2020",
+        "slug": "sommerferien brandenburg 2020-2020-BB"
+    },
+    {
+        "start": "2020-10-12",
+        "end": "2020-10-24",
+        "year": 2020,
+        "stateCode": "BB",
+        "name": "herbstferien brandenburg 2020",
+        "slug": "herbstferien brandenburg 2020-2020-BB"
+    },
+    {
+        "start": "2020-12-21",
+        "end": "2021-01-02",
+        "year": 2020,
+        "stateCode": "BB",
+        "name": "weihnachtsferien brandenburg 2020",
+        "slug": "weihnachtsferien brandenburg 2020-2020-BB"
+    },
+    {
+        "start": "2020-02-03",
+        "end": "2020-02-08",
+        "year": 2020,
+        "stateCode": "HB",
+        "name": "winterferien bremen 2020",
+        "slug": "winterferien bremen 2020-2020-HB"
+    },
+    {
+        "start": "2020-04-06",
+        "end": "2020-04-17",
+        "year": 2020,
+        "stateCode": "HB",
+        "name": "osterferien bremen 2020",
+        "slug": "osterferien bremen 2020-2020-HB"
+    },
+    {
+        "start": "2020-05-22",
+        "end": "2020-05-22",
+        "year": 2020,
+        "stateCode": "HB",
+        "name": "pfingstferien bremen 2020 (beweglicher ferientag)",
+        "slug": "pfingstferien bremen 2020 (beweglicher ferientag)-2020-HB"
+    },
+    {
+        "start": "2020-07-16",
+        "end": "2020-08-26",
+        "year": 2020,
+        "stateCode": "HB",
+        "name": "sommerferien bremen 2020",
+        "slug": "sommerferien bremen 2020-2020-HB"
+    },
+    {
+        "start": "2020-10-12",
+        "end": "2020-10-24",
+        "year": 2020,
+        "stateCode": "HB",
+        "name": "herbstferien bremen 2020",
+        "slug": "herbstferien bremen 2020-2020-HB"
+    },
+    {
+        "start": "2020-12-23",
+        "end": "2021-01-08",
+        "year": 2020,
+        "stateCode": "HB",
+        "name": "weihnachtsferien bremen 2020",
+        "slug": "weihnachtsferien bremen 2020-2020-HB"
+    },
+    {
+        "start": "2020-01-31",
+        "end": "2020-01-31",
+        "year": 2020,
+        "stateCode": "HH",
+        "name": "winterferien hamburg 2020 (beweglicher ferientag)",
+        "slug": "winterferien hamburg 2020 (beweglicher ferientag)-2020-HH"
+    },
+    {
+        "start": "2020-03-02",
+        "end": "2020-03-13",
+        "year": 2020,
+        "stateCode": "HH",
+        "name": "osterferien hamburg 2020 ",
+        "slug": "osterferien hamburg 2020 -2020-HH"
+    },
+    {
+        "start": "2020-05-18",
+        "end": "2020-05-22",
+        "year": 2020,
+        "stateCode": "HH",
+        "name": "pfingstferien hamburg 2020 ",
+        "slug": "pfingstferien hamburg 2020 -2020-HH"
+    },
+    {
+        "start": "2020-06-25",
+        "end": "2020-08-05",
+        "year": 2020,
+        "stateCode": "HH",
+        "name": "sommerferien hamburg 2020 ",
+        "slug": "sommerferien hamburg 2020 -2020-HH"
+    },
+    {
+        "start": "2020-10-05",
+        "end": "2020-10-16",
+        "year": 2020,
+        "stateCode": "HH",
+        "name": "herbstferien hamburg 2020 ",
+        "slug": "herbstferien hamburg 2020 -2020-HH"
+    },
+    {
+        "start": "2020-12-21",
+        "end": "2021-01-04",
+        "year": 2020,
+        "stateCode": "HH",
+        "name": "weihnachtsferien hamburg 2020 ",
+        "slug": "weihnachtsferien hamburg 2020 -2020-HH"
+    },
+    {
+        "start": "2020-04-06",
+        "end": "2020-04-18",
+        "year": 2020,
+        "stateCode": "HE",
+        "name": "osterferien hessen 2020",
+        "slug": "osterferien hessen 2020-2020-HE"
+    },
+    {
+        "start": "2020-07-06",
+        "end": "2020-08-14",
+        "year": 2020,
+        "stateCode": "HE",
+        "name": "sommerferien hessen 2020",
+        "slug": "sommerferien hessen 2020-2020-HE"
+    },
+    {
+        "start": "2020-10-05",
+        "end": "2020-10-17",
+        "year": 2020,
+        "stateCode": "HE",
+        "name": "herbstferien hessen 2020",
+        "slug": "herbstferien hessen 2020-2020-HE"
+    },
+    {
+        "start": "2020-12-21",
+        "end": "2021-01-09",
+        "year": 2020,
+        "stateCode": "HE",
+        "name": "weihnachtsferien hessen 2020",
+        "slug": "weihnachtsferien hessen 2020-2020-HE"
+    },
+    {
+        "start": "2020-02-10",
+        "end": "2020-02-21",
+        "year": 2020,
+        "stateCode": "MV",
+        "name": "winterferien mecklenburg-vorpommern 2020",
+        "slug": "winterferien mecklenburg-vorpommern 2020-2020-MV"
+    },
+    {
+        "start": "2020-04-06",
+        "end": "2020-04-15",
+        "year": 2020,
+        "stateCode": "MV",
+        "name": "osterferien mecklenburg-vorpommern 2020",
+        "slug": "osterferien mecklenburg-vorpommern 2020-2020-MV"
+    },
+    {
+        "start": "2020-05-22",
+        "end": "2020-05-22",
+        "year": 2020,
+        "stateCode": "MV",
+        "name": "pfingstferien mecklenburg-vorpommern 2020 (beweglicher ferientag)",
+        "slug": "pfingstferien mecklenburg-vorpommern 2020 (beweglicher ferientag)-2020-MV"
+    },
+    {
+        "start": "2020-05-29",
+        "end": "2020-06-02",
+        "year": 2020,
+        "stateCode": "MV",
+        "name": "pfingstferien mecklenburg-vorpommern 2020",
+        "slug": "pfingstferien mecklenburg-vorpommern 2020-2020-MV"
+    },
+    {
+        "start": "2020-06-22",
+        "end": "2020-08-01",
+        "year": 2020,
+        "stateCode": "MV",
+        "name": "sommerferien mecklenburg-vorpommern 2020",
+        "slug": "sommerferien mecklenburg-vorpommern 2020-2020-MV"
+    },
+    {
+        "start": "2020-10-05",
+        "end": "2020-10-10",
+        "year": 2020,
+        "stateCode": "MV",
+        "name": "herbstferien mecklenburg-vorpommern 2020",
+        "slug": "herbstferien mecklenburg-vorpommern 2020-2020-MV"
+    },
+    {
+        "start": "2020-11-02",
+        "end": "2020-11-02",
+        "year": 2020,
+        "stateCode": "MV",
+        "name": "herbstferien mecklenburg-vorpommern 2020 (beweglicher ferientag)",
+        "slug": "herbstferien mecklenburg-vorpommern 2020 (beweglicher ferientag)-2020-MV"
+    },
+    {
+        "start": "2020-12-21",
+        "end": "2021-01-02",
+        "year": 2020,
+        "stateCode": "MV",
+        "name": "weihnachtsferien mecklenburg-vorpommern 2020",
+        "slug": "weihnachtsferien mecklenburg-vorpommern 2020-2020-MV"
+    },
+    {
+        "start": "2020-02-03",
+        "end": "2020-02-04",
+        "year": 2020,
+        "stateCode": "NI",
+        "name": "winterferien niedersachsen 2020",
+        "slug": "winterferien niedersachsen 2020-2020-NI"
+    },
+    {
+        "start": "2020-03-30",
+        "end": "2020-04-14",
+        "year": 2020,
+        "stateCode": "NI",
+        "name": "osterferien niedersachsen 2020",
+        "slug": "osterferien niedersachsen 2020-2020-NI"
+    },
+    {
+        "start": "2020-05-22",
+        "end": "2020-05-22",
+        "year": 2020,
+        "stateCode": "NI",
+        "name": "pfingstferien niedersachsen 2020 (beweglicher ferientag)",
+        "slug": "pfingstferien niedersachsen 2020 (beweglicher ferientag)-2020-NI"
+    },
+    {
+        "start": "2020-07-16",
+        "end": "2020-08-26",
+        "year": 2020,
+        "stateCode": "NI",
+        "name": "sommerferien niedersachsen 2020",
+        "slug": "sommerferien niedersachsen 2020-2020-NI"
+    },
+    {
+        "start": "2020-10-12",
+        "end": "2020-10-23",
+        "year": 2020,
+        "stateCode": "NI",
+        "name": "herbstferien niedersachsen 2020",
+        "slug": "herbstferien niedersachsen 2020-2020-NI"
+    },
+    {
+        "start": "2020-12-21",
+        "end": "2021-01-08",
+        "year": 2020,
+        "stateCode": "NI",
+        "name": "weihnachtsferien niedersachsen 2020",
+        "slug": "weihnachtsferien niedersachsen 2020-2020-NI"
+    },
+    {
+        "start": "2020-04-06",
+        "end": "2020-04-18",
+        "year": 2020,
+        "stateCode": "NW",
+        "name": "osterferien nordrhein-westfalen 2020",
+        "slug": "osterferien nordrhein-westfalen 2020-2020-NW"
+    },
+    {
+        "start": "2020-06-02",
+        "end": "2020-06-02",
+        "year": 2020,
+        "stateCode": "NW",
+        "name": "pfingstferien nordrhein-westfalen 2020 (beweglicher ferientag)",
+        "slug": "pfingstferien nordrhein-westfalen 2020 (beweglicher ferientag)-2020-NW"
+    },
+    {
+        "start": "2020-06-29",
+        "end": "2020-08-11",
+        "year": 2020,
+        "stateCode": "NW",
+        "name": "sommerferien nordrhein-westfalen 2020",
+        "slug": "sommerferien nordrhein-westfalen 2020-2020-NW"
+    },
+    {
+        "start": "2020-10-12",
+        "end": "2020-10-24",
+        "year": 2020,
+        "stateCode": "NW",
+        "name": "herbstferien nordrhein-westfalen 2020",
+        "slug": "herbstferien nordrhein-westfalen 2020-2020-NW"
+    },
+    {
+        "start": "2020-12-21",
+        "end": "2021-01-06",
+        "year": 2020,
+        "stateCode": "NW",
+        "name": "weihnachtsferien nordrhein-westfalen 2020",
+        "slug": "weihnachtsferien nordrhein-westfalen 2020-2020-NW"
+    },
+    {
+        "start": "2020-02-17",
+        "end": "2020-02-21",
+        "year": 2020,
+        "stateCode": "RP",
+        "name": "winterferien rheinland-pfalz 2020",
+        "slug": "winterferien rheinland-pfalz 2020-2020-RP"
+    },
+    {
+        "start": "2020-04-09",
+        "end": "2020-04-17",
+        "year": 2020,
+        "stateCode": "RP",
+        "name": "osterferien rheinland-pfalz 2020",
+        "slug": "osterferien rheinland-pfalz 2020-2020-RP"
+    },
+    {
+        "start": "2020-07-06",
+        "end": "2020-08-14",
+        "year": 2020,
+        "stateCode": "RP",
+        "name": "sommerferien rheinland-pfalz 2020",
+        "slug": "sommerferien rheinland-pfalz 2020-2020-RP"
+    },
+    {
+        "start": "2020-10-12",
+        "end": "2020-10-23",
+        "year": 2020,
+        "stateCode": "RP",
+        "name": "herbstferien rheinland-pfalz 2020",
+        "slug": "herbstferien rheinland-pfalz 2020-2020-RP"
+    },
+    {
+        "start": "2020-12-21",
+        "end": "2020-12-31",
+        "year": 2020,
+        "stateCode": "RP",
+        "name": "weihnachtsferien rheinland-pfalz 2020",
+        "slug": "weihnachtsferien rheinland-pfalz 2020-2020-RP"
+    },
+    {
+        "start": "2020-02-17",
+        "end": "2020-02-25",
+        "year": 2020,
+        "stateCode": "SL",
+        "name": "winterferien saarland 2020",
+        "slug": "winterferien saarland 2020-2020-SL"
+    },
+    {
+        "start": "2020-04-14",
+        "end": "2020-04-24",
+        "year": 2020,
+        "stateCode": "SL",
+        "name": "osterferien saarland 2020",
+        "slug": "osterferien saarland 2020-2020-SL"
+    },
+    {
+        "start": "2020-07-06",
+        "end": "2020-08-14",
+        "year": 2020,
+        "stateCode": "SL",
+        "name": "sommerferien saarland 2020",
+        "slug": "sommerferien saarland 2020-2020-SL"
+    },
+    {
+        "start": "2020-10-12",
+        "end": "2020-10-23",
+        "year": 2020,
+        "stateCode": "SL",
+        "name": "herbstferien saarland 2020",
+        "slug": "herbstferien saarland 2020-2020-SL"
+    },
+    {
+        "start": "2020-12-21",
+        "end": "2020-12-31",
+        "year": 2020,
+        "stateCode": "SL",
+        "name": "weihnachtsferien saarland 2020",
+        "slug": "weihnachtsferien saarland 2020-2020-SL"
+    },
+    {
+        "start": "2020-02-10",
+        "end": "2020-02-14",
+        "year": 2020,
+        "stateCode": "ST",
+        "name": "winterferien sachsen-anhalt 2020",
+        "slug": "winterferien sachsen-anhalt 2020-2020-ST"
+    },
+    {
+        "start": "2020-04-06",
+        "end": "2020-04-11",
+        "year": 2020,
+        "stateCode": "ST",
+        "name": "osterferien sachsen-anhalt 2020",
+        "slug": "osterferien sachsen-anhalt 2020-2020-ST"
+    },
+    {
+        "start": "2020-05-18",
+        "end": "2020-05-30",
+        "year": 2020,
+        "stateCode": "ST",
+        "name": "pfingstferien sachsen-anhalt 2020",
+        "slug": "pfingstferien sachsen-anhalt 2020-2020-ST"
+    },
+    {
+        "start": "2020-07-16",
+        "end": "2020-08-26",
+        "year": 2020,
+        "stateCode": "ST",
+        "name": "sommerferien sachsen-anhalt 2020",
+        "slug": "sommerferien sachsen-anhalt 2020-2020-ST"
+    },
+    {
+        "start": "2020-10-19",
+        "end": "2020-10-24",
+        "year": 2020,
+        "stateCode": "ST",
+        "name": "herbstferien sachsen-anhalt 2020",
+        "slug": "herbstferien sachsen-anhalt 2020-2020-ST"
+    },
+    {
+        "start": "2020-12-21",
+        "end": "2021-01-10",
+        "year": 2020,
+        "stateCode": "ST",
+        "name": "weihnachtsferien sachsen-anhalt 2020",
+        "slug": "weihnachtsferien sachsen-anhalt 2020-2020-ST"
+    },
+    {
+        "start": "2020-02-10",
+        "end": "2020-02-22",
+        "year": 2020,
+        "stateCode": "SN",
+        "name": "winterferien sachsen 2020",
+        "slug": "winterferien sachsen 2020-2020-SN"
+    },
+    {
+        "start": "2020-04-10",
+        "end": "2020-04-18",
+        "year": 2020,
+        "stateCode": "SN",
+        "name": "osterferien sachsen 2020",
+        "slug": "osterferien sachsen 2020-2020-SN"
+    },
+    {
+        "start": "2020-05-22",
+        "end": "2020-05-22",
+        "year": 2020,
+        "stateCode": "SN",
+        "name": "pfingstferien sachsen 2020 (beweglicher ferientag)",
+        "slug": "pfingstferien sachsen 2020 (beweglicher ferientag)-2020-SN"
+    },
+    {
+        "start": "2020-07-20",
+        "end": "2020-08-28",
+        "year": 2020,
+        "stateCode": "SN",
+        "name": "sommerferien sachsen 2020",
+        "slug": "sommerferien sachsen 2020-2020-SN"
+    },
+    {
+        "start": "2020-10-19",
+        "end": "2020-10-31",
+        "year": 2020,
+        "stateCode": "SN",
+        "name": "herbstferien sachsen 2020",
+        "slug": "herbstferien sachsen 2020-2020-SN"
+    },
+    {
+        "start": "2020-12-19",
+        "end": "2021-01-02",
+        "year": 2020,
+        "stateCode": "SN",
+        "name": "weihnachtsferien sachsen 2020",
+        "slug": "weihnachtsferien sachsen 2020-2020-SN"
+    },
+    {
+        "start": "2020-03-30",
+        "end": "2020-04-17",
+        "year": 2020,
+        "stateCode": "SH",
+        "name": "osterferien schleswig-holstein 2020",
+        "slug": "osterferien schleswig-holstein 2020-2020-SH"
+    },
+    {
+        "start": "2020-05-22",
+        "end": "2020-05-22",
+        "year": 2020,
+        "stateCode": "SH",
+        "name": "pfingstferien schleswig-holstein 2020 (beweglicher ferientag)",
+        "slug": "pfingstferien schleswig-holstein 2020 (beweglicher ferientag)-2020-SH"
+    },
+    {
+        "start": "2020-06-29",
+        "end": "2020-08-08",
+        "year": 2020,
+        "stateCode": "SH",
+        "name": "sommerferien schleswig-holstein 2020",
+        "slug": "sommerferien schleswig-holstein 2020-2020-SH"
+    },
+    {
+        "start": "2020-10-05",
+        "end": "2020-10-17",
+        "year": 2020,
+        "stateCode": "SH",
+        "name": "herbstferien schleswig-holstein 2020",
+        "slug": "herbstferien schleswig-holstein 2020-2020-SH"
+    },
+    {
+        "start": "2020-12-19",
+        "end": "2021-01-06",
+        "year": 2020,
+        "stateCode": "SH",
+        "name": "weihnachtsferien schleswig-holstein 2020",
+        "slug": "weihnachtsferien schleswig-holstein 2020-2020-SH"
+    },
+    {
+        "start": "2020-02-10",
+        "end": "2020-02-14",
+        "year": 2020,
+        "stateCode": "TH",
+        "name": "winterferien thüringen 2020",
+        "slug": "winterferien thüringen 2020-2020-TH"
+    },
+    {
+        "start": "2020-04-06",
+        "end": "2020-04-18",
+        "year": 2020,
+        "stateCode": "TH",
+        "name": "osterferien thüringen 2020",
+        "slug": "osterferien thüringen 2020-2020-TH"
+    },
+    {
+        "start": "2020-05-22",
+        "end": "2020-05-22",
+        "year": 2020,
+        "stateCode": "TH",
+        "name": "pfingstferien thüringen 2020 (beweglicher ferientag)",
+        "slug": "pfingstferien thüringen 2020 (beweglicher ferientag)-2020-TH"
+    },
+    {
+        "start": "2020-07-20",
+        "end": "2020-08-29",
+        "year": 2020,
+        "stateCode": "TH",
+        "name": "sommerferien thüringen 2020",
+        "slug": "sommerferien thüringen 2020-2020-TH"
+    },
+    {
+        "start": "2020-10-17",
+        "end": "2020-10-30",
+        "year": 2020,
+        "stateCode": "TH",
+        "name": "herbstferien thüringen 2020",
+        "slug": "herbstferien thüringen 2020-2020-TH"
+    },
+    {
+        "start": "2020-12-23",
+        "end": "2021-01-02",
+        "year": 2020,
+        "stateCode": "TH",
+        "name": "weihnachtsferien thüringen 2020",
+        "slug": "weihnachtsferien thüringen 2020-2020-TH"
+    }
+]

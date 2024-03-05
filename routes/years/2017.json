@@ -1,0 +1,122 @@
+[
+    {
+        "start": "2017-04-10",
+        "end": "2017-04-21",
+        "year": 2017,
+        "stateCode": "BY",
+        "name": "osterferien bayern  2017",
+        "slug": "osterferien bayern  2017-2017-BY"
+    },
+    {
+        "start": "2017-06-06",
+        "end": "2017-06-16",
+        "year": 2017,
+        "stateCode": "BY",
+        "name": "pfingstferien bayern  2017",
+        "slug": "pfingstferien bayern  2017-2017-BY"
+    },
+    {
+        "start": "2017-07-31",
+        "end": "2017-09-11",
+        "year": 2017,
+        "stateCode": "BY",
+        "name": "sommerferien bayern  2017",
+        "slug": "sommerferien bayern  2017-2017-BY"
+    },
+    {
+        "start": "2017-10-28",
+        "end": "2017-11-03",
+        "year": 2017,
+        "stateCode": "BY",
+        "name": "herbstferien bayern  2017",
+        "slug": "herbstferien bayern  2017-2017-BY"
+    },
+    {
+        "start": "2017-10-28",
+        "end": "2017-11-22",
+        "year": 2017,
+        "stateCode": "BY",
+        "name": "herbstferien bayern 2017",
+        "slug": "herbstferien bayern 2017-2017-BY"
+    },
+    {
+        "start": "2017-12-26",
+        "end": "2018-01-05",
+        "year": 2017,
+        "stateCode": "BY",
+        "name": "weihnachtsferien bayern  2017",
+        "slug": "weihnachtsferien bayern  2017-2017-BY"
+    },
+    {
+        "start": "2017-04-03",
+        "end": "2017-04-13",
+        "year": 2017,
+        "stateCode": "HE",
+        "name": "osterferien hessen 2017",
+        "slug": "osterferien hessen 2017-2017-HE"
+    },
+    {
+        "start": "2017-07-03",
+        "end": "2017-08-11",
+        "year": 2017,
+        "stateCode": "HE",
+        "name": "sommerferien hessen 2017",
+        "slug": "sommerferien hessen 2017-2017-HE"
+    },
+    {
+        "start": "2017-10-09",
+        "end": "2017-10-20",
+        "year": 2017,
+        "stateCode": "HE",
+        "name": "herbstferien hessen 2017",
+        "slug": "herbstferien hessen 2017-2017-HE"
+    },
+    {
+        "start": "2017-12-27",
+        "end": "2018-01-12",
+        "year": 2017,
+        "stateCode": "HE",
+        "name": "weihnachtsferien hessen 2017",
+        "slug": "weihnachtsferien hessen 2017-2017-HE"
+    },
+    {
+        "start": "2017-04-10",
+        "end": "2017-04-21",
+        "year": 2017,
+        "stateCode": "NW",
+        "name": "osterferien nordrhein-westfalen 2017",
+        "slug": "osterferien nordrhein-westfalen 2017-2017-NW"
+    },
+    {
+        "start": "2017-06-06",
+        "end": "2017-06-06",
+        "year": 2017,
+        "stateCode": "NW",
+        "name": "pfingstferien nordrhein-westfalen 2017 (beweglicher ferientag)",
+        "slug": "pfingstferien nordrhein-westfalen 2017 (beweglicher ferientag)-2017-NW"
+    },
+    {
+        "start": "2017-07-17",
+        "end": "2017-08-29",
+        "year": 2017,
+        "stateCode": "NW",
+        "name": "sommerferien nordrhein-westfalen 2017",
+        "slug": "sommerferien nordrhein-westfalen 2017-2017-NW"
+    },
+    {
+        "start": "2017-10-23",
+        "end": "2017-11-03",
+        "year": 2017,
+        "stateCode": "NW",
+        "name": "herbstferien nordrhein-westfalen 2017",
+        "slug": "herbstferien nordrhein-westfalen 2017-2017-NW"
+    },
+    {
+        "start": "2017-12-27",
+        "end": "2018-01-05",
+        "year": 2017,
+        "stateCode": "NW",
+        "name": "weihnachtsferien nordrhein-westfalen 2017",
+        "slug": "weihnachtsferien nordrhein-westfalen 2017-2017-NW"
+    }
+]

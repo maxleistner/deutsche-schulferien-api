@@ -1,0 +1,706 @@
+[
+    {
+        "start": "2016-03-24",
+        "end": "2016-04-02",
+        "year": 2016,
+        "stateCode": "BW",
+        "name": "osternferien baden-württemberg 2016",
+        "slug": "osternferien baden-württemberg 2016-2016-Baden-Württemberg"
+    },
+    {
+        "start": "2016-05-17",
+        "end": "2016-05-28",
+        "year": 2016,
+        "stateCode": "BW",
+        "name": "pfingstenferien baden-württemberg 2016",
+        "slug": "pfingstenferien baden-württemberg 2016-2016-Baden-Württemberg"
+    },
+    {
+        "start": "2016-07-28",
+        "end": "2016-09-10",
+        "year": 2016,
+        "stateCode": "BW",
+        "name": "sommerferien baden-württemberg 2016",
+        "slug": "sommerferien baden-württemberg 2016-2016-Baden-Württemberg"
+    },
+    {
+        "start": "2016-10-31",
+        "end": "2016-11-04",
+        "year": 2016,
+        "stateCode": "BW",
+        "name": "herbstferien baden-württemberg 2016",
+        "slug": "herbstferien baden-württemberg 2016-2016-Baden-Württemberg"
+    },
+    {
+        "start": "2016-12-23",
+        "end": "2017-01-07",
+        "year": 2016,
+        "stateCode": "BW",
+        "name": "weihnachtenferien baden-württemberg 2016",
+        "slug": "weihnachtenferien baden-württemberg 2016-2016-Baden-Württemberg"
+    },
+    {
+        "start": "2016-02-08",
+        "end": "2024-02-12",
+        "year": 2016,
+        "stateCode": "BY",
+        "name": "winterferien bayern 2016",
+        "slug": "winterferien bayern 2016-2016-Bayern"
+    },
+    {
+        "start": "2016-03-21",
+        "end": "2016-04-01",
+        "year": 2016,
+        "stateCode": "BY",
+        "name": "osternferien bayern 2016",
+        "slug": "osternferien bayern 2016-2016-Bayern"
+    },
+    {
+        "start": "2016-05-17",
+        "end": "2016-05-28",
+        "year": 2016,
+        "stateCode": "BY",
+        "name": "pfingstenferien bayern 2016",
+        "slug": "pfingstenferien bayern 2016-2016-Bayern"
+    },
+    {
+        "start": "2016-07-30",
+        "end": "2016-09-12",
+        "year": 2016,
+        "stateCode": "BY",
+        "name": "sommerferien bayern 2016",
+        "slug": "sommerferien bayern 2016-2016-Bayern"
+    },
+    {
+        "start": "2016-10-31",
+        "end": "2016-11-04",
+        "year": 2016,
+        "stateCode": "BY",
+        "name": "herbstferien bayern 2016",
+        "slug": "herbstferien bayern 2016-2016-Bayern"
+    },
+    {
+        "start": "2016-12-24",
+        "end": "2017-01-05",
+        "year": 2016,
+        "stateCode": "BY",
+        "name": "weihnachtenferien bayern 2016",
+        "slug": "weihnachtenferien bayern 2016-2016-Bayern"
+    },
+    {
+        "start": "2016-02-01",
+        "end": "2016-02-06",
+        "year": 2016,
+        "stateCode": "BE",
+        "name": "winterferien berlin 2016",
+        "slug": "winterferien berlin 2016-2016-Berlin"
+    },
+    {
+        "start": "2016-03-21",
+        "end": "2016-04-02",
+        "year": 2016,
+        "stateCode": "BE",
+        "name": "osternferien berlin 2016",
+        "slug": "osternferien berlin 2016-2016-Berlin"
+    },
+    {
+        "start": "2016-05-17",
+        "end": "2016-05-18",
+        "year": 2016,
+        "stateCode": "BE",
+        "name": "pfingstenferien berlin 2016",
+        "slug": "pfingstenferien berlin 2016-2016-Berlin"
+    },
+    {
+        "start": "2016-07-21",
+        "end": "2016-09-02",
+        "year": 2016,
+        "stateCode": "BE",
+        "name": "sommerferien berlin 2016",
+        "slug": "sommerferien berlin 2016-2016-Berlin"
+    },
+    {
+        "start": "2016-10-17",
+        "end": "2016-10-28",
+        "year": 2016,
+        "stateCode": "BE",
+        "name": "herbstferien berlin 2016",
+        "slug": "herbstferien berlin 2016-2016-Berlin"
+    },
+    {
+        "start": "2016-12-23",
+        "end": "2017-01-03",
+        "year": 2016,
+        "stateCode": "BE",
+        "name": "weihnachtenferien berlin 2016",
+        "slug": "weihnachtenferien berlin 2016-2016-Berlin"
+    },
+    {
+        "start": "2016-02-01",
+        "end": "2024-02-06",
+        "year": 2016,
+        "stateCode": "BB",
+        "name": "winterferien brandenburg 2016",
+        "slug": "winterferien brandenburg 2016-2016-Brandenburg"
+    },
+    {
+        "start": "2016-03-23",
+        "end": "2016-04-02",
+        "year": 2016,
+        "stateCode": "BB",
+        "name": "osternferien brandenburg 2016",
+        "slug": "osternferien brandenburg 2016-2016-Brandenburg"
+    },
+    {
+        "start": "2016-05-17",
+        "end": "2016-05-17",
+        "year": 2016,
+        "stateCode": "BB",
+        "name": "pfingstenferien brandenburg 2016",
+        "slug": "pfingstenferien brandenburg 2016-2016-Brandenburg"
+    },
+    {
+        "start": "2016-07-21",
+        "end": "2016-09-03",
+        "year": 2016,
+        "stateCode": "BB",
+        "name": "sommerferien brandenburg 2016",
+        "slug": "sommerferien brandenburg 2016-2016-Brandenburg"
+    },
+    {
+        "start": "2016-10-17",
+        "end": "2016-10-28",
+        "year": 2016,
+        "stateCode": "BB",
+        "name": "herbstferien brandenburg 2016",
+        "slug": "herbstferien brandenburg 2016-2016-Brandenburg"
+    },
+    {
+        "start": "2016-12-23",
+        "end": "2017-01-03",
+        "year": 2016,
+        "stateCode": "BB",
+        "name": "weihnachtenferien brandenburg 2016",
+        "slug": "weihnachtenferien brandenburg 2016-2016-Brandenburg"
+    },
+    {
+        "start": "2016-01-28",
+        "end": "2016-01-29",
+        "year": 2016,
+        "stateCode": "HB",
+        "name": "winterferien bremen 2016",
+        "slug": "winterferien bremen 2016-2016-Bremen"
+    },
+    {
+        "start": "2016-03-18",
+        "end": "2016-04-02",
+        "year": 2016,
+        "stateCode": "HB",
+        "name": "osternferien bremen 2016",
+        "slug": "osternferien bremen 2016-2016-Bremen"
+    },
+    {
+        "start": "2016-05-17",
+        "end": "2016-05-17",
+        "year": 2016,
+        "stateCode": "HB",
+        "name": "pfingstenferien bremen 2016",
+        "slug": "pfingstenferien bremen 2016-2016-Bremen"
+    },
+    {
+        "start": "2016-06-23",
+        "end": "2016-08-03",
+        "year": 2016,
+        "stateCode": "HB",
+        "name": "sommerferien bremen 2016",
+        "slug": "sommerferien bremen 2016-2016-Bremen"
+    },
+    {
+        "start": "2016-10-04",
+        "end": "2016-10-15",
+        "year": 2016,
+        "stateCode": "HB",
+        "name": "herbstferien bremen 2016",
+        "slug": "herbstferien bremen 2016-2016-Bremen"
+    },
+    {
+        "start": "2016-12-21",
+        "end": "2017-01-06",
+        "year": 2016,
+        "stateCode": "HB",
+        "name": "weihnachtenferien bremen 2016",
+        "slug": "weihnachtenferien bremen 2016-2016-Bremen"
+    },
+    {
+        "start": "2016-01-29",
+        "end": "2024-01-29",
+        "year": 2016,
+        "stateCode": "HH",
+        "name": "winterferien hamburg 2016",
+        "slug": "winterferien hamburg 2016-2016-Hamburg"
+    },
+    {
+        "start": "2016-03-07",
+        "end": "2016-03-18",
+        "year": 2016,
+        "stateCode": "HH",
+        "name": "osternferien hamburg 2016",
+        "slug": "osternferien hamburg 2016-2016-Hamburg"
+    },
+    {
+        "start": "2016-05-17",
+        "end": "2016-05-20",
+        "year": 2016,
+        "stateCode": "HH",
+        "name": "pfingstenferien hamburg 2016",
+        "slug": "pfingstenferien hamburg 2016-2016-Hamburg"
+    },
+    {
+        "start": "2016-07-21",
+        "end": "2016-08-31",
+        "year": 2016,
+        "stateCode": "HH",
+        "name": "sommerferien hamburg 2016",
+        "slug": "sommerferien hamburg 2016-2016-Hamburg"
+    },
+    {
+        "start": "2016-10-17",
+        "end": "2016-10-28",
+        "year": 2016,
+        "stateCode": "HH",
+        "name": "herbstferien hamburg 2016",
+        "slug": "herbstferien hamburg 2016-2016-Hamburg"
+    },
+    {
+        "start": "2016-12-27",
+        "end": "2017-01-06",
+        "year": 2016,
+        "stateCode": "HH",
+        "name": "weihnachtenferien hamburg 2016",
+        "slug": "weihnachtenferien hamburg 2016-2016-Hamburg"
+    },
+    {
+        "start": "2016-03-29",
+        "end": "2016-04-09",
+        "year": 2016,
+        "stateCode": "HE",
+        "name": "osternferien hessen 2016",
+        "slug": "osternferien hessen 2016-2016-Hessen"
+    },
+    {
+        "start": "2016-07-18",
+        "end": "2016-08-26",
+        "year": 2016,
+        "stateCode": "HE",
+        "name": "sommerferien hessen 2016",
+        "slug": "sommerferien hessen 2016-2016-Hessen"
+    },
+    {
+        "start": "2016-10-17",
+        "end": "2016-10-29",
+        "year": 2016,
+        "stateCode": "HE",
+        "name": "herbstferien hessen 2016",
+        "slug": "herbstferien hessen 2016-2016-Hessen"
+    },
+    {
+        "start": "2016-12-22",
+        "end": "2017-01-07",
+        "year": 2016,
+        "stateCode": "HE",
+        "name": "weihnachtenferien hessen 2016",
+        "slug": "weihnachtenferien hessen 2016-2016-Hessen"
+    },
+    {
+        "start": "2016-02-01",
+        "end": "2016-02-13",
+        "year": 2016,
+        "stateCode": "Mecklenburg-Vorp.",
+        "name": "winterferien mecklenburg-vorp. 2016",
+        "slug": "winterferien mecklenburg-vorp. 2016-2016-Mecklenburg-Vorp."
+    },
+    {
+        "start": "2016-03-21",
+        "end": "2016-03-30",
+        "year": 2016,
+        "stateCode": "Mecklenburg-Vorp.",
+        "name": "osternferien mecklenburg-vorp. 2016",
+        "slug": "osternferien mecklenburg-vorp. 2016-2016-Mecklenburg-Vorp."
+    },
+    {
+        "start": "2016-05-14",
+        "end": "2016-05-17",
+        "year": 2016,
+        "stateCode": "Mecklenburg-Vorp.",
+        "name": "pfingstenferien mecklenburg-vorp. 2016",
+        "slug": "pfingstenferien mecklenburg-vorp. 2016-2016-Mecklenburg-Vorp."
+    },
+    {
+        "start": "2016-07-25",
+        "end": "2016-09-03",
+        "year": 2016,
+        "stateCode": "Mecklenburg-Vorp.",
+        "name": "sommerferien mecklenburg-vorp. 2016",
+        "slug": "sommerferien mecklenburg-vorp. 2016-2016-Mecklenburg-Vorp."
+    },
+    {
+        "start": "2016-10-24",
+        "end": "2016-10-28",
+        "year": 2016,
+        "stateCode": "Mecklenburg-Vorp.",
+        "name": "herbstferien mecklenburg-vorp. 2016",
+        "slug": "herbstferien mecklenburg-vorp. 2016-2016-Mecklenburg-Vorp."
+    },
+    {
+        "start": "2016-12-22",
+        "end": "2017-01-02",
+        "year": 2016,
+        "stateCode": "Mecklenburg-Vorp.",
+        "name": "weihnachtenferien mecklenburg-vorp. 2016",
+        "slug": "weihnachtenferien mecklenburg-vorp. 2016-2016-Mecklenburg-Vorp."
+    },
+    {
+        "start": "2016-01-28",
+        "end": "2024-01-29",
+        "year": 2016,
+        "stateCode": "NI",
+        "name": "winterferien niedersachsen 2016",
+        "slug": "winterferien niedersachsen 2016-2016-Niedersachsen"
+    },
+    {
+        "start": "2016-03-18",
+        "end": "2016-04-02",
+        "year": 2016,
+        "stateCode": "NI",
+        "name": "osternferien niedersachsen 2016",
+        "slug": "osternferien niedersachsen 2016-2016-Niedersachsen"
+    },
+    {
+        "start": "2016-05-17",
+        "end": "2016-05-17",
+        "year": 2016,
+        "stateCode": "NI",
+        "name": "pfingstenferien niedersachsen 2016",
+        "slug": "pfingstenferien niedersachsen 2016-2016-Niedersachsen"
+    },
+    {
+        "start": "2016-06-23",
+        "end": "2016-08-03",
+        "year": 2016,
+        "stateCode": "NI",
+        "name": "sommerferien niedersachsen 2016",
+        "slug": "sommerferien niedersachsen 2016-2016-Niedersachsen"
+    },
+    {
+        "start": "2016-10-04",
+        "end": "2016-10-15",
+        "year": 2016,
+        "stateCode": "NI",
+        "name": "herbstferien niedersachsen 2016",
+        "slug": "herbstferien niedersachsen 2016-2016-Niedersachsen"
+    },
+    {
+        "start": "2016-12-21",
+        "end": "2017-01-06",
+        "year": 2016,
+        "stateCode": "NI",
+        "name": "weihnachtenferien niedersachsen 2016",
+        "slug": "weihnachtenferien niedersachsen 2016-2016-Niedersachsen"
+    },
+    {
+        "start": "2016-03-21",
+        "end": "2016-04-02",
+        "year": 2016,
+        "stateCode": "NRW",
+        "name": "osternferien nrw 2016",
+        "slug": "osternferien nrw 2016-2016-NRW"
+    },
+    {
+        "start": "2016-05-17",
+        "end": "2016-05-17",
+        "year": 2016,
+        "stateCode": "NRW",
+        "name": "pfingstenferien nrw 2016",
+        "slug": "pfingstenferien nrw 2016-2016-NRW"
+    },
+    {
+        "start": "2016-07-11",
+        "end": "2016-08-23",
+        "year": 2016,
+        "stateCode": "NRW",
+        "name": "sommerferien nrw 2016",
+        "slug": "sommerferien nrw 2016-2016-NRW"
+    },
+    {
+        "start": "2016-10-10",
+        "end": "2016-10-21",
+        "year": 2016,
+        "stateCode": "NRW",
+        "name": "herbstferien nrw 2016",
+        "slug": "herbstferien nrw 2016-2016-NRW"
+    },
+    {
+        "start": "2016-12-23",
+        "end": "2017-01-06",
+        "year": 2016,
+        "stateCode": "NRW",
+        "name": "weihnachtenferien nrw 2016",
+        "slug": "weihnachtenferien nrw 2016-2016-NRW"
+    },
+    {
+        "start": "2016-03-18",
+        "end": "2016-04-01",
+        "year": 2016,
+        "stateCode": "RP",
+        "name": "osternferien rheinland-pfalz 2016",
+        "slug": "osternferien rheinland-pfalz 2016-2016-Rheinland-Pfalz"
+    },
+    {
+        "start": "2016-07-18",
+        "end": "2016-08-26",
+        "year": 2016,
+        "stateCode": "RP",
+        "name": "sommerferien rheinland-pfalz 2016",
+        "slug": "sommerferien rheinland-pfalz 2016-2016-Rheinland-Pfalz"
+    },
+    {
+        "start": "2016-10-10",
+        "end": "2016-10-21",
+        "year": 2016,
+        "stateCode": "RP",
+        "name": "herbstferien rheinland-pfalz 2016",
+        "slug": "herbstferien rheinland-pfalz 2016-2016-Rheinland-Pfalz"
+    },
+    {
+        "start": "2016-12-22",
+        "end": "2017-01-06",
+        "year": 2016,
+        "stateCode": "RP",
+        "name": "weihnachtenferien rheinland-pfalz 2016",
+        "slug": "weihnachtenferien rheinland-pfalz 2016-2016-Rheinland-Pfalz"
+    },
+    {
+        "start": "2016-02-08",
+        "end": "2016-02-13",
+        "year": 2016,
+        "stateCode": "SL",
+        "name": "winterferien saarland 2016",
+        "slug": "winterferien saarland 2016-2016-Saarland"
+    },
+    {
+        "start": "2016-03-29",
+        "end": "2016-04-09",
+        "year": 2016,
+        "stateCode": "SL",
+        "name": "osternferien saarland 2016",
+        "slug": "osternferien saarland 2016-2016-Saarland"
+    },
+    {
+        "start": "2016-07-18",
+        "end": "2016-08-27",
+        "year": 2016,
+        "stateCode": "SL",
+        "name": "sommerferien saarland 2016",
+        "slug": "sommerferien saarland 2016-2016-Saarland"
+    },
+    {
+        "start": "2016-10-10",
+        "end": "2016-10-22",
+        "year": 2016,
+        "stateCode": "SL",
+        "name": "herbstferien saarland 2016",
+        "slug": "herbstferien saarland 2016-2016-Saarland"
+    },
+    {
+        "start": "2016-12-19",
+        "end": "2016-12-31",
+        "year": 2016,
+        "stateCode": "SL",
+        "name": "weihnachtenferien saarland 2016",
+        "slug": "weihnachtenferien saarland 2016-2016-Saarland"
+    },
+    {
+        "start": "2024-02-08",
+        "end": "2016-01-20",
+        "year": 2016,
+        "stateCode": "SN",
+        "name": "winterferien sachsen 2016",
+        "slug": "winterferien sachsen 2016-2016-Sachsen"
+    },
+    {
+        "start": "2016-03-25",
+        "end": "2016-04-02",
+        "year": 2016,
+        "stateCode": "SN",
+        "name": "osternferien sachsen 2016",
+        "slug": "osternferien sachsen 2016-2016-Sachsen"
+    },
+    {
+        "start": "2016-05-06",
+        "end": "2016-05-06",
+        "year": 2016,
+        "stateCode": "SN",
+        "name": "pfingstenferien sachsen 2016",
+        "slug": "pfingstenferien sachsen 2016-2016-Sachsen"
+    },
+    {
+        "start": "2016-06-27",
+        "end": "2016-08-05",
+        "year": 2016,
+        "stateCode": "SN",
+        "name": "sommerferien sachsen 2016",
+        "slug": "sommerferien sachsen 2016-2016-Sachsen"
+    },
+    {
+        "start": "2016-10-03",
+        "end": "2016-10-15",
+        "year": 2016,
+        "stateCode": "SN",
+        "name": "herbstferien sachsen 2016",
+        "slug": "herbstferien sachsen 2016-2016-Sachsen"
+    },
+    {
+        "start": "2016-12-23",
+        "end": "2017-01-02",
+        "year": 2016,
+        "stateCode": "SN",
+        "name": "weihnachtenferien sachsen 2016",
+        "slug": "weihnachtenferien sachsen 2016-2016-Sachsen"
+    },
+    {
+        "start": "2016-02-01",
+        "end": "2016-02-10",
+        "year": 2016,
+        "stateCode": "ST",
+        "name": "winterferien sachsen-anhalt 2016",
+        "slug": "winterferien sachsen-anhalt 2016-2016-Sachsen-Anhalt"
+    },
+    {
+        "start": "2016-03-24",
+        "end": "2016-03-24",
+        "year": 2016,
+        "stateCode": "ST",
+        "name": "osternferien sachsen-anhalt 2016",
+        "slug": "osternferien sachsen-anhalt 2016-2016-Sachsen-Anhalt"
+    },
+    {
+        "start": "2016-05-06",
+        "end": "2016-05-14",
+        "year": 2016,
+        "stateCode": "ST",
+        "name": "pfingstenferien sachsen-anhalt 2016",
+        "slug": "pfingstenferien sachsen-anhalt 2016-2016-Sachsen-Anhalt"
+    },
+    {
+        "start": "2016-06-27",
+        "end": "2016-08-10",
+        "year": 2016,
+        "stateCode": "ST",
+        "name": "sommerferien sachsen-anhalt 2016",
+        "slug": "sommerferien sachsen-anhalt 2016-2016-Sachsen-Anhalt"
+    },
+    {
+        "start": "2016-10-04",
+        "end": "2016-10-15",
+        "year": 2016,
+        "stateCode": "ST",
+        "name": "herbstferien sachsen-anhalt 2016",
+        "slug": "herbstferien sachsen-anhalt 2016-2016-Sachsen-Anhalt"
+    },
+    {
+        "start": "2016-12-19",
+        "end": "2017-01-02",
+        "year": 2016,
+        "stateCode": "ST",
+        "name": "weihnachtenferien sachsen-anhalt 2016",
+        "slug": "weihnachtenferien sachsen-anhalt 2016-2016-Sachsen-Anhalt"
+    },
+    {
+        "start": "2016-03-20",
+        "end": "2016-04-09",
+        "year": 2016,
+        "stateCode": "SH",
+        "name": "osternferien schleswig-holstein 2016",
+        "slug": "osternferien schleswig-holstein 2016-2016-Schleswig-Holstein"
+    },
+    {
+        "start": "2016-05-06",
+        "end": "2016-05-06",
+        "year": 2016,
+        "stateCode": "SH",
+        "name": "pfingstenferien schleswig-holstein 2016",
+        "slug": "pfingstenferien schleswig-holstein 2016-2016-Schleswig-Holstein"
+    },
+    {
+        "start": "2016-07-25",
+        "end": "2016-09-03",
+        "year": 2016,
+        "stateCode": "SH",
+        "name": "sommerferien schleswig-holstein 2016",
+        "slug": "sommerferien schleswig-holstein 2016-2016-Schleswig-Holstein"
+    },
+    {
+        "start": "2016-10-17",
+        "end": "2016-10-29",
+        "year": 2016,
+        "stateCode": "SH",
+        "name": "herbstferien schleswig-holstein 2016",
+        "slug": "herbstferien schleswig-holstein 2016-2016-Schleswig-Holstein"
+    },
+    {
+        "start": "2016-12-23",
+        "end": "2017-01-06",
+        "year": 2016,
+        "stateCode": "SH",
+        "name": "weihnachtenferien schleswig-holstein 2016",
+        "slug": "weihnachtenferien schleswig-holstein 2016-2016-Schleswig-Holstein"
+    },
+    {
+        "start": "2016-02-01",
+        "end": "2016-02-06",
+        "year": 2016,
+        "stateCode": "TH",
+        "name": "winterferien thüringen 2016",
+        "slug": "winterferien thüringen 2016-2016-Thüringen"
+    },
+    {
+        "start": "2016-03-24",
+        "end": "2016-04-02",
+        "year": 2016,
+        "stateCode": "TH",
+        "name": "osternferien thüringen 2016",
+        "slug": "osternferien thüringen 2016-2016-Thüringen"
+    },
+    {
+        "start": "2016-05-06",
+        "end": "2016-05-06",
+        "year": 2016,
+        "stateCode": "TH",
+        "name": "pfingstenferien thüringen 2016",
+        "slug": "pfingstenferien thüringen 2016-2016-Thüringen"
+    },
+    {
+        "start": "2016-06-27",
+        "end": "2016-08-10",
+        "year": 2016,
+        "stateCode": "TH",
+        "name": "sommerferien thüringen 2016",
+        "slug": "sommerferien thüringen 2016-2016-Thüringen"
+    },
+    {
+        "start": "2016-10-10",
+        "end": "2016-10-22",
+        "year": 2016,
+        "stateCode": "TH",
+        "name": "herbstferien thüringen 2016",
+        "slug": "herbstferien thüringen 2016-2016-Thüringen"
+    },
+    {
+        "start": "2016-12-23",
+        "end": "2016-12-31",
+        "year": 2016,
+        "stateCode": "TH",
+        "name": "weihnachtenferien thüringen 2016",
+        "slug": "weihnachtenferien thüringen 2016-2016-Thüringen"
+    }
+]

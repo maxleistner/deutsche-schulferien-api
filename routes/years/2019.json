@@ -1,0 +1,698 @@
+[
+    {
+        "start": "2019-04-15",
+        "end": "2019-04-27",
+        "year": 2019,
+        "stateCode": "BW",
+        "name": "osterferien baden-württemberg 2019",
+        "slug": "osterferien baden-württemberg 2019-2019-BW"
+    },
+    {
+        "start": "2019-06-11",
+        "end": "2019-06-21",
+        "year": 2019,
+        "stateCode": "BW",
+        "name": "pfingstferien baden-württemberg 2019",
+        "slug": "pfingstferien baden-württemberg 2019-2019-BW"
+    },
+    {
+        "start": "2019-07-29",
+        "end": "2019-09-10",
+        "year": 2019,
+        "stateCode": "BW",
+        "name": "sommerferien baden-württemberg 2019",
+        "slug": "sommerferien baden-württemberg 2019-2019-BW"
+    },
+    {
+        "start": "2019-10-28",
+        "end": "2019-10-31",
+        "year": 2019,
+        "stateCode": "BW",
+        "name": "herbstferien baden-württemberg 2019",
+        "slug": "herbstferien baden-württemberg 2019-2019-BW"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-04",
+        "year": 2019,
+        "stateCode": "BW",
+        "name": "weihnachtsferien baden-württemberg 2019",
+        "slug": "weihnachtsferien baden-württemberg 2019-2019-BW"
+    },
+    {
+        "start": "2019-04-15",
+        "end": "2019-04-27",
+        "year": 2019,
+        "stateCode": "BY",
+        "name": "osterferien bayern  2019",
+        "slug": "osterferien bayern  2019-2019-BY"
+    },
+    {
+        "start": "2019-06-11",
+        "end": "2019-06-21",
+        "year": 2019,
+        "stateCode": "BY",
+        "name": "pfingstferien bayern  2019",
+        "slug": "pfingstferien bayern  2019-2019-BY"
+    },
+    {
+        "start": "2019-07-29",
+        "end": "2019-09-09",
+        "year": 2019,
+        "stateCode": "BY",
+        "name": "sommerferien bayern  2019",
+        "slug": "sommerferien bayern  2019-2019-BY"
+    },
+    {
+        "start": "2019-10-28",
+        "end": "2019-10-31",
+        "year": 2019,
+        "stateCode": "BY",
+        "name": "herbstferien bayern  2019",
+        "slug": "herbstferien bayern  2019-2019-BY"
+    },
+    {
+        "start": "2019-10-28",
+        "end": "2019-11-20",
+        "year": 2019,
+        "stateCode": "BY",
+        "name": "herbstferien bayern 2019 (beweglicher ferientag)",
+        "slug": "herbstferien bayern 2019 (beweglicher ferientag)-2019-BY"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-04",
+        "year": 2019,
+        "stateCode": "BY",
+        "name": "weihnachtsferien bayern  2019",
+        "slug": "weihnachtsferien bayern  2019-2019-BY"
+    },
+    {
+        "start": "2019-02-04",
+        "end": "2019-02-09",
+        "year": 2019,
+        "stateCode": "BE",
+        "name": "winterferien berlin 2019",
+        "slug": "winterferien berlin 2019-2019-BE"
+    },
+    {
+        "start": "2019-04-15",
+        "end": "2019-04-26",
+        "year": 2019,
+        "stateCode": "BE",
+        "name": "osterferien berlin 2019",
+        "slug": "osterferien berlin 2019-2019-BE"
+    },
+    {
+        "start": "2019-05-31",
+        "end": "2019-05-31",
+        "year": 2019,
+        "stateCode": "BE",
+        "name": "pfingstferien berlin 2019 (beweglicher ferientag)",
+        "slug": "pfingstferien berlin 2019 (beweglicher ferientag)-2019-BE"
+    },
+    {
+        "start": "2019-06-20",
+        "end": "2019-08-02",
+        "year": 2019,
+        "stateCode": "BE",
+        "name": "sommerferien berlin 2019",
+        "slug": "sommerferien berlin 2019-2019-BE"
+    },
+    {
+        "start": "2019-10-04",
+        "end": "2019-10-19",
+        "year": 2019,
+        "stateCode": "BE",
+        "name": "herbstferien berlin 2019",
+        "slug": "herbstferien berlin 2019-2019-BE"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-04",
+        "year": 2019,
+        "stateCode": "BE",
+        "name": "weihnachtsferien berlin 2019",
+        "slug": "weihnachtsferien berlin 2019-2019-BE"
+    },
+    {
+        "start": "2019-02-04",
+        "end": "2019-02-09",
+        "year": 2019,
+        "stateCode": "BB",
+        "name": "winterferien brandenburg 2019",
+        "slug": "winterferien brandenburg 2019-2019-BB"
+    },
+    {
+        "start": "2019-04-15",
+        "end": "2019-04-26",
+        "year": 2019,
+        "stateCode": "BB",
+        "name": "osterferien brandenburg 2019",
+        "slug": "osterferien brandenburg 2019-2019-BB"
+    },
+    {
+        "start": "2019-06-20",
+        "end": "2019-08-03",
+        "year": 2019,
+        "stateCode": "BB",
+        "name": "sommerferien brandenburg 2019",
+        "slug": "sommerferien brandenburg 2019-2019-BB"
+    },
+    {
+        "start": "2019-10-04",
+        "end": "2019-10-18",
+        "year": 2019,
+        "stateCode": "BB",
+        "name": "herbstferien brandenburg 2019",
+        "slug": "herbstferien brandenburg 2019-2019-BB"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-04",
+        "year": 2019,
+        "stateCode": "BB",
+        "name": "weihnachtsferien brandenburg 2019",
+        "slug": "weihnachtsferien brandenburg 2019-2019-BB"
+    },
+    {
+        "start": "2019-01-31",
+        "end": "2019-02-01",
+        "year": 2019,
+        "stateCode": "HB",
+        "name": "winterferien bremen 2019",
+        "slug": "winterferien bremen 2019-2019-HB"
+    },
+    {
+        "start": "2019-04-06",
+        "end": "2019-04-23",
+        "year": 2019,
+        "stateCode": "HB",
+        "name": "osterferien bremen 2019",
+        "slug": "osterferien bremen 2019-2019-HB"
+    },
+    {
+        "start": "2019-05-31",
+        "end": "2019-05-31",
+        "year": 2019,
+        "stateCode": "HB",
+        "name": "pfingstferien bremen 2019 (beweglicher ferientag)",
+        "slug": "pfingstferien bremen 2019 (beweglicher ferientag)-2019-HB"
+    },
+    {
+        "start": "2019-07-04",
+        "end": "2019-08-14",
+        "year": 2019,
+        "stateCode": "HB",
+        "name": "sommerferien bremen 2019",
+        "slug": "sommerferien bremen 2019-2019-HB"
+    },
+    {
+        "start": "2019-10-04",
+        "end": "2019-10-18",
+        "year": 2019,
+        "stateCode": "HB",
+        "name": "herbstferien bremen 2019",
+        "slug": "herbstferien bremen 2019-2019-HB"
+    },
+    {
+        "start": "2019-12-21",
+        "end": "2020-01-06",
+        "year": 2019,
+        "stateCode": "HB",
+        "name": "weihnachtsferien bremen 2019",
+        "slug": "weihnachtsferien bremen 2019-2019-HB"
+    },
+    {
+        "start": "2019-03-04",
+        "end": "2019-03-15",
+        "year": 2019,
+        "stateCode": "HH",
+        "name": "osterferien hamburg 2019 ",
+        "slug": "osterferien hamburg 2019 -2019-HH"
+    },
+    {
+        "start": "2019-05-13",
+        "end": "2019-05-17",
+        "year": 2019,
+        "stateCode": "HH",
+        "name": "pfingstferien hamburg 2019 ",
+        "slug": "pfingstferien hamburg 2019 -2019-HH"
+    },
+    {
+        "start": "2019-06-27",
+        "end": "2019-08-07",
+        "year": 2019,
+        "stateCode": "HH",
+        "name": "sommerferien hamburg 2019 ",
+        "slug": "sommerferien hamburg 2019 -2019-HH"
+    },
+    {
+        "start": "2019-10-04",
+        "end": "2019-10-18",
+        "year": 2019,
+        "stateCode": "HH",
+        "name": "herbstferien hamburg 2019 ",
+        "slug": "herbstferien hamburg 2019 -2019-HH"
+    },
+    {
+        "start": "2019-12-20",
+        "end": "2020-01-03",
+        "year": 2019,
+        "stateCode": "HH",
+        "name": "weihnachtsferien hamburg 2019 ",
+        "slug": "weihnachtsferien hamburg 2019 -2019-HH"
+    },
+    {
+        "start": "2019-04-15",
+        "end": "2019-04-27",
+        "year": 2019,
+        "stateCode": "HE",
+        "name": "osterferien hessen 2019",
+        "slug": "osterferien hessen 2019-2019-HE"
+    },
+    {
+        "start": "2019-07-01",
+        "end": "2019-08-09",
+        "year": 2019,
+        "stateCode": "HE",
+        "name": "sommerferien hessen 2019",
+        "slug": "sommerferien hessen 2019-2019-HE"
+    },
+    {
+        "start": "2019-09-30",
+        "end": "2019-10-12",
+        "year": 2019,
+        "stateCode": "HE",
+        "name": "herbstferien hessen 2019",
+        "slug": "herbstferien hessen 2019-2019-HE"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-11",
+        "year": 2019,
+        "stateCode": "HE",
+        "name": "weihnachtsferien hessen 2019",
+        "slug": "weihnachtsferien hessen 2019-2019-HE"
+    },
+    {
+        "start": "2019-02-04",
+        "end": "2019-02-15",
+        "year": 2019,
+        "stateCode": "MV",
+        "name": "winterferien mecklenburg-vorpommern 2019",
+        "slug": "winterferien mecklenburg-vorpommern 2019-2019-MV"
+    },
+    {
+        "start": "2019-04-15",
+        "end": "2019-04-24",
+        "year": 2019,
+        "stateCode": "MV",
+        "name": "osterferien mecklenburg-vorpommern 2019",
+        "slug": "osterferien mecklenburg-vorpommern 2019-2019-MV"
+    },
+    {
+        "start": "2019-05-31",
+        "end": "2019-06-11",
+        "year": 2019,
+        "stateCode": "MV",
+        "name": "pfingstferien mecklenburg-vorpommern 2019 (beweglicher ferientag)",
+        "slug": "pfingstferien mecklenburg-vorpommern 2019 (beweglicher ferientag)-2019-MV"
+    },
+    {
+        "start": "2019-07-01",
+        "end": "2019-08-10",
+        "year": 2019,
+        "stateCode": "MV",
+        "name": "sommerferien mecklenburg-vorpommern 2019",
+        "slug": "sommerferien mecklenburg-vorpommern 2019-2019-MV"
+    },
+    {
+        "start": "2019-10-04",
+        "end": "2019-10-12",
+        "year": 2019,
+        "stateCode": "MV",
+        "name": "herbstferien mecklenburg-vorpommern 2019",
+        "slug": "herbstferien mecklenburg-vorpommern 2019-2019-MV"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-04",
+        "year": 2019,
+        "stateCode": "MV",
+        "name": "weihnachtsferien mecklenburg-vorpommern 2019",
+        "slug": "weihnachtsferien mecklenburg-vorpommern 2019-2019-MV"
+    },
+    {
+        "start": "2019-01-31",
+        "end": "2019-02-01",
+        "year": 2019,
+        "stateCode": "NI",
+        "name": "winterferien niedersachsen 2019",
+        "slug": "winterferien niedersachsen 2019-2019-NI"
+    },
+    {
+        "start": "2019-04-08",
+        "end": "2019-04-23",
+        "year": 2019,
+        "stateCode": "NI",
+        "name": "osterferien niedersachsen 2021",
+        "slug": "osterferien niedersachsen 2021-2019-NI"
+    },
+    {
+        "start": "2019-05-31",
+        "end": "2019-05-31",
+        "year": 2019,
+        "stateCode": "NI",
+        "name": "pfingstferien niedersachsen 2019 (beweglicher ferientag)",
+        "slug": "pfingstferien niedersachsen 2019 (beweglicher ferientag)-2019-NI"
+    },
+    {
+        "start": "2019-07-04",
+        "end": "2019-08-14",
+        "year": 2019,
+        "stateCode": "NI",
+        "name": "sommerferien niedersachsen 2019",
+        "slug": "sommerferien niedersachsen 2019-2019-NI"
+    },
+    {
+        "start": "2019-10-04",
+        "end": "2019-10-18",
+        "year": 2019,
+        "stateCode": "NI",
+        "name": "herbstferien niedersachsen 2019",
+        "slug": "herbstferien niedersachsen 2019-2019-NI"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-06",
+        "year": 2019,
+        "stateCode": "NI",
+        "name": "weihnachtsferien niedersachsen 2019",
+        "slug": "weihnachtsferien niedersachsen 2019-2019-NI"
+    },
+    {
+        "start": "2019-04-15",
+        "end": "2019-04-27",
+        "year": 2019,
+        "stateCode": "NW",
+        "name": "osterferien nordrhein-westfalen 2019",
+        "slug": "osterferien nordrhein-westfalen 2019-2019-NW"
+    },
+    {
+        "start": "2019-06-11",
+        "end": "2019-06-11",
+        "year": 2019,
+        "stateCode": "NW",
+        "name": "pfingstferien nordrhein-westfalen 2019 (beweglicher ferientag)",
+        "slug": "pfingstferien nordrhein-westfalen 2019 (beweglicher ferientag)-2019-NW"
+    },
+    {
+        "start": "2019-07-15",
+        "end": "2019-08-27",
+        "year": 2019,
+        "stateCode": "NW",
+        "name": "sommerferien nordrhein-westfalen 2019",
+        "slug": "sommerferien nordrhein-westfalen 2019-2019-NW"
+    },
+    {
+        "start": "2019-10-14",
+        "end": "2019-10-26",
+        "year": 2019,
+        "stateCode": "NW",
+        "name": "herbstferien nordrhein-westfalen 2019",
+        "slug": "herbstferien nordrhein-westfalen 2019-2019-NW"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-06",
+        "year": 2019,
+        "stateCode": "NW",
+        "name": "weihnachtsferien nordrhein-westfalen 2019",
+        "slug": "weihnachtsferien nordrhein-westfalen 2019-2019-NW"
+    },
+    {
+        "start": "2019-02-25",
+        "end": "2019-03-01",
+        "year": 2019,
+        "stateCode": "RP",
+        "name": "winterferien rheinland-pfalz 2019",
+        "slug": "winterferien rheinland-pfalz 2019-2019-RP"
+    },
+    {
+        "start": "2019-04-15",
+        "end": "2019-04-30",
+        "year": 2019,
+        "stateCode": "RP",
+        "name": "osterferien rheinland-pfalz 2019",
+        "slug": "osterferien rheinland-pfalz 2019-2019-RP"
+    },
+    {
+        "start": "2019-07-01",
+        "end": "2019-08-09",
+        "year": 2019,
+        "stateCode": "RP",
+        "name": "sommerferien rheinland-pfalz 2019",
+        "slug": "sommerferien rheinland-pfalz 2019-2019-RP"
+    },
+    {
+        "start": "2019-09-30",
+        "end": "2019-10-11",
+        "year": 2019,
+        "stateCode": "RP",
+        "name": "herbstferien rheinland-pfalz 2019",
+        "slug": "herbstferien rheinland-pfalz 2019-2019-RP"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-06",
+        "year": 2019,
+        "stateCode": "RP",
+        "name": "weihnachtsferien rheinland-pfalz 2019",
+        "slug": "weihnachtsferien rheinland-pfalz 2019-2019-RP"
+    },
+    {
+        "start": "2019-02-25",
+        "end": "2019-03-05",
+        "year": 2019,
+        "stateCode": "SL",
+        "name": "winterferien saarland 2019",
+        "slug": "winterferien saarland 2019-2019-SL"
+    },
+    {
+        "start": "2019-04-17",
+        "end": "2019-04-26",
+        "year": 2019,
+        "stateCode": "SL",
+        "name": "osterferien saarland 2019",
+        "slug": "osterferien saarland 2019-2019-SL"
+    },
+    {
+        "start": "2019-07-01",
+        "end": "2019-08-09",
+        "year": 2019,
+        "stateCode": "SL",
+        "name": "sommerferien saarland 2019",
+        "slug": "sommerferien saarland 2019-2019-SL"
+    },
+    {
+        "start": "2019-10-07",
+        "end": "2019-10-18",
+        "year": 2019,
+        "stateCode": "SL",
+        "name": "herbstferien saarland 2019",
+        "slug": "herbstferien saarland 2019-2019-SL"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-03",
+        "year": 2019,
+        "stateCode": "SL",
+        "name": "weihnachtsferien saarland 2019",
+        "slug": "weihnachtsferien saarland 2019-2019-SL"
+    },
+    {
+        "start": "2019-02-11",
+        "end": "2019-02-15",
+        "year": 2019,
+        "stateCode": "ST",
+        "name": "winterferien sachsen-anhalt 2019",
+        "slug": "winterferien sachsen-anhalt 2019-2019-ST"
+    },
+    {
+        "start": "2019-04-18",
+        "end": "2019-04-30",
+        "year": 2019,
+        "stateCode": "ST",
+        "name": "osterferien sachsen-anhalt 2019",
+        "slug": "osterferien sachsen-anhalt 2019-2019-ST"
+    },
+    {
+        "start": "2019-05-31",
+        "end": "2019-06-01",
+        "year": 2019,
+        "stateCode": "ST",
+        "name": "pfingstferien sachsen-anhalt 2019",
+        "slug": "pfingstferien sachsen-anhalt 2019-2019-ST"
+    },
+    {
+        "start": "2019-07-04",
+        "end": "2019-08-14",
+        "year": 2019,
+        "stateCode": "ST",
+        "name": "sommerferien sachsen-anhalt 2019",
+        "slug": "sommerferien sachsen-anhalt 2019-2019-ST"
+    },
+    {
+        "start": "2019-10-04",
+        "end": "2019-10-11",
+        "year": 2019,
+        "stateCode": "ST",
+        "name": "herbstferien sachsen-anhalt 2019",
+        "slug": "herbstferien sachsen-anhalt 2019-2019-ST"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-04",
+        "year": 2019,
+        "stateCode": "ST",
+        "name": "weihnachtsferien sachsen-anhalt 2019",
+        "slug": "weihnachtsferien sachsen-anhalt 2019-2019-ST"
+    },
+    {
+        "start": "2019-02-18",
+        "end": "2019-03-02",
+        "year": 2019,
+        "stateCode": "SN",
+        "name": "winterferien sachsen 2019",
+        "slug": "winterferien sachsen 2019-2019-SN"
+    },
+    {
+        "start": "2019-04-19",
+        "end": "2019-04-26",
+        "year": 2019,
+        "stateCode": "SN",
+        "name": "osterferien sachsen 2019",
+        "slug": "osterferien sachsen 2019-2019-SN"
+    },
+    {
+        "start": "2019-05-31",
+        "end": "2019-05-31",
+        "year": 2019,
+        "stateCode": "SN",
+        "name": "pfingstferien sachsen 2019 (beweglicher ferientag)",
+        "slug": "pfingstferien sachsen 2019 (beweglicher ferientag)-2019-SN"
+    },
+    {
+        "start": "2019-07-08",
+        "end": "2019-08-16",
+        "year": 2019,
+        "stateCode": "SN",
+        "name": "sommerferien sachsen 2019",
+        "slug": "sommerferien sachsen 2019-2019-SN"
+    },
+    {
+        "start": "2019-10-14",
+        "end": "2019-10-25",
+        "year": 2019,
+        "stateCode": "SN",
+        "name": "herbstferien sachsen 2019",
+        "slug": "herbstferien sachsen 2019-2019-SN"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-03",
+        "year": 2019,
+        "stateCode": "SN",
+        "name": "weihnachtsferien sachsen 2021",
+        "slug": "weihnachtsferien sachsen 2021-2019-SN"
+    },
+    {
+        "start": "2019-04-04",
+        "end": "2019-04-18",
+        "year": 2019,
+        "stateCode": "SH",
+        "name": "osterferien schleswig-holstein 2019",
+        "slug": "osterferien schleswig-holstein 2019-2019-SH"
+    },
+    {
+        "start": "2019-05-31",
+        "end": "2019-05-31",
+        "year": 2019,
+        "stateCode": "SH",
+        "name": "pfingstferien schleswig-holstein 2019",
+        "slug": "pfingstferien schleswig-holstein 2019-2019-SH"
+    },
+    {
+        "start": "2019-07-01",
+        "end": "2019-08-10",
+        "year": 2019,
+        "stateCode": "SH",
+        "name": "sommerferien schleswig-holstein 2019",
+        "slug": "sommerferien schleswig-holstein 2019-2019-SH"
+    },
+    {
+        "start": "2019-10-04",
+        "end": "2019-10-18",
+        "year": 2019,
+        "stateCode": "SH",
+        "name": "herbstferien schleswig-holstein 2019",
+        "slug": "herbstferien schleswig-holstein 2019-2019-SH"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-06",
+        "year": 2019,
+        "stateCode": "SH",
+        "name": "weihnachtsferien schleswig-holstein 2019",
+        "slug": "weihnachtsferien schleswig-holstein 2019-2019-SH"
+    },
+    {
+        "start": "2019-02-11",
+        "end": "2019-02-15",
+        "year": 2019,
+        "stateCode": "TH",
+        "name": "winterferien thüringen 2019",
+        "slug": "winterferien thüringen 2019-2019-TH"
+    },
+    {
+        "start": "2019-04-15",
+        "end": "2019-04-27",
+        "year": 2019,
+        "stateCode": "TH",
+        "name": "osterferien thüringen 2019",
+        "slug": "osterferien thüringen 2019-2019-TH"
+    },
+    {
+        "start": "2019-05-31",
+        "end": "2019-05-31",
+        "year": 2019,
+        "stateCode": "TH",
+        "name": "pfingstferien thüringen 2019 (beweglicher ferientag)",
+        "slug": "pfingstferien thüringen 2019 (beweglicher ferientag)-2019-TH"
+    },
+    {
+        "start": "2019-07-08",
+        "end": "2019-08-17",
+        "year": 2019,
+        "stateCode": "TH",
+        "name": "sommerferien thüringen 2019",
+        "slug": "sommerferien thüringen 2019-2019-TH"
+    },
+    {
+        "start": "2019-10-07",
+        "end": "2019-10-19",
+        "year": 2019,
+        "stateCode": "TH",
+        "name": "herbstferien thüringen 2019",
+        "slug": "herbstferien thüringen 2019-2019-TH"
+    },
+    {
+        "start": "2019-12-23",
+        "end": "2020-01-03",
+        "year": 2019,
+        "stateCode": "TH",
+        "name": "weihnachtsferien thüringen 2019",
+        "slug": "weihnachtsferien thüringen 2019-2019-TH"
+    }
+]

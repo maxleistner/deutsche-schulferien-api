@@ -1,0 +1,130 @@
+[
+    {
+        "start": "2018-02-12",
+        "end": "2018-02-16",
+        "year": 2018,
+        "stateCode": "BY",
+        "name": "winterferien bayern  2018",
+        "slug": "winterferien bayern  2018-2018-BY"
+    },
+    {
+        "start": "2018-03-26",
+        "end": "2018-04-06",
+        "year": 2018,
+        "stateCode": "BY",
+        "name": "osterferien bayern  2018",
+        "slug": "osterferien bayern  2018-2018-BY"
+    },
+    {
+        "start": "2018-05-22",
+        "end": "2018-06-01",
+        "year": 2018,
+        "stateCode": "BY",
+        "name": "pfingstferien bayern  2018",
+        "slug": "pfingstferien bayern  2018-2018-BY"
+    },
+    {
+        "start": "2018-07-30",
+        "end": "2018-09-10",
+        "year": 2018,
+        "stateCode": "BY",
+        "name": "sommerferien bayern  2018",
+        "slug": "sommerferien bayern  2018-2018-BY"
+    },
+    {
+        "start": "2018-10-29",
+        "end": "2018-11-02",
+        "year": 2018,
+        "stateCode": "BY",
+        "name": "herbstferien bayern  2018",
+        "slug": "herbstferien bayern  2018-2018-BY"
+    },
+    {
+        "start": "2018-10-29",
+        "end": "2018-11-21",
+        "year": 2018,
+        "stateCode": "BY",
+        "name": "herbstferien bayern 2018 (beweglicher ferientag)",
+        "slug": "herbstferien bayern 2018 (beweglicher ferientag)-2018-BY"
+    },
+    {
+        "start": "2018-12-24",
+        "end": "2019-01-04",
+        "year": 2018,
+        "stateCode": "BY",
+        "name": "weihnachtsferien bayern  2018",
+        "slug": "weihnachtsferien bayern  2018-2018-BY"
+    },
+    {
+        "start": "2018-03-26",
+        "end": "2018-04-06",
+        "year": 2018,
+        "stateCode": "HE",
+        "name": "osterferien hessen 2018",
+        "slug": "osterferien hessen 2018-2018-HE"
+    },
+    {
+        "start": "2018-06-25",
+        "end": "2018-08-03",
+        "year": 2018,
+        "stateCode": "HE",
+        "name": "sommerferien hessen 2018",
+        "slug": "sommerferien hessen 2018-2018-HE"
+    },
+    {
+        "start": "2018-10-01",
+        "end": "2018-10-12",
+        "year": 2018,
+        "stateCode": "HE",
+        "name": "herbstferien hessen 2018",
+        "slug": "herbstferien hessen 2018-2018-HE"
+    },
+    {
+        "start": "2018-12-24",
+        "end": "2019-01-11",
+        "year": 2018,
+        "stateCode": "HE",
+        "name": "weihnachtsferien hessen 2018",
+        "slug": "weihnachtsferien hessen 2018-2018-HE"
+    },
+    {
+        "start": "2018-03-26",
+        "end": "2018-04-06",
+        "year": 2018,
+        "stateCode": "NW",
+        "name": "osterferien nordrhein-westfalen 2018",
+        "slug": "osterferien nordrhein-westfalen 2018-2018-NW"
+    },
+    {
+        "start": "2018-05-22",
+        "end": "2018-05-25",
+        "year": 2018,
+        "stateCode": "NW",
+        "name": "pfingstferien nordrhein-westfalen 2018 (beweglicher ferientag)",
+        "slug": "pfingstferien nordrhein-westfalen 2018 (beweglicher ferientag)-2018-NW"
+    },
+    {
+        "start": "2018-07-16",
+        "end": "2018-08-28",
+        "year": 2018,
+        "stateCode": "NW",
+        "name": "sommerferien nordrhein-westfalen 2018",
+        "slug": "sommerferien nordrhein-westfalen 2018-2018-NW"
+    },
+    {
+        "start": "2018-10-15",
+        "end": "2018-10-26",
+        "year": 2018,
+        "stateCode": "NW",
+        "name": "herbstferien nordrhein-westfalen 2018",
+        "slug": "herbstferien nordrhein-westfalen 2018-2018-NW"
+    },
+    {
+        "start": "2018-12-21",
+        "end": "2019-01-04",
+        "year": 2018,
+        "stateCode": "NW",
+        "name": "weihnachtsferien nordrhein-westfalen 2018",
+        "slug": "weihnachtsferien nordrhein-westfalen 2018-2018-NW"
+    }
+]

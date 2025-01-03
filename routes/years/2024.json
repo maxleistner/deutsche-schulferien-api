@@ -88,14 +88,6 @@
     "slug": "herbstferien-2024-BY"
   },
   {
-    "start": "2024-11-20T00:00Z",
-    "end": "2024-11-21T00:00Z",
-    "year": 2024,
-    "stateCode": "BY",
-    "name": "herbstferien",
-    "slug": "herbstferien-2024-BY"
-  },
-  {
     "start": "2024-12-23T00:00Z",
     "end": "2025-01-04T00:00Z",
     "year": 2024,
@@ -531,9 +523,9 @@
     "start": "2024-03-25T00:00Z",
     "end": "2024-04-03T00:00Z",
     "year": 2024,
-    "stateCode": "BY",
+    "stateCode": "RP",
     "name": "osterferien",
-    "slug": "osterferien-2024-BY"
+    "slug": "osterferien-2024-RP"
   },
   {
     "start": "2024-05-21T00:00Z",

@@ -20,7 +20,89 @@ app.use(cors());
 app.use(logger("tiny"));
 app.use(bodyParser.json());
 
-// Clean startup - no analytics tracking
+// Mixpanel Analytics Setup
+let mixpanel = null;
+try {
+  if (process.env.MIXPANEL_TOKEN) {
+    const Mixpanel = require('mixpanel');
+    mixpanel = Mixpanel.init(process.env.MIXPANEL_TOKEN);
+    console.log('✅ Mixpanel initialized successfully');
+  } else {
+    console.log('⚠️  MIXPANEL_TOKEN not found, analytics disabled');
+  }
+} catch (error) {
+  console.error('❌ Mixpanel initialization failed:', error.message);
+}
+
+// API Analytics Middleware
+app.use((req, res, next) => {
+  // Only track API endpoints
+  if (req.path.startsWith('/api/') && mixpanel) {
+    // Extract detailed information from the request
+    const pathParts = req.path.split('/');
+    const apiVersion = pathParts[2]; // v1 or v2
+    const year = pathParts[3];
+    const state = pathParts[4];
+    
+    // Determine endpoint type
+    let endpointType = 'unknown';
+    if (req.path.match(/\/api\/v1\/\d{4}$/)) {
+      endpointType = 'year_all_states';
+    } else if (req.path.match(/\/api\/v1\/\d{4}\/[A-Z]{2}$/)) {
+      endpointType = 'year_specific_state';
+    } else if (req.path.match(/\/api\/v2\/\d{4}/)) {
+      endpointType = 'v2_year_query';
+    } else if (req.path.includes('/current')) {
+      endpointType = 'current_holidays';
+    } else if (req.path.includes('/search')) {
+      endpointType = 'search';
+    } else if (req.path.includes('/stats')) {
+      endpointType = 'statistics';
+    } else if (req.path.includes('/compare')) {
+      endpointType = 'compare';
+    } else if (req.path.includes('/date')) {
+      endpointType = 'date_lookup';
+    }
+    
+    // Get country from IP (basic, you could enhance with a GeoIP service)
+    const country = req.headers['cf-ipcountry'] || 'unknown';
+    
+    // Prepare tracking data
+    const trackingData = {
+      // Basic request info
+      endpoint: req.path,
+      method: req.method,
+      endpoint_type: endpointType,
+      api_version: apiVersion,
+      
+      // API specific data
+      year: year || null,
+      state: state || null,
+      query_params: Object.keys(req.query).length > 0 ? req.query : null,
+      
+      // Request metadata
+      user_agent: req.get('User-Agent') || 'unknown',
+      referer: req.get('Referer') || 'direct',
+      country: country,
+      
+      // Timing
+      timestamp: new Date().toISOString(),
+      day_of_week: new Date().toLocaleDateString('en-US', { weekday: 'long' }),
+      hour: new Date().getHours()
+    };
+    
+    // Track the event
+    try {
+      mixpanel.track('API Request', trackingData, {
+        distinct_id: req.ip || 'anonymous'
+      });
+    } catch (trackingError) {
+      console.error('Mixpanel tracking error:', trackingError.message);
+    }
+  }
+  
+  next();
+});
 
 // Serve static files
 app.use(express.static('public'));

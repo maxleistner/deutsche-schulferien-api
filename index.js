@@ -20,59 +20,70 @@ app.use(cors());
 app.use(logger("tiny"));
 app.use(bodyParser.json());
 
-// Vercel Analytics - Track API usage
-if (process.env.VERCEL) {
-  const { track } = require('@vercel/analytics/server');
-  
-  app.use((req, res, next) => {
-    const path = req.path.toLowerCase();
+// Vercel Analytics - Track API usage (optional, safe fallback)
+try {
+  if (process.env.VERCEL) {
+    const { track } = require('@vercel/analytics/server');
     
-    // Track API endpoint hits with detailed metrics
-    if (path.startsWith('/api/')) {
-      // Extract year and state from API paths
-      const v1Match = path.match(/\/api\/v1\/(\d{4})(?:\/([a-z]{2}))?/);
-      const v2Match = path.match(/\/api\/v2\/(\d{4})(?:\/([a-z]{2}))?/) || 
-                     path.match(/\/api\/v2\/(current|search|stats|compare|date|next)/);
-      
-      let trackingData = {
-        method: req.method,
-        endpoint: req.path,
-        userAgent: req.get('User-Agent') || 'unknown',
-        referer: req.get('Referer') || 'direct'
-      };
-      
-      if (v1Match) {
-        trackingData = {
-          ...trackingData,
-          version: 'v1',
-          year: v1Match[1],
-          state: v1Match[2] ? v1Match[2].toUpperCase() : 'ALL'
-        };
-      } else if (v2Match) {
-        trackingData = {
-          ...trackingData,
-          version: 'v2',
-          endpoint_type: v2Match[1] || 'year_query'
-        };
+    app.use((req, res, next) => {
+      try {
+        const path = req.path.toLowerCase();
         
-        // Add query parameters for v2
-        if (req.query.type) trackingData.vacation_type = req.query.type;
-        if (req.query.states) trackingData.states = req.query.states;
-        if (req.query.year) trackingData.year = req.query.year;
+        // Track API endpoint hits with detailed metrics
+        if (path.startsWith('/api/')) {
+          // Extract year and state from API paths
+          const v1Match = path.match(/\/api\/v1\/(\d{4})(?:\/([a-z]{2}))?/);
+          const v2Match = path.match(/\/api\/v2\/(\d{4})(?:\/([a-z]{2}))?/) || 
+                         path.match(/\/api\/v2\/(current|search|stats|compare|date|next)/);
+          
+          let trackingData = {
+            method: req.method,
+            endpoint: req.path,
+            userAgent: req.get('User-Agent') || 'unknown',
+            referer: req.get('Referer') || 'direct'
+          };
+          
+          if (v1Match) {
+            trackingData = {
+              ...trackingData,
+              version: 'v1',
+              year: v1Match[1],
+              state: v1Match[2] ? v1Match[2].toUpperCase() : 'ALL'
+            };
+          } else if (v2Match) {
+            trackingData = {
+              ...trackingData,
+              version: 'v2',
+              endpoint_type: v2Match[1] || 'year_query'
+            };
+            
+            // Add query parameters for v2
+            if (req.query.type) trackingData.vacation_type = req.query.type;
+            if (req.query.states) trackingData.states = req.query.states;
+            if (req.query.year) trackingData.year = req.query.year;
+          }
+          
+          // Track the event (async, non-blocking)
+          track('api_request', trackingData).catch(err => {
+            console.warn('Analytics tracking failed:', err.message);
+          });
+        }
+      } catch (analyticsError) {
+        console.warn('Analytics middleware error:', analyticsError.message);
       }
       
-      // Track the event
-      track('api_request', trackingData).catch(err => {
-        console.warn('Analytics tracking failed:', err.message);
-      });
-    }
-    
-    next();
-  });
+      next();
+    });
+  }
+} catch (analyticsInitError) {
+  console.warn('Analytics initialization failed:', analyticsInitError.message);
+  console.log('Continuing without analytics...');
 }
 
-// Serve static files (index page)
-app.use(express.static('public'));
+// Serve static files (index page) - conditional for serverless
+if (!process.env.VERCEL) {
+  app.use(express.static('public'));
+}
 
 // Import routers
 const v1Router = require("./routes/v1/index.js");
@@ -81,10 +92,35 @@ const systemRouter = require("./routes/system");
 
 // Setup Swagger documentation
 try {
-  const openApiSpec = yaml.load(fs.readFileSync(path.join(__dirname, 'docs/openapi.yaml'), 'utf8'));
-  app.use('/docs', swaggerUi.serve, swaggerUi.setup(openApiSpec));
+  const docsPath = path.join(__dirname, 'docs/openapi.yaml');
+  if (fs.existsSync(docsPath)) {
+    const openApiSpec = yaml.load(fs.readFileSync(docsPath, 'utf8'));
+    app.use('/docs', swaggerUi.serve, swaggerUi.setup(openApiSpec));
+    console.log('✅ Swagger documentation loaded successfully');
+  } else {
+    console.warn('⚠️  OpenAPI specification file not found');
+    app.get('/docs', (req, res) => {
+      res.json({
+        message: 'API Documentation not available',
+        endpoints: {
+          v1: '/api/v1/2024',
+          v2: '/api/v2/current'
+        }
+      });
+    });
+  }
 } catch (error) {
-  console.warn('Could not load OpenAPI specification:', error.message);
+  console.warn('❌ Could not load OpenAPI specification:', error.message);
+  app.get('/docs', (req, res) => {
+    res.json({
+      error: 'Documentation error',
+      message: error.message,
+      endpoints: {
+        v1: '/api/v1/2024',
+        v2: '/api/v2/current'
+      }
+    });
+  });
 }
 
 // Mount specific routes first (before catch-all)
@@ -94,7 +130,28 @@ app.use("/", systemRouter);
 
 // Serve index page explicitly
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  try {
+    if (process.env.VERCEL) {
+      // Simple response for serverless
+      res.json({
+        message: 'Deutsche Schulferien API v2.0.0',
+        documentation: '/docs',
+        endpoints: {
+          v1: '/api/v1/2024',
+          v2: '/api/v2/current'
+        },
+        status: 'running'
+      });
+    } else {
+      // Serve static file for local development
+      res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    }
+  } catch (error) {
+    res.status(500).json({
+      error: 'Internal server error',
+      message: 'Unable to serve homepage'
+    });
+  }
 });
 
 app.use((req, res, next) => {

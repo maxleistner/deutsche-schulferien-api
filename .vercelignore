@@ -1,0 +1,28 @@
+# Dependencies
+node_modules
+
+# Testing
+coverage
+*.test.js
+tests
+
+# Development
+.env
+.env.local
+*.log
+
+# IDE
+.vscode
+.idea
+
+# Git
+.git
+.gitignore
+
+# Documentation (optional - remove if you want docs in production)
+README.md
+docs
+
+# Other
+*.md
+!package.json

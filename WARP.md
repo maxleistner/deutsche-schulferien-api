@@ -116,6 +116,75 @@ All dates use ISO 8601 format with UTC timezone: `YYYY-MM-DDTHH:mmZ`
 - `PORT` - Server port (defaults to 3000)
 - `NODE_ENV` - Environment mode (defaults to "development")
 
+## Deployment
+
+### Vercel Deployment
+This API is configured for deployment on Vercel with built-in monitoring.
+
+```bash
+# Deploy to Vercel
+npx vercel
+
+# Deploy to production
+npx vercel --prod
+
+# Local development with Vercel functions
+npx vercel dev
+```
+
+### Deployment Configuration
+- **vercel.json**: Configures Express.js app as serverless function
+- **Analytics**: Tracks API usage, endpoint performance, and user metrics
+- **Environment Variables**: Set in Vercel dashboard for production/preview
+
+### Environment Setup
+1. `vercel login` - Authenticate with Vercel
+2. `vercel link` - Link project to Vercel dashboard
+3. `vercel pull` - Sync environment variables locally
+4. `vercel dev` - Run locally with Vercel functions
+
+## Monitoring
+
+### Vercel Analytics Dashboard
+Access monitoring data at: https://vercel.com/dashboard
+
+**Available Metrics:**
+- **Function Invocations**: Request counts per endpoint
+- **Performance**: Response times and cold start metrics
+- **Errors**: Failed requests and error rates
+- **Geographic**: Request distribution by location
+- **Custom Events**: API usage tracking with details:
+  - API version (v1/v2)
+  - German state codes (BY, BW, etc.)
+  - Vacation types (sommerferien, winterferien, etc.)
+  - Query parameters and filters
+
+### Key Analytics Features
+- **Real-time Dashboard**: Live usage statistics
+- **Custom Event Tracking**: Detailed API usage patterns
+- **Performance Monitoring**: Function execution times
+- **Error Tracking**: Failed requests with context
+- **User Journey**: Request patterns and popular endpoints
+
+### Monitoring Endpoints
+- `GET /health` - Health check endpoint
+- `GET /status` - API status and version info
+- `GET /ready` - Readiness probe
+
+### Usage Insights
+The analytics track:
+- Most requested German states (Bayern, NRW, etc.)
+- Popular vacation types (Sommerferien peak usage)
+- API version adoption (v1 vs v2)
+- Seasonal traffic patterns
+- Geographic usage distribution
+
+### Troubleshooting
+- **Function Logs**: Available in Vercel dashboard → Functions → Logs
+- **Performance Issues**: Check cold start times and optimization opportunities
+- **Error Analysis**: Review failed requests with full context
+- **Analytics Debugging**: Custom events visible in Web Analytics → Events
+
 ## Data Maintenance
 
 When updating vacation data:

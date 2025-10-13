@@ -20,6 +20,57 @@ app.use(cors());
 app.use(logger("tiny"));
 app.use(bodyParser.json());
 
+// Vercel Analytics - Track API usage
+if (process.env.VERCEL) {
+  const { track } = require('@vercel/analytics/server');
+  
+  app.use((req, res, next) => {
+    const path = req.path.toLowerCase();
+    
+    // Track API endpoint hits with detailed metrics
+    if (path.startsWith('/api/')) {
+      // Extract year and state from API paths
+      const v1Match = path.match(/\/api\/v1\/(\d{4})(?:\/([a-z]{2}))?/);
+      const v2Match = path.match(/\/api\/v2\/(\d{4})(?:\/([a-z]{2}))?/) || 
+                     path.match(/\/api\/v2\/(current|search|stats|compare|date|next)/);
+      
+      let trackingData = {
+        method: req.method,
+        endpoint: req.path,
+        userAgent: req.get('User-Agent') || 'unknown',
+        referer: req.get('Referer') || 'direct'
+      };
+      
+      if (v1Match) {
+        trackingData = {
+          ...trackingData,
+          version: 'v1',
+          year: v1Match[1],
+          state: v1Match[2] ? v1Match[2].toUpperCase() : 'ALL'
+        };
+      } else if (v2Match) {
+        trackingData = {
+          ...trackingData,
+          version: 'v2',
+          endpoint_type: v2Match[1] || 'year_query'
+        };
+        
+        // Add query parameters for v2
+        if (req.query.type) trackingData.vacation_type = req.query.type;
+        if (req.query.states) trackingData.states = req.query.states;
+        if (req.query.year) trackingData.year = req.query.year;
+      }
+      
+      // Track the event
+      track('api_request', trackingData).catch(err => {
+        console.warn('Analytics tracking failed:', err.message);
+      });
+    }
+    
+    next();
+  });
+}
+
 // Serve static files (index page)
 app.use(express.static('public'));
 
@@ -259,10 +310,16 @@ app.use((err, req, res, next) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(
-    `Express Server started on Port ${app.get(
-      "port"
-    )} | Environment : ${app.get("env")}`
-  );
-});
+// Export app for Vercel
+module.exports = app;
+
+// Only listen when not running on Vercel
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(
+      `Express Server started on Port ${app.get(
+        "port"
+      )} | Environment : ${app.get("env")}`
+    );
+  });
+}

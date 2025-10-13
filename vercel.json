@@ -1,15 +1,12 @@
 {
   "version": 2,
   "name": "german-school-holidays-api",
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": "routes/years/**"
-      }
+  "functions": {
+    "index.js": {
+      "maxDuration": 10,
+      "includeFiles": "routes/years/**"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/(health|status|ready)",
@@ -30,10 +27,5 @@
   ],
   "env": {
     "NODE_ENV": "production"
-  },
-  "functions": {
-    "index.js": {
-      "maxDuration": 10
-    }
   }
 }

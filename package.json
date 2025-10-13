@@ -6,7 +6,12 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon --exec 'npm start'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:api": "jest tests/api.test.js",
+    "test:data": "jest tests/data-validation.test.js",
+    "test:routes": "jest tests/routes.test.js"
   },
   "author": "Maximilian Leistner (https://maxleistner.de)",
   "license": "Creative Commons Attribution 4.0",
@@ -17,6 +22,16 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "jest": "^29.0.0",
+    "supertest": "^6.3.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "*.js",
+      "routes/*.js",
+      "!node_modules/**"
+    ]
   }
 }

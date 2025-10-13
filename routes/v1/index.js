@@ -25,7 +25,7 @@ const getAllVacationsByYear = async (req, res, next) => {
   }
 };
 
-router.route("/api/v1/:year").get(getAllVacationsByYear);
+router.route("/:year").get(getAllVacationsByYear);
 
 // Filter to get all vacs depending on the year and/or state
 const getAllVacationsByYearAndState = async (req, res, next) => {
@@ -53,6 +53,6 @@ const getAllVacationsByYearAndState = async (req, res, next) => {
   }
 };
 
-router.route("/api/v1/:year/:state").get(getAllVacationsByYearAndState);
+router.route("/:year/:state").get(getAllVacationsByYearAndState);
 
 module.exports = router;

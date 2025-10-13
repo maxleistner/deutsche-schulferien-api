@@ -19,7 +19,7 @@ info:
 servers:
   - url: http://localhost:3000
     description: Development server
-  - url: https://ferien-api.maxleistner.de
+  - url: https://schulferien-api.de
     description: Production server
 
 tags:

@@ -23,29 +23,29 @@ Die V2 API erweitert die ursprüngliche Funktionalität um leistungsstarke Filte
 #### Jahresbasierte Abfrage mit Filtern
 ```bash
 # Alle Ferien für ein Jahr
-curl "https://ferien-api.maxleistner.de/api/v2/2024/"
+curl "https://schulferien-api.de/api/v2/2024/"
 
 # Nach Datumsbereich filtern
-curl "https://ferien-api.maxleistner.de/api/v2/2024?from=2024-03-01&to=2024-08-31"
+curl "https://schulferien-api.de/api/v2/2024?from=2024-03-01&to=2024-08-31"
 
 # Nach Ferientypen filtern
-curl "https://ferien-api.maxleistner.de/api/v2/2024?type=sommerferien,winterferien"
+curl "https://schulferien-api.de/api/v2/2024?type=sommerferien,winterferien"
 
 # Nach Bundesländern filtern
-curl "https://ferien-api.maxleistner.de/api/v2/2024?states=BY,BW,BE"
+curl "https://schulferien-api.de/api/v2/2024?states=BY,BW,BE"
 
 # Nur bestimmte Felder zurückgeben
-curl "https://ferien-api.maxleistner.de/api/v2/2024?fields=start,end,name,stateCode"
+curl "https://schulferien-api.de/api/v2/2024?fields=start,end,name,stateCode"
 
 # Kombinierte Filter
-curl "https://ferien-api.maxleistner.de/api/v2/2024?type=sommerferien&states=BY&fields=start,end,name"
+curl "https://schulferien-api.de/api/v2/2024?type=sommerferien&states=BY&fields=start,end,name"
 ```
 
 #### Bundesland mit Filtern
 ```bash
 # Ferien für Bayern mit zusätzlichen Filtern
-curl "https://ferien-api.maxleistner.de/api/v2/2024/BY?type=sommerferien"
-curl "https://ferien-api.maxleistner.de/api/v2/2024/BY?from=2024-07-01&to=2024-08-31"
+curl "https://schulferien-api.de/api/v2/2024/BY?type=sommerferien"
+curl "https://schulferien-api.de/api/v2/2024/BY?from=2024-07-01&to=2024-08-31"
 ```
 
 ### 🎯 Spezielle Endpunkte
@@ -53,65 +53,65 @@ curl "https://ferien-api.maxleistner.de/api/v2/2024/BY?from=2024-07-01&to=2024-0
 #### Aktuelle Ferien
 ```bash
 # Alle aktuell laufenden Ferien
-curl "https://ferien-api.maxleistner.de/api/v2/current"
+curl "https://schulferien-api.de/api/v2/current"
 
 # Aktuelle Ferien nur für Bayern
-curl "https://ferien-api.maxleistner.de/api/v2/current?states=BY"
+curl "https://schulferien-api.de/api/v2/current?states=BY"
 ```
 
 #### Kommende Ferien
 ```bash
 # Ferien in den nächsten 30 Tagen
-curl "https://ferien-api.maxleistner.de/api/v2/next/30"
+curl "https://schulferien-api.de/api/v2/next/30"
 
 # Kommende Ferien nur für bestimmte Bundesländer
-curl "https://ferien-api.maxleistner.de/api/v2/next/60?states=BY,BW"
+curl "https://schulferien-api.de/api/v2/next/60?states=BY,BW"
 ```
 
 #### Datum prüfen
 ```bash
 # Prüfen ob ein bestimmtes Datum Ferien sind
-curl "https://ferien-api.maxleistner.de/api/v2/date/2024-07-25"
+curl "https://schulferien-api.de/api/v2/date/2024-07-25"
 
 # Nur für bestimmte Bundesländer prüfen
-curl "https://ferien-api.maxleistner.de/api/v2/date/2024-07-25?states=BY,BW"
+curl "https://schulferien-api.de/api/v2/date/2024-07-25?states=BY,BW"
 ```
 
 #### Suche
 ```bash
 # Nach Ferientyp suchen
-curl "https://ferien-api.maxleistner.de/api/v2/search?q=sommer"
+curl "https://schulferien-api.de/api/v2/search?q=sommer"
 
 # Suche mit Jahr einschränken
-curl "https://ferien-api.maxleistner.de/api/v2/search?q=ferien&year=2024"
+curl "https://schulferien-api.de/api/v2/search?q=ferien&year=2024"
 
 # Suche mit Bundesland einschränken
-curl "https://ferien-api.maxleistner.de/api/v2/search?q=sommer&states=BY"
+curl "https://schulferien-api.de/api/v2/search?q=sommer&states=BY"
 ```
 
 #### Statistiken
 ```bash
 # Ferienstatistiken für ein Jahr
-curl "https://ferien-api.maxleistner.de/api/v2/stats/2024"
+curl "https://schulferien-api.de/api/v2/stats/2024"
 ```
 
 #### Jahresvergleich
 ```bash
 # Zwei Jahre vergleichen
-curl "https://ferien-api.maxleistner.de/api/v2/compare/2024/2025"
+curl "https://schulferien-api.de/api/v2/compare/2024/2025"
 ```
 
 ### 🔧 System-Endpunkte
 
 ```bash
 # Gesundheitsstatus (für Load Balancer)
-curl "https://ferien-api.maxleistner.de/health"
+curl "https://schulferien-api.de/health"
 
 # Bereitschaftsstatus
-curl "https://ferien-api.maxleistner.de/ready"
+curl "https://schulferien-api.de/ready"
 
 # Detaillierter Systemstatus
-curl "https://ferien-api.maxleistner.de/status"
+curl "https://schulferien-api.de/status"
 ```
 
 ### 📋 Unterstützte Query Parameter
@@ -145,10 +145,10 @@ Die ursprüngliche API bleibt für Abwärtskompatibilität verfügbar.
 
 ```bash
 # Alle Ferien für ein Jahr
-curl "https://ferien-api.maxleistner.de/api/v1/2024/"
+curl "https://schulferien-api.de/api/v1/2024/"
 
 # Ferien für ein Jahr und Bundesland
-curl "https://ferien-api.maxleistner.de/api/v1/2024/BY/"
+curl "https://schulferien-api.de/api/v1/2024/BY/"
 ```
 
 ## Bundesland-Codes

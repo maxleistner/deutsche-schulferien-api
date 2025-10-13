@@ -89,8 +89,10 @@ const v2Router = require("./routes/v2/index.js");
 const systemRouter = require("./routes/system");
 
 // Setup Swagger documentation
+let openApiSpec = null;
+
+// Try to load OpenAPI spec from file first
 try {
-  // Try multiple possible paths for the OpenAPI spec
   const possiblePaths = [
     path.join(__dirname, 'docs', 'openapi.yaml'),
     path.join(__dirname, 'docs/openapi.yaml'),
@@ -98,14 +100,11 @@ try {
     path.join(process.cwd(), 'docs/openapi.yaml')
   ];
   
-  let openApiSpec = null;
-  let foundPath = null;
-  
   for (const docsPath of possiblePaths) {
     if (fs.existsSync(docsPath)) {
       try {
         openApiSpec = yaml.load(fs.readFileSync(docsPath, 'utf8'));
-        foundPath = docsPath;
+        console.log(`✅ OpenAPI spec loaded from ${docsPath}`);
         break;
       } catch (readError) {
         console.warn(`Failed to read ${docsPath}:`, readError.message);
@@ -113,35 +112,227 @@ try {
     }
   }
   
-  if (openApiSpec && foundPath) {
-    app.use('/docs', swaggerUi.serve, swaggerUi.setup(openApiSpec));
-    console.log(`✅ Swagger documentation loaded successfully from ${foundPath}`);
-  } else {
-    console.warn('⚠️  OpenAPI specification file not found in any of the expected locations');
-    console.warn('Searched paths:', possiblePaths);
-    app.get('/docs', (req, res) => {
-      res.json({
-        message: 'API Documentation not available',
-        searched_paths: possiblePaths,
-        endpoints: {
-          v1: '/api/v1/2024',
-          v2: '/api/v2/current'
+  if (!openApiSpec) {
+    console.warn('⚠️  OpenAPI file not found, using fallback spec');
+    // Fallback: Create a basic OpenAPI spec programmatically
+    openApiSpec = {
+      openapi: '3.0.0',
+      info: {
+        title: 'German School Holidays API',
+        description: 'API für die Schulferien in Deutschland, filterbar nach Jahr und/oder Bundesland.',
+        version: '2.0.0',
+        contact: {
+          name: 'Maximilian Leistner',
+          url: 'https://maxleistner.de'
         }
-      });
-    });
-  }
-} catch (error) {
-  console.warn('❌ Could not load OpenAPI specification:', error.message);
-  console.warn('Stack trace:', error.stack);
-  app.get('/docs', (req, res) => {
-    res.json({
-      error: 'Documentation error',
-      message: error.message,
-      endpoints: {
-        v1: '/api/v1/2024',
-        v2: '/api/v2/current'
+      },
+      servers: [
+        { url: 'https://schulferien-api.de', description: 'Production server' },
+        { url: 'http://localhost:3000', description: 'Development server' }
+      ],
+      paths: {
+        '/api/v1/{year}': {
+          get: {
+            summary: 'Get all holidays for a specific year (V1)',
+            parameters: [{
+              name: 'year',
+              in: 'path',
+              required: true,
+              schema: { type: 'integer', minimum: 2022, maximum: 2027 },
+              example: 2024
+            }],
+            responses: {
+              '200': {
+                description: 'List of holidays for the specified year',
+                content: {
+                  'application/json': {
+                    schema: {
+                      type: 'array',
+                      items: { $ref: '#/components/schemas/Holiday' }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        '/api/v1/{year}/{state}': {
+          get: {
+            summary: 'Get holidays for a specific year and state (V1)',
+            parameters: [
+              {
+                name: 'year',
+                in: 'path',
+                required: true,
+                schema: { type: 'integer', minimum: 2022, maximum: 2027 },
+                example: 2024
+              },
+              {
+                name: 'state',
+                in: 'path',
+                required: true,
+                schema: {
+                  type: 'string',
+                  enum: ['BW', 'BY', 'BE', 'BB', 'HB', 'HH', 'HE', 'MV', 'NI', 'NW', 'RP', 'SL', 'SN', 'ST', 'SH', 'TH']
+                },
+                example: 'BY'
+              }
+            ],
+            responses: {
+              '200': {
+                description: 'List of holidays for the specified year and state',
+                content: {
+                  'application/json': {
+                    schema: {
+                      type: 'array',
+                      items: { $ref: '#/components/schemas/Holiday' }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        '/api/v2/{year}': {
+          get: {
+            summary: 'Get holidays with advanced filtering (V2)',
+            parameters: [
+              {
+                name: 'year',
+                in: 'path',
+                required: true,
+                schema: { type: 'integer' },
+                example: 2024
+              },
+              {
+                name: 'type',
+                in: 'query',
+                schema: { type: 'string' },
+                example: 'sommerferien',
+                description: 'Filter by holiday type'
+              },
+              {
+                name: 'states',
+                in: 'query',
+                schema: { type: 'string' },
+                example: 'BY,BW',
+                description: 'Comma-separated list of state codes'
+              }
+            ],
+            responses: {
+              '200': {
+                description: 'Filtered list of holidays',
+                content: {
+                  'application/json': {
+                    schema: {
+                      type: 'array',
+                      items: { $ref: '#/components/schemas/Holiday' }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        '/api/v2/current': {
+          get: {
+            summary: 'Get current holidays (V2)',
+            responses: {
+              '200': {
+                description: 'Current holidays',
+                content: {
+                  'application/json': {
+                    schema: {
+                      type: 'array',
+                      items: { $ref: '#/components/schemas/Holiday' }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      components: {
+        schemas: {
+          Holiday: {
+            type: 'object',
+            properties: {
+              start: { type: 'string', format: 'date-time', example: '2024-07-25T00:00Z' },
+              end: { type: 'string', format: 'date-time', example: '2024-09-08T00:00Z' },
+              year: { type: 'integer', example: 2024 },
+              stateCode: { type: 'string', example: 'BY' },
+              name: { type: 'string', example: 'sommerferien' },
+              slug: { type: 'string', example: 'sommerferien-2024-BY' }
+            }
+          }
+        }
       }
-    });
+    };
+  }
+  
+  // Setup Swagger UI with the spec (either from file or fallback)
+  app.use('/docs', swaggerUi.serve, swaggerUi.setup(openApiSpec));
+  console.log('✅ Swagger documentation setup completed');
+  
+} catch (error) {
+  console.warn('❌ Could not setup Swagger documentation:', error.message);
+  
+  // Final fallback - simple documentation page
+  app.get('/docs', (req, res) => {
+    res.send(`
+    <!DOCTYPE html>
+    <html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>API Documentation | Deutsche Schulferien API</title>
+        <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 2rem; max-width: 800px; margin: 0 auto; }
+            h1 { color: #333; border-bottom: 2px solid #000; padding-bottom: 1rem; }
+            .endpoint { background: #f5f5f5; padding: 1rem; margin: 1rem 0; border-left: 4px solid #000; }
+            .method { font-weight: bold; color: #0066cc; }
+            .path { font-family: monospace; background: #e8e8e8; padding: 0.2rem 0.5rem; }
+            .description { color: #666; margin-top: 0.5rem; }
+            .example { background: #fff; border: 1px solid #ddd; padding: 0.5rem; margin-top: 0.5rem; font-family: monospace; }
+        </style>
+    </head>
+    <body>
+        <h1>Deutsche Schulferien API Documentation</h1>
+        <p>Willkommen zur API Dokumentation für deutsche Schulferien.</p>
+        
+        <div class="endpoint">
+            <div class="method">GET</div>
+            <div class="path">/api/v1/{year}</div>
+            <div class="description">Alle Ferien für ein bestimmtes Jahr abrufen</div>
+            <div class="example">Beispiel: <a href="/api/v1/2024">/api/v1/2024</a></div>
+        </div>
+        
+        <div class="endpoint">
+            <div class="method">GET</div>
+            <div class="path">/api/v1/{year}/{state}</div>
+            <div class="description">Ferien für ein Jahr und Bundesland abrufen</div>
+            <div class="example">Beispiel: <a href="/api/v1/2024/BY">/api/v1/2024/BY</a></div>
+        </div>
+        
+        <div class="endpoint">
+            <div class="method">GET</div>
+            <div class="path">/api/v2/{year}?type={type}&states={states}</div>
+            <div class="description">Erweiterte Filterung nach Ferientyp und Bundesländern</div>
+            <div class="example">Beispiel: <a href="/api/v2/2024?type=sommerferien&states=BY,BW">/api/v2/2024?type=sommerferien&states=BY,BW</a></div>
+        </div>
+        
+        <div class="endpoint">
+            <div class="method">GET</div>
+            <div class="path">/api/v2/current</div>
+            <div class="description">Aktuelle Ferien abrufen</div>
+            <div class="example">Beispiel: <a href="/api/v2/current">/api/v2/current</a></div>
+        </div>
+        
+        <p><a href="/">← Zurück zur Startseite</a></p>
+    </body>
+    </html>
+    `);
   });
 }
 

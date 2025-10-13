@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/24</span>
+                <span class='fraction'>0/38</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/24</span>
+                <span class='fraction'>0/38</span>
             </div>
         
             
@@ -106,11 +106,39 @@
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -120,9 +148,27 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -154,6 +200,11 @@ const bodyParser = <span class="cstat-no" title="statement not covered" >require
 const logger = <span class="cstat-no" title="statement not covered" >require("morgan");</span>
 const cors = <span class="cstat-no" title="statement not covered" >require("cors");</span>
 const path = <span class="cstat-no" title="statement not covered" >require("path");</span>
+const swaggerJsdoc = <span class="cstat-no" title="statement not covered" >require('swagger-jsdoc');</span>
+const swaggerUi = <span class="cstat-no" title="statement not covered" >require('swagger-ui-express');</span>
+const fs = <span class="cstat-no" title="statement not covered" >require('fs');</span>
+const yaml = <span class="cstat-no" title="statement not covered" >require('js-yaml');</span>
+&nbsp;
 const app = <span class="cstat-no" title="statement not covered" >express();</span>
 &nbsp;
 const PORT = <span class="cstat-no" title="statement not covered" >process.env.PORT || 3000;</span>
@@ -163,11 +214,29 @@ const NODE_ENV = <span class="cstat-no" title="statement not covered" >process.e
 <span class="cstat-no" title="statement not covered" >app.set("env", NODE_ENV);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >app.use(cors());</span>
-&nbsp;
 <span class="cstat-no" title="statement not covered" >app.use(logger("tiny"));</span>
 <span class="cstat-no" title="statement not covered" >app.use(bodyParser.json());</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >app.use("/", require(path.join(__dirname, "routes/vacations")));</span>
+// Import routers
+const v1Router = <span class="cstat-no" title="statement not covered" >require("./routes/v1");</span>
+const v2Router = <span class="cstat-no" title="statement not covered" >require("./routes/v2");</span>
+const systemRouter = <span class="cstat-no" title="statement not covered" >require("./routes/system");</span>
+&nbsp;
+// Setup Swagger documentation
+<span class="cstat-no" title="statement not covered" >try {</span>
+  const openApiSpec = <span class="cstat-no" title="statement not covered" >yaml.load(fs.readFileSync(path.join(__dirname, 'docs/openapi.yaml'), 'utf8'));</span>
+<span class="cstat-no" title="statement not covered" >  app.use('/docs', swaggerUi.serve, swaggerUi.setup(openApiSpec));</span>
+} catch (error) {
+<span class="cstat-no" title="statement not covered" >  console.warn('Could not load OpenAPI specification:', error.message);</span>
+}
+&nbsp;
+// Mount routers
+<span class="cstat-no" title="statement not covered" >app.use("/api/v1", v1Router);</span>
+<span class="cstat-no" title="statement not covered" >app.use("/api/v2", v2Router);</span>
+<span class="cstat-no" title="statement not covered" >app.use("/", systemRouter);</span>
+&nbsp;
+// Legacy route support (keep original route for backward compatibility)
+<span class="cstat-no" title="statement not covered" >app.use("/", require("./routes/v1"));</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >app.use(<span class="fstat-no" title="function not covered" >(r</span>eq, res, next) =&gt; {</span>
   const err = <span class="cstat-no" title="statement not covered" >new Error(`${req.method} ${req.url} Not Found`);</span>
@@ -199,7 +268,7 @@ const NODE_ENV = <span class="cstat-no" title="statement not covered" >process.e
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-10-13T07:32:24.963Z
+                at 2025-10-13T07:51:36.878Z
             </div>
         <script src="../prettify.js"></script>
         <script>

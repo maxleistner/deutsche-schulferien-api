@@ -1,17 +1,21 @@
 {
   "name": "schulferien-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "API für die Schulferien in Deutschland, filterbar nach Jahr und/oder Bundesland",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon --exec 'npm start'",
+    "docs": "node -e \"console.log('Swagger UI available at: http://localhost:3000/docs')\"; npm start",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:api": "jest tests/api.test.js",
     "test:data": "jest tests/data-validation.test.js",
-    "test:routes": "jest tests/routes.test.js"
+    "test:routes": "jest tests/routes.test.js",
+    "test:v2": "jest tests/v2.test.js",
+    "test:filters": "jest tests/filters.test.js",
+    "test:system": "jest tests/system.test.js"
   },
   "author": "Maximilian Leistner (https://maxleistner.de)",
   "license": "Creative Commons Attribution 4.0",
@@ -19,11 +23,14 @@
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "express": "^4.18.1",
-    "morgan": "^1.10.0"
+    "js-yaml": "^4.1.0",
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19",
     "jest": "^29.0.0",
+    "nodemon": "^2.0.19",
     "supertest": "^6.3.0"
   },
   "jest": {

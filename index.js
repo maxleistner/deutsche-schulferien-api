@@ -20,16 +20,9 @@ app.use(cors());
 app.use(logger("tiny"));
 app.use(bodyParser.json());
 
-// Mixpanel Analytics Setup (HTTP-based approach)
+// Mixpanel Analytics Setup
 const MIXPANEL_TOKEN = process.env.MIXPANEL_TOKEN;
-let trackingEnabled = false;
-
-if (MIXPANEL_TOKEN) {
-  trackingEnabled = true;
-  console.log('✅ Mixpanel tracking enabled');
-} else {
-  console.log('⚠️  MIXPANEL_TOKEN not found, analytics disabled');
-}
+const trackingEnabled = !!MIXPANEL_TOKEN;
 
 // Function to send events to Mixpanel via HTTP
 function trackMixpanelEvent(eventName, properties) {
@@ -48,20 +41,10 @@ function trackMixpanelEvent(eventName, properties) {
     const dataString = Buffer.from(JSON.stringify(data)).toString('base64');
     const url = `https://api.mixpanel.com/track/?data=${encodeURIComponent(dataString)}`;
     
-    // Use fetch to send the event (non-blocking)
-    fetch(url, { method: 'GET' })
-      .then(response => {
-        if (response.ok) {
-          console.log('✅ Mixpanel event sent successfully');
-        } else {
-          console.error('❌ Mixpanel HTTP error:', response.status);
-        }
-      })
-      .catch(error => {
-        console.error('❌ Mixpanel fetch error:', error.message);
-      });
+    // Send event asynchronously (non-blocking)
+    fetch(url, { method: 'GET' }).catch(() => {});
   } catch (error) {
-    console.error('❌ Mixpanel tracking error:', error.message);
+    // Silently fail - don't affect API performance
   }
 }
 
@@ -69,32 +52,59 @@ function trackMixpanelEvent(eventName, properties) {
 app.use((req, res, next) => {
   // Only track API endpoints
   if (req.path.startsWith('/api/') && trackingEnabled) {
-    console.log(`🔍 Tracking API request: ${req.method} ${req.path}`);
-    
-    // Extract detailed information from the request
     const pathParts = req.path.split('/');
-    const apiVersion = pathParts[2]; // v1 or v2
-    const year = pathParts[3];
-    const state = pathParts[4];
+    const apiVersion = pathParts[2]; // v1, v2, etc.
+    const thirdPart = pathParts[3];
+    const fourthPart = pathParts[4];
     
-    // Determine endpoint type
+    // Determine endpoint type based on complete endpoint patterns
     let endpointType = 'unknown';
-    if (req.path.match(/\/api\/v1\/\d{4}$/)) {
-      endpointType = 'year_all_states';
-    } else if (req.path.match(/\/api\/v1\/\d{4}\/[A-Z]{2}$/)) {
-      endpointType = 'year_specific_state';
-    } else if (req.path.match(/\/api\/v2\/\d{4}/)) {
-      endpointType = 'v2_year_query';
-    } else if (req.path.includes('/current')) {
-      endpointType = 'current_holidays';
-    } else if (req.path.includes('/search')) {
-      endpointType = 'search';
-    } else if (req.path.includes('/stats')) {
-      endpointType = 'statistics';
-    } else if (req.path.includes('/compare')) {
-      endpointType = 'compare';
-    } else if (req.path.includes('/date')) {
-      endpointType = 'date_lookup';
+    let year = null;
+    let state = null;
+    
+    // V1 Endpoints
+    if (req.path.match(/^\/api\/v1\/\d{4}$/)) {
+      endpointType = 'v1_year_all_states';
+      year = thirdPart;
+    } else if (req.path.match(/^\/api\/v1\/\d{4}\/[A-Z]{2}$/)) {
+      endpointType = 'v1_year_state';
+      year = thirdPart;
+      state = fourthPart;
+    }
+    
+    // V2 Named Endpoints
+    else if (req.path === '/api/v2/current') {
+      endpointType = 'v2_current_holidays';
+    } else if (req.path.match(/^\/api\/v2\/next\/\d+$/)) {
+      endpointType = 'v2_next_days';
+    } else if (req.path.match(/^\/api\/v2\/date\/[\d-]+$/)) {
+      endpointType = 'v2_date_lookup';
+    } else if (req.path === '/api/v2/search') {
+      endpointType = 'v2_search';
+    } else if (req.path.match(/^\/api\/v2\/stats\/\d{4}$/)) {
+      endpointType = 'v2_stats';
+      year = thirdPart;
+    } else if (req.path.match(/^\/api\/v2\/compare\/\d{4}\/\d{4}$/)) {
+      endpointType = 'v2_compare';
+    }
+    
+    // V2 Year Endpoints (must be last to avoid conflicts)
+    else if (req.path.match(/^\/api\/v2\/\d{4}$/)) {
+      endpointType = 'v2_year_filtered';
+      year = thirdPart;
+    } else if (req.path.match(/^\/api\/v2\/\d{4}\/[A-Z]{2}$/)) {
+      endpointType = 'v2_year_state_filtered';
+      year = thirdPart;
+      state = fourthPart;
+    }
+    
+    // System Endpoints
+    else if (req.path === '/health') {
+      endpointType = 'system_health';
+    } else if (req.path === '/ready') {
+      endpointType = 'system_ready';
+    } else if (req.path === '/status') {
+      endpointType = 'system_status';
     }
     
     // Prepare tracking data
@@ -103,16 +113,19 @@ app.use((req, res, next) => {
       endpoint: req.path,
       method: req.method,
       endpoint_type: endpointType,
-      api_version: apiVersion,
+      api_version: apiVersion || 'system',
       year: year || null,
       state: state ? state.toUpperCase() : null,
       has_query_params: Object.keys(req.query).length > 0,
       user_agent: req.get('User-Agent') || 'unknown',
       referer: req.get('Referer') || 'direct',
-      country: req.headers['cf-ipcountry'] || 'unknown'
+      country: req.headers['cf-ipcountry'] || req.headers['x-forwarded-for']?.split(',')[0]?.trim() || 'unknown'
     };
     
-    console.log('📊 Sending to Mixpanel:', JSON.stringify(trackingData, null, 2));
+    // Add specific query params for interesting endpoints
+    if (req.query.type) trackingData.vacation_type = req.query.type;
+    if (req.query.states) trackingData.filter_states = req.query.states;
+    if (req.query.q) trackingData.search_query = req.query.q;
     
     // Track the event using our HTTP function
     trackMixpanelEvent('API Request', trackingData);

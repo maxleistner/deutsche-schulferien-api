@@ -23,18 +23,25 @@ app.use(bodyParser.json());
 // Vercel Analytics - Track API usage (optional, safe fallback)
 try {
   if (process.env.VERCEL) {
+    console.log('✓ Running on Vercel, initializing analytics...');
     const { track } = require('@vercel/analytics/server');
+    console.log('✓ Analytics package imported successfully');
     
     app.use((req, res, next) => {
       try {
         const path = req.path.toLowerCase();
+        console.log(`🔍 Checking path: ${path}`);
         
         // Track API endpoint hits with detailed metrics
         if (path.startsWith('/api/')) {
+          console.log(`🎯 API endpoint detected: ${path}`);
+          
           // Extract year and state from API paths
           const v1Match = path.match(/\/api\/v1\/(\d{4})(?:\/([a-z]{2}))?/);
           const v2Match = path.match(/\/api\/v2\/(\d{4})(?:\/([a-z]{2}))?/) || 
                          path.match(/\/api\/v2\/(current|search|stats|compare|date|next)/);
+          
+          console.log(`V1 Match: ${v1Match ? 'Yes' : 'No'}, V2 Match: ${v2Match ? 'Yes' : 'No'}`);
           
           let trackingData = {
             method: req.method,
@@ -63,20 +70,33 @@ try {
             if (req.query.year) trackingData.year = req.query.year;
           }
           
+          console.log(`📈 Tracking data:`, JSON.stringify(trackingData, null, 2));
+          
           // Track the event (async, non-blocking)
-          track('api_request', trackingData).catch(err => {
-            console.warn('Analytics tracking failed:', err.message);
-          });
+          track('api_request', trackingData)
+            .then(() => {
+              console.log('✅ Analytics tracking successful');
+            })
+            .catch(err => {
+              console.error('❌ Analytics tracking failed:', err.message);
+              console.error('Full error:', err);
+            });
+        } else {
+          console.log(`⏭️ Skipping non-API path: ${path}`);
         }
       } catch (analyticsError) {
-        console.warn('Analytics middleware error:', analyticsError.message);
+        console.error('❌ Analytics middleware error:', analyticsError.message);
+        console.error('Full error:', analyticsError);
       }
       
       next();
     });
+  } else {
+    console.log('⚠️ Not running on Vercel, analytics disabled');
   }
 } catch (analyticsInitError) {
-  console.warn('Analytics initialization failed:', analyticsInitError.message);
+  console.error('❌ Analytics initialization failed:', analyticsInitError.message);
+  console.error('Full error:', analyticsInitError);
   console.log('Continuing without analytics...');
 }
 

@@ -20,24 +20,57 @@ app.use(cors());
 app.use(logger("tiny"));
 app.use(bodyParser.json());
 
-// Mixpanel Analytics Setup
-let mixpanel = null;
-try {
-  if (process.env.MIXPANEL_TOKEN) {
-    const Mixpanel = require('mixpanel');
-    mixpanel = Mixpanel.init(process.env.MIXPANEL_TOKEN);
-    console.log('✅ Mixpanel initialized successfully');
-  } else {
-    console.log('⚠️  MIXPANEL_TOKEN not found, analytics disabled');
+// Mixpanel Analytics Setup (HTTP-based approach)
+const MIXPANEL_TOKEN = process.env.MIXPANEL_TOKEN;
+let trackingEnabled = false;
+
+if (MIXPANEL_TOKEN) {
+  trackingEnabled = true;
+  console.log('✅ Mixpanel tracking enabled');
+} else {
+  console.log('⚠️  MIXPANEL_TOKEN not found, analytics disabled');
+}
+
+// Function to send events to Mixpanel via HTTP
+function trackMixpanelEvent(eventName, properties) {
+  if (!trackingEnabled) return;
+  
+  try {
+    const data = {
+      event: eventName,
+      properties: {
+        token: MIXPANEL_TOKEN,
+        time: Math.floor(Date.now() / 1000),
+        ...properties
+      }
+    };
+    
+    const dataString = Buffer.from(JSON.stringify(data)).toString('base64');
+    const url = `https://api.mixpanel.com/track/?data=${encodeURIComponent(dataString)}`;
+    
+    // Use fetch to send the event (non-blocking)
+    fetch(url, { method: 'GET' })
+      .then(response => {
+        if (response.ok) {
+          console.log('✅ Mixpanel event sent successfully');
+        } else {
+          console.error('❌ Mixpanel HTTP error:', response.status);
+        }
+      })
+      .catch(error => {
+        console.error('❌ Mixpanel fetch error:', error.message);
+      });
+  } catch (error) {
+    console.error('❌ Mixpanel tracking error:', error.message);
   }
-} catch (error) {
-  console.error('❌ Mixpanel initialization failed:', error.message);
 }
 
 // API Analytics Middleware
 app.use((req, res, next) => {
   // Only track API endpoints
-  if (req.path.startsWith('/api/') && mixpanel) {
+  if (req.path.startsWith('/api/') && trackingEnabled) {
+    console.log(`🔍 Tracking API request: ${req.method} ${req.path}`);
+    
     // Extract detailed information from the request
     const pathParts = req.path.split('/');
     const apiVersion = pathParts[2]; // v1 or v2
@@ -64,41 +97,25 @@ app.use((req, res, next) => {
       endpointType = 'date_lookup';
     }
     
-    // Get country from IP (basic, you could enhance with a GeoIP service)
-    const country = req.headers['cf-ipcountry'] || 'unknown';
-    
     // Prepare tracking data
     const trackingData = {
-      // Basic request info
+      distinct_id: req.ip || 'anonymous',
       endpoint: req.path,
       method: req.method,
       endpoint_type: endpointType,
       api_version: apiVersion,
-      
-      // API specific data
       year: year || null,
-      state: state || null,
-      query_params: Object.keys(req.query).length > 0 ? req.query : null,
-      
-      // Request metadata
+      state: state ? state.toUpperCase() : null,
+      has_query_params: Object.keys(req.query).length > 0,
       user_agent: req.get('User-Agent') || 'unknown',
       referer: req.get('Referer') || 'direct',
-      country: country,
-      
-      // Timing
-      timestamp: new Date().toISOString(),
-      day_of_week: new Date().toLocaleDateString('en-US', { weekday: 'long' }),
-      hour: new Date().getHours()
+      country: req.headers['cf-ipcountry'] || 'unknown'
     };
     
-    // Track the event
-    try {
-      mixpanel.track('API Request', trackingData, {
-        distinct_id: req.ip || 'anonymous'
-      });
-    } catch (trackingError) {
-      console.error('Mixpanel tracking error:', trackingError.message);
-    }
+    console.log('📊 Sending to Mixpanel:', JSON.stringify(trackingData, null, 2));
+    
+    // Track the event using our HTTP function
+    trackMixpanelEvent('API Request', trackingData);
   }
   
   next();

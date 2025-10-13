@@ -80,10 +80,8 @@ try {
   console.log('Continuing without analytics...');
 }
 
-// Serve static files (index page) - conditional for serverless
-if (!process.env.VERCEL) {
-  app.use(express.static('public'));
-}
+// Serve static files
+app.use(express.static('public'));
 
 // Import routers
 const v1Router = require("./routes/v1/index.js");
@@ -131,21 +129,8 @@ app.use("/", systemRouter);
 // Serve index page explicitly
 app.get('/', (req, res) => {
   try {
-    if (process.env.VERCEL) {
-      // Simple response for serverless
-      res.json({
-        message: 'Deutsche Schulferien API v2.0.0',
-        documentation: '/docs',
-        endpoints: {
-          v1: '/api/v1/2024',
-          v2: '/api/v2/current'
-        },
-        status: 'running'
-      });
-    } else {
-      // Serve static file for local development
-      res.sendFile(path.join(__dirname, 'public', 'index.html'));
-    }
+    // Always serve the HTML file (both locally and on Vercel)
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
   } catch (error) {
     res.status(500).json({
       error: 'Internal server error',

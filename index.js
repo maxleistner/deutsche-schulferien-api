@@ -272,7 +272,20 @@ try {
   }
   
   // Setup Swagger UI with the spec (either from file or fallback)
-  app.use('/docs', swaggerUi.serve, swaggerUi.setup(openApiSpec));
+  // Use CDN-hosted assets for better compatibility with serverless environments
+  const swaggerOptions = {
+    customCssUrl: 'https://unpkg.com/swagger-ui-dist@4.15.5/swagger-ui.css',
+    customJs: [
+      'https://unpkg.com/swagger-ui-dist@4.15.5/swagger-ui-bundle.js',
+      'https://unpkg.com/swagger-ui-dist@4.15.5/swagger-ui-standalone-preset.js'
+    ],
+    swaggerOptions: {
+      url: null,
+      spec: openApiSpec
+    }
+  };
+  
+  app.use('/docs', swaggerUi.serve, swaggerUi.setup(openApiSpec, swaggerOptions));
   console.log('✅ Swagger documentation setup completed');
   
 } catch (error) {

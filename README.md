@@ -1,7 +1,16 @@
 # Deutsche Schulferien API
 
-[![Deployment status from DeployBot](https://fuxdev.deploybot.com/badge/77558060233260/207735.svg)](https://deploybot.com)
+![Vercel Deploy](https://deploy-badge.vercel.app/vercel/deutsche-schulferien-api?style=for-the-badge&logo=schulferien-api)
 [![License: CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0/)
+
+> **⚠️ WICHTIGER HINWEIS - DOMAIN-ÄNDERUNG**
+> 
+> **Die API ist ab sofort unter der neuen Domain verfügbar: `https://schulferien-api.de`**
+> 
+> Die alte Domain `ferien-api.maxleistner.de` bleibt noch einige Monate aktiv, wird aber langfristig abgeschaltet. Bitte aktualisieren Sie Ihre Anwendungen auf die neue Domain.
+> 
+> **Neu:** `https://schulferien-api.de/api/v1/2024/BY`  
+> **Alt:** `https://ferien-api.maxleistner.de/api/v1/2024/BY` (noch aktiv)
 
 ## Einleitung
 

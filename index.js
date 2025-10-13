@@ -90,16 +90,39 @@ const systemRouter = require("./routes/system");
 
 // Setup Swagger documentation
 try {
-  const docsPath = path.join(__dirname, 'docs/openapi.yaml');
-  if (fs.existsSync(docsPath)) {
-    const openApiSpec = yaml.load(fs.readFileSync(docsPath, 'utf8'));
+  // Try multiple possible paths for the OpenAPI spec
+  const possiblePaths = [
+    path.join(__dirname, 'docs', 'openapi.yaml'),
+    path.join(__dirname, 'docs/openapi.yaml'),
+    path.join(process.cwd(), 'docs', 'openapi.yaml'),
+    path.join(process.cwd(), 'docs/openapi.yaml')
+  ];
+  
+  let openApiSpec = null;
+  let foundPath = null;
+  
+  for (const docsPath of possiblePaths) {
+    if (fs.existsSync(docsPath)) {
+      try {
+        openApiSpec = yaml.load(fs.readFileSync(docsPath, 'utf8'));
+        foundPath = docsPath;
+        break;
+      } catch (readError) {
+        console.warn(`Failed to read ${docsPath}:`, readError.message);
+      }
+    }
+  }
+  
+  if (openApiSpec && foundPath) {
     app.use('/docs', swaggerUi.serve, swaggerUi.setup(openApiSpec));
-    console.log('✅ Swagger documentation loaded successfully');
+    console.log(`✅ Swagger documentation loaded successfully from ${foundPath}`);
   } else {
-    console.warn('⚠️  OpenAPI specification file not found');
+    console.warn('⚠️  OpenAPI specification file not found in any of the expected locations');
+    console.warn('Searched paths:', possiblePaths);
     app.get('/docs', (req, res) => {
       res.json({
         message: 'API Documentation not available',
+        searched_paths: possiblePaths,
         endpoints: {
           v1: '/api/v1/2024',
           v2: '/api/v2/current'
@@ -109,6 +132,7 @@ try {
   }
 } catch (error) {
   console.warn('❌ Could not load OpenAPI specification:', error.message);
+  console.warn('Stack trace:', error.stack);
   app.get('/docs', (req, res) => {
     res.json({
       error: 'Documentation error',

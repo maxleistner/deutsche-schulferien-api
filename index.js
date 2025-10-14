@@ -298,18 +298,14 @@ app.use("/", systemRouter);
 app.get('/', (req, res) => {
   const indexPath = path.join(__dirname, 'public', 'index.html');
   
-  // Check if file exists before trying to serve it
-  if (fs.existsSync(indexPath)) {
-    try {
-      res.sendFile(indexPath);
-    } catch (error) {
-      console.error('Error serving index.html:', error);
-      // Fallback to inline HTML
-      res.send(getDefaultHomePage());
-    }
-  } else {
-    // If index.html doesn't exist, serve a default page
-    console.warn('index.html not found, serving default page');
+  try {
+    // Try to read and serve the actual index.html content
+    const indexContent = fs.readFileSync(indexPath, 'utf8');
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.send(indexContent);
+  } catch (error) {
+    console.warn('Could not read index.html, using fallback:', error.message);
+    // Fallback to inline HTML if index.html is not accessible
     res.send(getDefaultHomePage());
   }
 });

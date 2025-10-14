@@ -1,5 +1,6 @@
 const express = require('express');
 const dataLoader = require('../../lib/dataLoader');
+const { track, flush } = require('../../utils/mixpanel');
 const {
   filterByDateRange,
   filterByTypes,
@@ -12,6 +13,60 @@ const {
 } = require('../../lib/filters');
 
 const router = express.Router();
+
+// V2 API Tracking Middleware
+router.use((req, res, next) => {
+  const startTime = Date.now();
+  
+  res.on('finish', () => {
+    const duration = Date.now() - startTime;
+    const pathParts = req.path.split('/').filter(p => p);
+    
+    // Determine endpoint type
+    let endpointType = 'v2_unknown';
+    let additionalProps = {};
+    
+    if (req.path === '/current') {
+      endpointType = 'v2_current';
+    } else if (req.path.startsWith('/next/')) {
+      endpointType = 'v2_next_days';
+      additionalProps.days = pathParts[1];
+    } else if (req.path.startsWith('/date/')) {
+      endpointType = 'v2_date_lookup';
+      additionalProps.date = pathParts[1];
+    } else if (req.path === '/search') {
+      endpointType = 'v2_search';
+      additionalProps.query = req.query.q;
+    } else if (req.path.startsWith('/stats/')) {
+      endpointType = 'v2_stats';
+      additionalProps.year = pathParts[1];
+    } else if (req.path.startsWith('/compare/')) {
+      endpointType = 'v2_compare';
+    } else if (req.path.match(/^\/(\d{4})$/)) {
+      endpointType = 'v2_year';
+      additionalProps.year = pathParts[0];
+    } else if (req.path.match(/^\/(\d{4})\/[A-Z]{2}$/)) {
+      endpointType = 'v2_year_state';
+      additionalProps.year = pathParts[0];
+      additionalProps.state = pathParts[1];
+    }
+    
+    track('V2 API Request', {
+      endpoint: '/api/v2' + req.path,
+      method: req.method,
+      endpoint_type: endpointType,
+      status_code: res.statusCode,
+      success: res.statusCode < 400,
+      response_time_ms: duration,
+      has_query_params: Object.keys(req.query).length > 0,
+      ...additionalProps
+    });
+    
+    flush();
+  });
+  
+  next();
+});
 
 // Middleware for error handling
 const asyncHandler = (fn) => (req, res, next) => {

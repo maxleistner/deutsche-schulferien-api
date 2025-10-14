@@ -1,12 +1,15 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const { track, flush } = require("../../utils/mixpanel");
 
 const router = express.Router();
 //const data = fs.readFileSync(path.join(__dirname, "./vacations.json"));
 
 // Filter to get all vacs depending on the year
 const getAllVacationsByYear = async (req, res, next) => {
+  const startTime = Date.now();
+  
   try {
     const dataY = fs.readFileSync(
       path.join(__dirname, "../years/" + req.params.year + ".json")
@@ -19,8 +22,37 @@ const getAllVacationsByYear = async (req, res, next) => {
       err.status = 404;
       throw err;
     }
+    
+    // Track successful API call
+    res.on('finish', () => {
+      const duration = Date.now() - startTime;
+      track('V1 API Request', {
+        endpoint: req.originalUrl,
+        method: req.method,
+        year: req.params.year,
+        state: null,
+        status_code: res.statusCode,
+        success: res.statusCode < 400,
+        response_time_ms: duration,
+        result_count: vacs.length
+      });
+      flush();
+    });
+    
     res.json(vacs);
   } catch (e) {
+    // Track error
+    const duration = Date.now() - startTime;
+    track('V1 API Error', {
+      endpoint: req.originalUrl,
+      method: req.method,
+      year: req.params.year,
+      state: null,
+      error: e.message,
+      status_code: e.status || 500,
+      response_time_ms: duration
+    });
+    flush();
     next(e);
   }
 };
@@ -29,6 +61,8 @@ router.route("/:year").get(getAllVacationsByYear);
 
 // Filter to get all vacs depending on the year and/or state
 const getAllVacationsByYearAndState = async (req, res, next) => {
+  const startTime = Date.now();
+  
   try {
     const dataY = fs.readFileSync(
       path.join(__dirname, "../years/" + req.params.year + ".json")
@@ -47,8 +81,37 @@ const getAllVacationsByYearAndState = async (req, res, next) => {
       err.status = 404;
       throw err;
     }
+    
+    // Track successful API call
+    res.on('finish', () => {
+      const duration = Date.now() - startTime;
+      track('V1 API Request', {
+        endpoint: req.originalUrl,
+        method: req.method,
+        year: req.params.year,
+        state: req.params.state,
+        status_code: res.statusCode,
+        success: res.statusCode < 400,
+        response_time_ms: duration,
+        result_count: vacations.length
+      });
+      flush();
+    });
+    
     res.json(vacations);
   } catch (e) {
+    // Track error
+    const duration = Date.now() - startTime;
+    track('V1 API Error', {
+      endpoint: req.originalUrl,
+      method: req.method,
+      year: req.params.year,
+      state: req.params.state,
+      error: e.message,
+      status_code: e.status || 500,
+      response_time_ms: duration
+    });
+    flush();
     next(e);
   }
 };

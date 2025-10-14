@@ -26,7 +26,12 @@ const trackingEnabled = !!MIXPANEL_TOKEN;
 
 // Function to send events to Mixpanel via HTTP
 function trackMixpanelEvent(eventName, properties) {
-  if (!trackingEnabled) return;
+  if (!trackingEnabled) {
+    console.log(`[MIXPANEL-HTTP] Tracking disabled - no token provided`);
+    return;
+  }
+  
+  console.log(`[MIXPANEL-HTTP] Tracking event: ${eventName}`, properties);
   
   try {
     const data = {
@@ -41,10 +46,22 @@ function trackMixpanelEvent(eventName, properties) {
     const dataString = Buffer.from(JSON.stringify(data)).toString('base64');
     const url = `https://api.mixpanel.com/track/?data=${encodeURIComponent(dataString)}`;
     
+    console.log(`[MIXPANEL-HTTP] Sending to:`, url.substring(0, 100) + '...');
+    
     // Send event asynchronously (non-blocking)
-    fetch(url, { method: 'GET' }).catch(() => {});
+    fetch(url, { method: 'GET' })
+      .then(response => {
+        if (response.ok) {
+          console.log(`[MIXPANEL-HTTP] ✅ Event sent successfully: ${eventName}`);
+        } else {
+          console.log(`[MIXPANEL-HTTP] ❌ Event failed with status: ${response.status}`);
+        }
+      })
+      .catch(error => {
+        console.log(`[MIXPANEL-HTTP] ❌ Network error:`, error.message);
+      });
   } catch (error) {
-    // Silently fail - don't affect API performance
+    console.log(`[MIXPANEL-HTTP] ❌ Exception:`, error.message);
   }
 }
 

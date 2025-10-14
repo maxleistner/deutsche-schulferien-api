@@ -16,6 +16,7 @@ const router = express.Router();
 
 // V2 API Tracking Middleware
 router.use((req, res, next) => {
+  console.log(`[V2-MIDDLEWARE] ${req.method} ${req.path} - Tracking initiated`);
   const startTime = Date.now();
   
   res.on('finish', async () => {

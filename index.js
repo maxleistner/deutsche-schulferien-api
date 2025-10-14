@@ -11,7 +11,8 @@ const yaml = require('js-yaml');
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+// Get port from command line args, environment, or default to 3000
+const PORT = process.argv[2] || process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV || "development";
 
 app.set("port", PORT);
@@ -32,7 +33,7 @@ function trackMixpanelEvent(eventName, properties) {
     return;
   }
   
-  console.log(`[MIXPANEL-HTTP] Tracking event: ${eventName}`, properties);
+  console.log(`[MIXPANEL-HTTP] Event: ${eventName} | Props: ${Object.keys(properties).length}`);
   
   try {
     const data = {
@@ -169,8 +170,11 @@ app.use((req, res, next) => {
   next();
 });
 
-// Serve static files
-app.use(express.static('public'));
+// Serve static files (serverless-safe)
+app.use(express.static(path.join(__dirname, 'public'), {
+  index: false, // Don't serve index.html automatically
+  fallthrough: true
+}));
 
 // Import routers
 const v1Router = require("./routes/v1/index.js");
@@ -290,18 +294,179 @@ app.use("/api/v1", v1Router);
 app.use("/api/v2", v2Router);
 app.use("/", systemRouter);
 
-// Serve index page explicitly
+// Serve index page explicitly (serverless-safe)
 app.get('/', (req, res) => {
-  try {
-    // Always serve the HTML file (both locally and on Vercel)
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-  } catch (error) {
-    res.status(500).json({
-      error: 'Internal server error',
-      message: 'Unable to serve homepage'
-    });
+  const indexPath = path.join(__dirname, 'public', 'index.html');
+  
+  // Check if file exists before trying to serve it
+  if (fs.existsSync(indexPath)) {
+    try {
+      res.sendFile(indexPath);
+    } catch (error) {
+      console.error('Error serving index.html:', error);
+      // Fallback to inline HTML
+      res.send(getDefaultHomePage());
+    }
+  } else {
+    // If index.html doesn't exist, serve a default page
+    console.warn('index.html not found, serving default page');
+    res.send(getDefaultHomePage());
   }
 });
+
+// Default home page function
+function getDefaultHomePage() {
+  return `
+    <!DOCTYPE html>
+    <html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Deutsche Schulferien API</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <style>
+            body { 
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+                padding: 2rem; 
+                max-width: 900px; 
+                margin: 0 auto;
+                line-height: 1.6;
+                background: #f8f9fa;
+            }
+            .header { 
+                text-align: center; 
+                background: white; 
+                padding: 2rem; 
+                border-radius: 10px; 
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                margin-bottom: 2rem;
+            }
+            h1 { 
+                color: #333; 
+                margin-bottom: 0.5rem;
+                font-size: 2.5rem;
+            }
+            .subtitle {
+                color: #666;
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
+            .endpoints {
+                display: grid;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+            .endpoint { 
+                background: white; 
+                padding: 1.5rem; 
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                border-left: 4px solid #007acc;
+            }
+            .method { 
+                font-weight: bold; 
+                color: #007acc; 
+                font-size: 0.9rem;
+                text-transform: uppercase;
+            }
+            .path { 
+                font-family: 'Monaco', 'Menlo', monospace; 
+                background: #f1f3f4; 
+                padding: 0.3rem 0.6rem;
+                border-radius: 4px;
+                margin: 0.5rem 0;
+                display: inline-block;
+            }
+            .description { 
+                color: #555; 
+                margin: 0.5rem 0;
+            }
+            .example a { 
+                color: #007acc; 
+                text-decoration: none;
+                font-family: monospace;
+            }
+            .example a:hover { 
+                text-decoration: underline;
+            }
+            .footer {
+                text-align: center;
+                padding: 2rem;
+                color: #666;
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .analytics-info {
+                background: #e3f2fd;
+                padding: 1rem;
+                border-radius: 6px;
+                border-left: 4px solid #2196f3;
+                margin: 1rem 0;
+                font-size: 0.9rem;
+                color: #1565c0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>🏫 Deutsche Schulferien API</h1>
+            <div class="subtitle">Comprehensive German School Holiday API</div>
+            <div class="analytics-info">
+                📊 This API includes comprehensive analytics tracking via Mixpanel
+            </div>
+        </div>
+        
+        <div class="endpoints">
+            <div class="endpoint">
+                <div class="method">GET</div>
+                <div class="path">/api/v1/{year}</div>
+                <div class="description">Get all school holidays for a specific year</div>
+                <div class="example">Example: <a href="/api/v1/2024">/api/v1/2024</a></div>
+            </div>
+            
+            <div class="endpoint">
+                <div class="method">GET</div>
+                <div class="path">/api/v1/{year}/{state}</div>
+                <div class="description">Get holidays for a specific year and German state</div>
+                <div class="example">Example: <a href="/api/v1/2024/BY">/api/v1/2024/BY</a> (Bavaria)</div>
+            </div>
+            
+            <div class="endpoint">
+                <div class="method">GET</div>
+                <div class="path">/api/v2/current</div>
+                <div class="description">Get currently active school holidays</div>
+                <div class="example">Example: <a href="/api/v2/current">/api/v2/current</a></div>
+            </div>
+            
+            <div class="endpoint">
+                <div class="method">GET</div>
+                <div class="path">/api/v2/{year}?type={type}&states={states}</div>
+                <div class="description">Advanced filtering by holiday type and states</div>
+                <div class="example">Example: <a href="/api/v2/2024?type=sommerferien&states=BY,BW">/api/v2/2024?type=sommerferien&states=BY,BW</a></div>
+            </div>
+            
+            <div class="endpoint">
+                <div class="method">GET</div>
+                <div class="path">/docs</div>
+                <div class="description">Complete API documentation</div>
+                <div class="example">Example: <a href="/docs">/docs</a></div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>🚀 <strong>Optimized for Vercel Serverless</strong> | 📊 <strong>Analytics Enabled</strong></p>
+            <p>Built with ❤️ for German education system</p>
+        </div>
+    </body>
+    </html>
+  `;
+}
+
+// Mount specific routes first (before catch-all)
+app.use("/api/v1", v1Router);
+app.use("/api/v2", v2Router);
+app.use("/", systemRouter);
 
 app.use((req, res, next) => {
   // Enhanced 404 handler with helpful information

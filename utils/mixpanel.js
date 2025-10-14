@@ -42,6 +42,11 @@ function getMixpanel() {
 function track(event, props = {}) {
   log(`Attempting to track event: ${event}`, props);
   
+  // Always log in production for verification (minimal)
+  if (!DEBUG) {
+    console.log(`[MIXPANEL-PROD] Event: ${event} | Props: ${Object.keys(props).length}`);
+  }
+  
   // Return a promise to allow proper async handling in serverless
   return new Promise((resolve) => {
     try {
@@ -52,14 +57,21 @@ function track(event, props = {}) {
         const duration = Date.now() - startTime;
         if (err) {
           log(`❌ Track failed after ${duration}ms`, { event, error: err.message });
+          // Always log errors, even in production
+          console.error(`[MIXPANEL-ERROR] ${event}:`, err.message);
         } else {
           log(`✅ Track successful after ${duration}ms`, { event, propsCount: Object.keys(props).length });
+          // Minimal success log in production
+          if (!DEBUG) {
+            console.log(`[MIXPANEL-PROD] ✅ ${event} sent`);
+          }
         }
         // Always resolve - don't let tracking errors break the API
         resolve();
       });
     } catch (e) {
       log(`❌ Track exception`, { event, error: e.message });
+      console.error(`[MIXPANEL-EXCEPTION] ${event}:`, e.message);
       resolve(); // Always resolve even on exception
     }
   });

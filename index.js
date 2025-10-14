@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const cors = require("cors");
 const path = require("path");
+const https = require("https");
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const fs = require('fs');
@@ -24,7 +25,7 @@ app.use(bodyParser.json());
 const MIXPANEL_TOKEN = process.env.MIXPANEL_TOKEN;
 const trackingEnabled = !!MIXPANEL_TOKEN;
 
-// Function to send events to Mixpanel via HTTP
+// Function to send events to Mixpanel via HTTPS (Vercel serverless compatible)
 function trackMixpanelEvent(eventName, properties) {
   if (!trackingEnabled) {
     console.log(`[MIXPANEL-HTTP] Tracking disabled - no token provided`);
@@ -44,22 +45,39 @@ function trackMixpanelEvent(eventName, properties) {
     };
     
     const dataString = Buffer.from(JSON.stringify(data)).toString('base64');
-    const url = `https://api.mixpanel.com/track/?data=${encodeURIComponent(dataString)}`;
+    const path = `/track/?data=${encodeURIComponent(dataString)}`;
     
-    console.log(`[MIXPANEL-HTTP] Sending to:`, url.substring(0, 100) + '...');
+    console.log(`[MIXPANEL-HTTP] Sending to: https://api.mixpanel.com${path.substring(0, 50)}...`);
     
-    // Send event asynchronously (non-blocking)
-    fetch(url, { method: 'GET' })
-      .then(response => {
-        if (response.ok) {
-          console.log(`[MIXPANEL-HTTP] ✅ Event sent successfully: ${eventName}`);
-        } else {
-          console.log(`[MIXPANEL-HTTP] ❌ Event failed with status: ${response.status}`);
-        }
-      })
-      .catch(error => {
-        console.log(`[MIXPANEL-HTTP] ❌ Network error:`, error.message);
-      });
+    // Use Node.js HTTPS module for better Vercel compatibility
+    const req = https.request({
+      hostname: 'api.mixpanel.com',
+      port: 443,
+      path: path,
+      method: 'GET',
+      timeout: 5000,  // 5 second timeout
+      headers: {
+        'User-Agent': 'Schulferien-API/2.0'
+      }
+    }, (res) => {
+      if (res.statusCode >= 200 && res.statusCode < 300) {
+        console.log(`[MIXPANEL-HTTP] ✅ Event sent successfully: ${eventName}`);
+      } else {
+        console.log(`[MIXPANEL-HTTP] ❌ Event failed with status: ${res.statusCode}`);
+      }
+    });
+    
+    req.on('error', (error) => {
+      console.log(`[MIXPANEL-HTTP] ❌ Network error:`, error.message);
+    });
+    
+    req.on('timeout', () => {
+      console.log(`[MIXPANEL-HTTP] ❌ Request timeout for: ${eventName}`);
+      req.destroy();
+    });
+    
+    req.end();
+    
   } catch (error) {
     console.log(`[MIXPANEL-HTTP] ❌ Exception:`, error.message);
   }

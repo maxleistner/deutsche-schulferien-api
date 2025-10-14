@@ -18,7 +18,7 @@ const router = express.Router();
 router.use((req, res, next) => {
   const startTime = Date.now();
   
-  res.on('finish', () => {
+  res.on('finish', async () => {
     const duration = Date.now() - startTime;
     const pathParts = req.path.split('/').filter(p => p);
     
@@ -51,18 +51,23 @@ router.use((req, res, next) => {
       additionalProps.state = pathParts[1];
     }
     
-    track('V2 API Request', {
-      endpoint: '/api/v2' + req.path,
-      method: req.method,
-      endpoint_type: endpointType,
-      status_code: res.statusCode,
-      success: res.statusCode < 400,
-      response_time_ms: duration,
-      has_query_params: Object.keys(req.query).length > 0,
-      ...additionalProps
-    });
-    
-    flush();
+    try {
+      await track('V2 API Request', {
+        endpoint: '/api/v2' + req.path,
+        method: req.method,
+        endpoint_type: endpointType,
+        status_code: res.statusCode,
+        success: res.statusCode < 400,
+        response_time_ms: duration,
+        has_query_params: Object.keys(req.query).length > 0,
+        ...additionalProps
+      });
+      
+      await flush();
+    } catch (error) {
+      // Silently fail - don't affect API response
+      console.error('[MIXPANEL] V2 Tracking error:', error.message);
+    }
   });
   
   next();

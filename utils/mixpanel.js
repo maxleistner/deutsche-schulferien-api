@@ -4,7 +4,7 @@ const TOKEN = process.env.MIXPANEL_TOKEN || '1584facf326d548bc26be8daf9aa6b3e';
 let mp; // re-used across cold starts
 
 // Debug logging
-const DEBUG = process.env.NODE_ENV !== 'production';
+const DEBUG = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test';
 
 function log(message, data = null) {
   if (DEBUG) {
@@ -22,11 +22,13 @@ function getMixpanel() {
     log(`Initializing Mixpanel with token: ${TOKEN.substring(0, 8)}...${TOKEN.substring(TOKEN.length - 4)}`);
     try {
       mp = mixpanel.init(TOKEN, {
-        protocol: 'https',          // default
-        keepAlive: false,           // safer for Vercel
-        batchSize: 1,               // send immediately
-        flushInterval: 0,           // no buffering
-        debug: DEBUG                // Enable Mixpanel's own debug logging
+        protocol: 'https',          // required for Vercel
+        keepAlive: false,           // essential for serverless
+        geolocate: false,           // disable to avoid DNS lookups
+        debug: DEBUG,               // enable debug only in development
+        // Serverless optimizations
+        host: 'api.mixpanel.com',   // explicit host
+        path: '/track/'             // explicit path
       });
       log('Mixpanel client initialized successfully');
     } catch (error) {
@@ -39,21 +41,28 @@ function getMixpanel() {
 
 function track(event, props = {}) {
   log(`Attempting to track event: ${event}`, props);
-  try {
-    const client = getMixpanel();
-    const startTime = Date.now();
-    
-    client.track(event, props, (err) => {
-      const duration = Date.now() - startTime;
-      if (err) {
-        log(`❌ Track failed after ${duration}ms`, { event, error: err.message, props });
-      } else {
-        log(`✅ Track successful after ${duration}ms`, { event, propsCount: Object.keys(props).length });
-      }
-    });
-  } catch (e) {
-    log(`❌ Track exception`, { event, error: e.message, props });
-  }
+  
+  // Return a promise to allow proper async handling in serverless
+  return new Promise((resolve) => {
+    try {
+      const client = getMixpanel();
+      const startTime = Date.now();
+      
+      client.track(event, props, (err) => {
+        const duration = Date.now() - startTime;
+        if (err) {
+          log(`❌ Track failed after ${duration}ms`, { event, error: err.message });
+        } else {
+          log(`✅ Track successful after ${duration}ms`, { event, propsCount: Object.keys(props).length });
+        }
+        // Always resolve - don't let tracking errors break the API
+        resolve();
+      });
+    } catch (e) {
+      log(`❌ Track exception`, { event, error: e.message });
+      resolve(); // Always resolve even on exception
+    }
+  });
 }
 
 function flush() {

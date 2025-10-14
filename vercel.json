@@ -26,6 +26,7 @@
     }
   ],
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "MIXPANEL_TOKEN": "1584facf326d548bc26be8daf9aa6b3e"
   }
 }

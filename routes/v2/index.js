@@ -1,6 +1,6 @@
 const express = require('express');
 const dataLoader = require('../../lib/dataLoader');
-const { track, flush } = require('../../utils/mixpanel');
+const { track } = require('../../utils/mixpanel');
 const {
   filterByDateRange,
   filterByTypes,
@@ -19,7 +19,7 @@ router.use((req, res, next) => {
   console.log(`[V2-MIDDLEWARE] ${req.method} ${req.path} - Tracking initiated`);
   const startTime = Date.now();
   
-  res.on('finish', async () => {
+  res.on('finish', () => {
     const duration = Date.now() - startTime;
     const pathParts = req.path.split('/').filter(p => p);
     
@@ -52,23 +52,17 @@ router.use((req, res, next) => {
       additionalProps.state = pathParts[1];
     }
     
-    try {
-      await track('V2 API Request', {
-        endpoint: '/api/v2' + req.path,
-        method: req.method,
-        endpoint_type: endpointType,
-        status_code: res.statusCode,
-        success: res.statusCode < 400,
-        response_time_ms: duration,
-        has_query_params: Object.keys(req.query).length > 0,
-        ...additionalProps
-      });
-      
-      await flush();
-    } catch (error) {
-      // Silently fail - don't affect API response
-      console.error('[MIXPANEL] V2 Tracking error:', error.message);
-    }
+    // Fire and forget tracking - don't wait for it
+    track('V2 API Request', {
+      endpoint: '/api/v2' + req.path,
+      method: req.method,
+      endpoint_type: endpointType,
+      status_code: res.statusCode,
+      success: res.statusCode < 400,
+      response_time_ms: duration,
+      has_query_params: Object.keys(req.query).length > 0,
+      ...additionalProps
+    }).catch(() => {}); // Silently ignore any tracking errors
   });
   
   next();

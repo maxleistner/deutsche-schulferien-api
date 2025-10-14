@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const cors = require("cors");
 const path = require("path");
-const https = require("https");
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const fs = require('fs');
@@ -26,149 +25,9 @@ app.use(bodyParser.json());
 const MIXPANEL_TOKEN = process.env.MIXPANEL_TOKEN;
 const trackingEnabled = !!MIXPANEL_TOKEN;
 
-// Function to send events to Mixpanel via HTTPS (Vercel serverless compatible)
-function trackMixpanelEvent(eventName, properties) {
-  if (!trackingEnabled) {
-    console.log(`[MIXPANEL-HTTP] Tracking disabled - no token provided`);
-    return;
-  }
-  
-  console.log(`[MIXPANEL-HTTP] Event: ${eventName} | Props: ${Object.keys(properties).length}`);
-  
-  try {
-    const data = {
-      event: eventName,
-      properties: {
-        token: MIXPANEL_TOKEN,
-        time: Math.floor(Date.now() / 1000),
-        ...properties
-      }
-    };
-    
-    const dataString = Buffer.from(JSON.stringify(data)).toString('base64');
-    const path = `/track/?data=${encodeURIComponent(dataString)}`;
-    
-    console.log(`[MIXPANEL-HTTP] Sending to: https://api.mixpanel.com${path.substring(0, 50)}...`);
-    
-    // Use Node.js HTTPS module for better Vercel compatibility
-    const req = https.request({
-      hostname: 'api.mixpanel.com',
-      port: 443,
-      path: path,
-      method: 'GET',
-      timeout: 5000,  // 5 second timeout
-      headers: {
-        'User-Agent': 'Schulferien-API/2.0'
-      }
-    }, (res) => {
-      if (res.statusCode >= 200 && res.statusCode < 300) {
-        console.log(`[MIXPANEL-HTTP] ✅ Event sent successfully: ${eventName}`);
-      } else {
-        console.log(`[MIXPANEL-HTTP] ❌ Event failed with status: ${res.statusCode}`);
-      }
-    });
-    
-    req.on('error', (error) => {
-      console.log(`[MIXPANEL-HTTP] ❌ Network error:`, error.message);
-    });
-    
-    req.on('timeout', () => {
-      console.log(`[MIXPANEL-HTTP] ❌ Request timeout for: ${eventName}`);
-      req.destroy();
-    });
-    
-    req.end();
-    
-  } catch (error) {
-    console.log(`[MIXPANEL-HTTP] ❌ Exception:`, error.message);
-  }
-}
+// Mixpanel analytics - using the cleaner SDK approach from utils/mixpanel.js
 
-// API Analytics Middleware
-app.use((req, res, next) => {
-  // Only track API endpoints
-  if (req.path.startsWith('/api/') && trackingEnabled) {
-    const pathParts = req.path.split('/');
-    const apiVersion = pathParts[2]; // v1, v2, etc.
-    const thirdPart = pathParts[3];
-    const fourthPart = pathParts[4];
-    
-    // Determine endpoint type based on complete endpoint patterns
-    let endpointType = 'unknown';
-    let year = null;
-    let state = null;
-    
-    // V1 Endpoints
-    if (req.path.match(/^\/api\/v1\/\d{4}$/)) {
-      endpointType = 'v1_year_all_states';
-      year = thirdPart;
-    } else if (req.path.match(/^\/api\/v1\/\d{4}\/[A-Z]{2}$/)) {
-      endpointType = 'v1_year_state';
-      year = thirdPart;
-      state = fourthPart;
-    }
-    
-    // V2 Named Endpoints
-    else if (req.path === '/api/v2/current') {
-      endpointType = 'v2_current_holidays';
-    } else if (req.path.match(/^\/api\/v2\/next\/\d+$/)) {
-      endpointType = 'v2_next_days';
-    } else if (req.path.match(/^\/api\/v2\/date\/[\d-]+$/)) {
-      endpointType = 'v2_date_lookup';
-    } else if (req.path === '/api/v2/search') {
-      endpointType = 'v2_search';
-    } else if (req.path.match(/^\/api\/v2\/stats\/\d{4}$/)) {
-      endpointType = 'v2_stats';
-      year = thirdPart;
-    } else if (req.path.match(/^\/api\/v2\/compare\/\d{4}\/\d{4}$/)) {
-      endpointType = 'v2_compare';
-    }
-    
-    // V2 Year Endpoints (must be last to avoid conflicts)
-    else if (req.path.match(/^\/api\/v2\/\d{4}$/)) {
-      endpointType = 'v2_year_filtered';
-      year = thirdPart;
-    } else if (req.path.match(/^\/api\/v2\/\d{4}\/[A-Z]{2}$/)) {
-      endpointType = 'v2_year_state_filtered';
-      year = thirdPart;
-      state = fourthPart;
-    }
-    
-    // System Endpoints
-    else if (req.path === '/health') {
-      endpointType = 'system_health';
-    } else if (req.path === '/ready') {
-      endpointType = 'system_ready';
-    } else if (req.path === '/status') {
-      endpointType = 'system_status';
-    }
-    
-    // Prepare tracking data
-    const trackingData = {
-      distinct_id: req.ip || 'anonymous',
-      endpoint: req.path,
-      method: req.method,
-      endpoint_type: endpointType,
-      api_version: apiVersion || 'system',
-      year: year || null,
-      state: state ? state.toUpperCase() : null,
-      has_query_params: Object.keys(req.query).length > 0,
-      user_agent: req.get('User-Agent') || 'unknown',
-      referer: req.get('Referer') || 'direct',
-      country: req.headers['cf-ipcountry'] || req.headers['x-forwarded-for']?.split(',')[0]?.trim() || 'unknown'
-    };
-    
-    // Add specific query params for interesting endpoints
-    if (req.query.type) trackingData.vacation_type = req.query.type;
-    if (req.query.states) trackingData.filter_states = req.query.states;
-    if (req.query.q) trackingData.search_query = req.query.q;
-    
-    // Track the event using our HTTP function
-    trackMixpanelEvent('API Request', trackingData);
-  }
-  
-  next();
-});
+// Analytics are handled by individual route handlers via utils/mixpanel.js
 
 // Serve static files (serverless-safe)
 app.use(express.static(path.join(__dirname, 'public'), {

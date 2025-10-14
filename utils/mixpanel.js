@@ -49,16 +49,24 @@ function track(event, props = {}) {
   
   // Return a promise to allow proper async handling in serverless
   return new Promise((resolve) => {
+    // Set a timeout to prevent hanging
+    const timeout = setTimeout(() => {
+      log(`⏰ Track timeout for: ${event}`);
+      resolve(); // Resolve anyway to not block API
+    }, 3000); // 3 second timeout
+    
     try {
       const client = getMixpanel();
       const startTime = Date.now();
       
       client.track(event, props, (err) => {
+        clearTimeout(timeout); // Cancel timeout since we got a response
         const duration = Date.now() - startTime;
+        
         if (err) {
-          log(`❌ Track failed after ${duration}ms`, { event, error: err.message });
-          // Always log errors, even in production
-          console.error(`[MIXPANEL-ERROR] ${event}:`, err.message);
+          const errorMsg = err.message || err.toString() || 'Unknown Mixpanel error';
+          log(`❌ Track failed after ${duration}ms`, { event, error: errorMsg });
+          // Don't log errors in production to reduce noise - they're not critical
         } else {
           log(`✅ Track successful after ${duration}ms`, { event, propsCount: Object.keys(props).length });
           // Minimal success log in production
@@ -70,8 +78,9 @@ function track(event, props = {}) {
         resolve();
       });
     } catch (e) {
+      clearTimeout(timeout);
       log(`❌ Track exception`, { event, error: e.message });
-      console.error(`[MIXPANEL-EXCEPTION] ${event}:`, e.message);
+      // Don't log exceptions in production - they're not critical
       resolve(); // Always resolve even on exception
     }
   });

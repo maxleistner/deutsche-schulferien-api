@@ -1,14 +1,12 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-const { track } = require("../../utils/mixpanel");
 
 const router = express.Router();
 //const data = fs.readFileSync(path.join(__dirname, "./vacations.json"));
 
 // Filter to get all vacs depending on the year
 const getAllVacationsByYear = async (req, res, next) => {
-  const startTime = Date.now();
   
   try {
     const dataY = fs.readFileSync(
@@ -23,35 +21,8 @@ const getAllVacationsByYear = async (req, res, next) => {
       throw err;
     }
     
-    // Track successful API call (fire-and-forget)
-    res.on('finish', () => {
-      const duration = Date.now() - startTime;
-      // Fire and forget - don't wait for tracking
-      track('V1 API Request', {
-        endpoint: req.originalUrl,
-        method: req.method,
-        year: req.params.year,
-        state: null,
-        status_code: res.statusCode,
-        success: res.statusCode < 400,
-        response_time_ms: duration,
-        result_count: vacs.length
-      }).catch(() => {}); // Silently ignore any errors
-    });
-    
     res.json(vacs);
   } catch (e) {
-    // Track error (fire-and-forget)
-    const duration = Date.now() - startTime;
-    track('V1 API Error', {
-      endpoint: req.originalUrl,
-      method: req.method,
-      year: req.params.year,
-      state: null,
-      error: e.message,
-      status_code: e.status || 500,
-      response_time_ms: duration
-    }).catch(() => {}); // Silently ignore tracking errors
     next(e);
   }
 };
@@ -60,7 +31,6 @@ router.route("/:year").get(getAllVacationsByYear);
 
 // Filter to get all vacs depending on the year and/or state
 const getAllVacationsByYearAndState = async (req, res, next) => {
-  const startTime = Date.now();
   
   try {
     const dataY = fs.readFileSync(
@@ -81,35 +51,8 @@ const getAllVacationsByYearAndState = async (req, res, next) => {
       throw err;
     }
     
-    // Track successful API call (fire-and-forget)
-    res.on('finish', () => {
-      const duration = Date.now() - startTime;
-      // Fire and forget - don't wait for tracking
-      track('V1 API Request', {
-        endpoint: req.originalUrl,
-        method: req.method,
-        year: req.params.year,
-        state: req.params.state,
-        status_code: res.statusCode,
-        success: res.statusCode < 400,
-        response_time_ms: duration,
-        result_count: vacations.length
-      }).catch(() => {}); // Silently ignore any errors
-    });
-    
     res.json(vacations);
   } catch (e) {
-    // Track error (fire-and-forget)
-    const duration = Date.now() - startTime;
-    track('V1 API Error', {
-      endpoint: req.originalUrl,
-      method: req.method,
-      year: req.params.year,
-      state: req.params.state,
-      error: e.message,
-      status_code: e.status || 500,
-      response_time_ms: duration
-    }).catch(() => {}); // Silently ignore tracking errors
     next(e);
   }
 };

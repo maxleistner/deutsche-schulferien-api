@@ -21,13 +21,7 @@ app.use(cors());
 app.use(logger("tiny"));
 app.use(bodyParser.json());
 
-// Mixpanel Analytics Setup
-const MIXPANEL_TOKEN = process.env.MIXPANEL_TOKEN;
-const trackingEnabled = !!MIXPANEL_TOKEN;
-
-// Mixpanel analytics - using the cleaner SDK approach from utils/mixpanel.js
-
-// Analytics are handled by individual route handlers via utils/mixpanel.js
+// No analytics tracking
 
 // Serve static files (serverless-safe)
 app.use(express.static(path.join(__dirname, 'public'), {
@@ -157,16 +151,17 @@ try {
   });
 }
 
-// Mount specific routes first (before catch-all)
-app.use("/api/v1", v1Router);
-app.use("/api/v2", v2Router);
-app.use("/", systemRouter);
-
-// Serve index page explicitly (serverless-safe)
+// Serve index page explicitly (serverless-safe) BEFORE other routers
 app.get('/', (req, res) => {
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(getFancyHomePage());
 });
+
+// Mount specific routes
+app.use("/api/v1", v1Router);
+app.use("/api/v2", v2Router);
+app.use("/", systemRouter);
+
 
 // Fancy home page function - embedded HTML content (from public/index.html)
 function getFancyHomePage() {

@@ -306,6 +306,7 @@ Time:        0.729 s
 
 ### Kürzlich behobene Probleme
 
+- ✅ **Enddatum-Format korrigiert (Breaking Change)**: Enddaten zeigen jetzt den tatsächlichen letzten Ferientag um 23:59Z (inklusiv) statt den Folgetag um 00:00Z. Insgesamt wurden 590 Einträge in den Jahren 2022–2027 angepasst
 - ✅ **Baden-Württemberg 2027**: Fehlerhaft als `winterferien` klassifizierte März-Ferien wurden zu `osterferien` korrigiert
 - ✅ **Datenvalidierung**: Umfassende Tests für alle Jahre und Bundesländer implementiert
 - ✅ **Konsistenzprüfung**: Automatische Erkennung von Datenanomalien
@@ -326,7 +327,7 @@ Jeder Ferieneintrag enthält:
 ```json
 {
   "start": "2024-07-25T00:00Z",
-  "end": "2024-09-08T00:00Z",
+  "end": "2024-09-07T23:59Z",
   "year": 2024,
   "stateCode": "BW",
   "name": "sommerferien",
@@ -336,10 +337,13 @@ Jeder Ferieneintrag enthält:
 
 **Wichtige Hinweise:**
 - Alle Daten im ISO 8601 Format mit UTC-Zeitzone
+- Das Enddatum `end` ist **inklusiv** und repräsentiert den letzten Ferientag um 23:59Z (UTC)
 - Bundesland-Codes sind zweistellige Abkürzungen in Großbuchstaben
 - Ferientypen verwenden deutsche Namen
 - Hamburg verwendet `fruehjahrsferien` statt `osterferien`
 - Slugs folgen dem Format `ferientyp-jahr-bundesland`
+
+**Migration:** Entfernen Sie ggf. clientseitige Workarounds wie "end - 1 Tag", da das Enddatum jetzt korrekt den letzten Ferientag anzeigt.
 
 ## Unterstützung gerne gesehen
 

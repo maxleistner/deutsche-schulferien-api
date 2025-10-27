@@ -70,7 +70,7 @@ Each vacation record contains:
 ```json
 {
   "start": "2024-07-25T00:00Z",
-  "end": "2024-09-08T00:00Z", 
+  "end": "2024-09-07T23:59Z", 
   "year": 2024,
   "stateCode": "BW",
   "name": "sommerferien",
@@ -107,6 +107,8 @@ Each vacation record contains:
 ### Date Format
 All dates use ISO 8601 format with UTC timezone: `YYYY-MM-DDTHH:mmZ`
 
+**Important:** The `end` date is **inclusive** and represents the last day of vacation at 23:59Z (UTC). This was corrected from the previous format where end dates showed the day after vacation ended at 00:00Z.
+
 ### Filtering Logic
 - Year filtering: Matches `req.params.year` against `vac.year` property
 - State filtering: Matches `req.params.state` against `vac.stateCode` property
@@ -134,7 +136,6 @@ npx vercel dev
 
 ### Deployment Configuration
 - **vercel.json**: Configures Express.js app as serverless function
-- **Analytics**: Tracks API usage, endpoint performance, and user metrics
 - **Environment Variables**: Set in Vercel dashboard for production/preview
 
 ### Environment Setup
@@ -145,45 +146,15 @@ npx vercel dev
 
 ## Monitoring
 
-### Vercel Analytics Dashboard
-Access monitoring data at: https://vercel.com/dashboard
-
-**Available Metrics:**
-- **Function Invocations**: Request counts per endpoint
-- **Performance**: Response times and cold start metrics
-- **Errors**: Failed requests and error rates
-- **Geographic**: Request distribution by location
-- **Custom Events**: API usage tracking with details:
-  - API version (v1/v2)
-  - German state codes (BY, BW, etc.)
-  - Vacation types (sommerferien, winterferien, etc.)
-  - Query parameters and filters
-
-### Key Analytics Features
-- **Real-time Dashboard**: Live usage statistics
-- **Custom Event Tracking**: Detailed API usage patterns
-- **Performance Monitoring**: Function execution times
-- **Error Tracking**: Failed requests with context
-- **User Journey**: Request patterns and popular endpoints
-
-### Monitoring Endpoints
+### System Endpoints
 - `GET /health` - Health check endpoint
 - `GET /status` - API status and version info
 - `GET /ready` - Readiness probe
-
-### Usage Insights
-The analytics track:
-- Most requested German states (Bayern, NRW, etc.)
-- Popular vacation types (Sommerferien peak usage)
-- API version adoption (v1 vs v2)
-- Seasonal traffic patterns
-- Geographic usage distribution
 
 ### Troubleshooting
 - **Function Logs**: Available in Vercel dashboard → Functions → Logs
 - **Performance Issues**: Check cold start times and optimization opportunities
 - **Error Analysis**: Review failed requests with full context
-- **Analytics Debugging**: Custom events visible in Web Analytics → Events
 
 ## Data Maintenance
 

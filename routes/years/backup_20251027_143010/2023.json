@@ -1,7 +1,7 @@
 [
   {
     "start": "2023-04-06T00:00Z",
-    "end": "2023-04-06T23:59Z",
+    "end": "2023-04-06T00:00Z",
     "year": 2023,
     "stateCode": "BW",
     "name": "osterferien",
@@ -9,7 +9,7 @@
   },
   {
     "start": "2023-04-11T00:00Z",
-    "end": "2023-04-14T23:59Z",
+    "end": "2023-04-15T00:00Z",
     "year": 2023,
     "stateCode": "BW",
     "name": "osterferien",
@@ -17,7 +17,7 @@
   },
   {
     "start": "2023-05-30T00:00Z",
-    "end": "2023-06-08T23:59Z",
+    "end": "2023-06-09T00:00Z",
     "year": 2023,
     "stateCode": "BW",
     "name": "pfingstferien",
@@ -25,7 +25,7 @@
   },
   {
     "start": "2023-07-27T00:00Z",
-    "end": "2023-09-08T23:59Z",
+    "end": "2023-09-09T00:00Z",
     "year": 2023,
     "stateCode": "BW",
     "name": "sommerferien",
@@ -33,7 +33,7 @@
   },
   {
     "start": "2023-10-30T00:00Z",
-    "end": "2023-11-02T23:59Z",
+    "end": "2023-11-03T00:00Z",
     "year": 2023,
     "stateCode": "BW",
     "name": "herbstferien",
@@ -41,7 +41,7 @@
   },
   {
     "start": "2023-12-23T00:00Z",
-    "end": "2024-01-04T23:59Z",
+    "end": "2024-01-05T00:00Z",
     "year": 2023,
     "stateCode": "BW",
     "name": "weihnachtsferien",
@@ -49,7 +49,7 @@
   },
   {
     "start": "2023-02-20T00:00Z",
-    "end": "2023-02-23T23:59Z",
+    "end": "2023-02-24T00:00Z",
     "year": 2023,
     "stateCode": "BY",
     "name": "winterferien",
@@ -57,7 +57,7 @@
   },
   {
     "start": "2023-04-03T00:00Z",
-    "end": "2023-04-14T23:59Z",
+    "end": "2023-04-15T00:00Z",
     "year": 2023,
     "stateCode": "BY",
     "name": "osterferien",
@@ -65,7 +65,7 @@
   },
   {
     "start": "2023-05-30T00:00Z",
-    "end": "2023-06-08T23:59Z",
+    "end": "2023-06-09T00:00Z",
     "year": 2023,
     "stateCode": "BY",
     "name": "pfingstferien",
@@ -73,7 +73,7 @@
   },
   {
     "start": "2023-07-31T00:00Z",
-    "end": "2023-09-10T23:59Z",
+    "end": "2023-09-11T00:00Z",
     "year": 2023,
     "stateCode": "BY",
     "name": "sommerferien",
@@ -81,7 +81,7 @@
   },
   {
     "start": "2023-10-30T00:00Z",
-    "end": "2023-11-02T23:59Z",
+    "end": "2023-11-03T00:00Z",
     "year": 2023,
     "stateCode": "BY",
     "name": "herbstferien",
@@ -89,7 +89,7 @@
   },
   {
     "start": "2023-11-22T00:00Z",
-    "end": "2023-11-22T23:59Z",
+    "end": "2023-11-22T00:00Z",
     "year": 2023,
     "stateCode": "BY",
     "name": "herbstferien",
@@ -97,7 +97,7 @@
   },
   {
     "start": "2023-12-23T00:00Z",
-    "end": "2024-01-04T23:59Z",
+    "end": "2024-01-05T00:00Z",
     "year": 2023,
     "stateCode": "BY",
     "name": "weihnachtsferien",
@@ -105,7 +105,7 @@
   },
   {
     "start": "2023-01-30T00:00Z",
-    "end": "2023-02-03T23:59Z",
+    "end": "2023-02-04T00:00Z",
     "year": 2023,
     "stateCode": "BE",
     "name": "winterferien",
@@ -113,7 +113,7 @@
   },
   {
     "start": "2023-04-03T00:00Z",
-    "end": "2023-04-13T23:59Z",
+    "end": "2023-04-14T00:00Z",
     "year": 2023,
     "stateCode": "BE",
     "name": "osterferien",
@@ -121,7 +121,7 @@
   },
   {
     "start": "2023-05-19T00:00Z",
-    "end": "2023-05-29T23:59Z",
+    "end": "2023-05-30T00:00Z",
     "year": 2023,
     "stateCode": "BE",
     "name": "pfingstferien",
@@ -129,7 +129,7 @@
   },
   {
     "start": "2023-07-13T00:00Z",
-    "end": "2023-08-24T23:59Z",
+    "end": "2023-08-25T00:00Z",
     "year": 2023,
     "stateCode": "BE",
     "name": "sommerferien",
@@ -137,7 +137,7 @@
   },
   {
     "start": "2023-10-02T00:00Z",
-    "end": "2023-10-22T23:59Z",
+    "end": "2023-10-23T00:00Z",
     "year": 2023,
     "stateCode": "BE",
     "name": "herbstferien",
@@ -145,7 +145,7 @@
   },
   {
     "start": "2023-11-04T00:00Z",
-    "end": "2023-11-04T23:59Z",
+    "end": "2023-11-04T00:00Z",
     "year": 2023,
     "stateCode": "BE",
     "name": "herbstferien",
@@ -153,7 +153,7 @@
   },
   {
     "start": "2023-12-23T00:00Z",
-    "end": "2024-01-04T23:59Z",
+    "end": "2024-01-05T00:00Z",
     "year": 2023,
     "stateCode": "BE",
     "name": "weihnachtsferien",
@@ -161,7 +161,7 @@
   },
   {
     "start": "2023-01-30T00:00Z",
-    "end": "2023-02-02T23:59Z",
+    "end": "2023-02-03T00:00Z",
     "year": 2023,
     "stateCode": "BB",
     "name": "winterferien",
@@ -169,7 +169,7 @@
   },
   {
     "start": "2023-04-03T00:00Z",
-    "end": "2023-04-13T23:59Z",
+    "end": "2023-04-14T00:00Z",
     "year": 2023,
     "stateCode": "BB",
     "name": "osterferien",
@@ -177,7 +177,7 @@
   },
   {
     "start": "2023-07-13T00:00Z",
-    "end": "2023-08-25T23:59Z",
+    "end": "2023-08-26T00:00Z",
     "year": 2023,
     "stateCode": "BB",
     "name": "sommerferien",
@@ -185,7 +185,7 @@
   },
   {
     "start": "2023-10-23T00:00Z",
-    "end": "2023-11-03T23:59Z",
+    "end": "2023-11-04T00:00Z",
     "year": 2023,
     "stateCode": "BB",
     "name": "herbstferien",
@@ -193,7 +193,7 @@
   },
   {
     "start": "2023-12-23T00:00Z",
-    "end": "2024-01-04T23:59Z",
+    "end": "2024-01-05T00:00Z",
     "year": 2023,
     "stateCode": "BB",
     "name": "weihnachtsferien",
@@ -201,7 +201,7 @@
   },
   {
     "start": "2023-01-30T00:00Z",
-    "end": "2023-01-30T23:59Z",
+    "end": "2023-01-31T00:00Z",
     "year": 2023,
     "stateCode": "HB",
     "name": "winterferien",
@@ -209,7 +209,7 @@
   },
   {
     "start": "2023-03-27T00:00Z",
-    "end": "2023-04-10T23:59Z",
+    "end": "2023-04-11T00:00Z",
     "year": 2023,
     "stateCode": "HB",
     "name": "osterferien",
@@ -217,7 +217,7 @@
   },
   {
     "start": "2023-05-19T00:00Z",
-    "end": "2023-05-29T23:59Z",
+    "end": "2023-05-30T00:00Z",
     "year": 2023,
     "stateCode": "HB",
     "name": "pfingstferien",
@@ -225,7 +225,7 @@
   },
   {
     "start": "2023-07-06T00:00Z",
-    "end": "2023-08-15T23:59Z",
+    "end": "2023-08-16T00:00Z",
     "year": 2023,
     "stateCode": "HB",
     "name": "sommerferien",
@@ -233,7 +233,7 @@
   },
   {
     "start": "2023-10-02T00:00Z",
-    "end": "2023-10-02T23:59Z",
+    "end": "2023-10-02T00:00Z",
     "year": 2023,
     "stateCode": "HB",
     "name": "herbstferien",
@@ -241,7 +241,7 @@
   },
   {
     "start": "2023-10-16T00:00Z",
-    "end": "2023-10-29T23:59Z",
+    "end": "2023-10-30T00:00Z",
     "year": 2023,
     "stateCode": "HB",
     "name": "herbstferien",
@@ -249,7 +249,7 @@
   },
   {
     "start": "2023-12-23T00:00Z",
-    "end": "2024-01-04T23:59Z",
+    "end": "2024-01-05T00:00Z",
     "year": 2023,
     "stateCode": "HB",
     "name": "weihnachtsferien",
@@ -257,7 +257,7 @@
   },
   {
     "start": "2023-01-27T00:00Z",
-    "end": "2023-01-27T23:59Z",
+    "end": "2023-01-27T00:00Z",
     "year": 2023,
     "stateCode": "HH",
     "name": "winterferien",
@@ -265,7 +265,7 @@
   },
   {
     "start": "2023-03-06T00:00Z",
-    "end": "2023-03-16T23:59Z",
+    "end": "2023-03-17T00:00Z",
     "year": 2023,
     "stateCode": "HH",
     "name": "osterferien",
@@ -273,7 +273,7 @@
   },
   {
     "start": "2023-05-15T00:00Z",
-    "end": "2023-05-18T23:59Z",
+    "end": "2023-05-19T00:00Z",
     "year": 2023,
     "stateCode": "HH",
     "name": "pfingstferien",
@@ -281,7 +281,7 @@
   },
   {
     "start": "2023-07-13T00:00Z",
-    "end": "2023-08-22T23:59Z",
+    "end": "2023-08-23T00:00Z",
     "year": 2023,
     "stateCode": "HH",
     "name": "sommerferien",
@@ -289,7 +289,7 @@
   },
   {
     "start": "2023-10-02T00:00Z",
-    "end": "2023-10-02T23:59Z",
+    "end": "2023-10-02T00:00Z",
     "year": 2023,
     "stateCode": "HH",
     "name": "herbstferien",
@@ -297,7 +297,7 @@
   },
   {
     "start": "2023-10-16T00:00Z",
-    "end": "2023-10-26T23:59Z",
+    "end": "2023-10-27T00:00Z",
     "year": 2023,
     "stateCode": "HH",
     "name": "herbstferien",
@@ -305,7 +305,7 @@
   },
   {
     "start": "2023-12-22T00:00Z",
-    "end": "2024-01-04T23:59Z",
+    "end": "2024-01-05T00:00Z",
     "year": 2023,
     "stateCode": "HH",
     "name": "weihnachtsferien",
@@ -313,7 +313,7 @@
   },
   {
     "start": "2023-04-03T00:00Z",
-    "end": "2023-04-21T23:59Z",
+    "end": "2023-04-22T00:00Z",
     "year": 2023,
     "stateCode": "HE",
     "name": "osterferien",
@@ -321,7 +321,7 @@
   },
   {
     "start": "2023-07-24T00:00Z",
-    "end": "2023-08-31T23:59Z",
+    "end": "2023-09-01T00:00Z",
     "year": 2023,
     "stateCode": "HE",
     "name": "sommerferien",
@@ -329,7 +329,7 @@
   },
   {
     "start": "2023-10-23T00:00Z",
-    "end": "2023-10-27T23:59Z",
+    "end": "2023-10-28T00:00Z",
     "year": 2023,
     "stateCode": "HE",
     "name": "herbstferien",
@@ -337,7 +337,7 @@
   },
   {
     "start": "2023-12-27T00:00Z",
-    "end": "2024-01-12T23:59Z",
+    "end": "2024-01-13T00:00Z",
     "year": 2023,
     "stateCode": "HE",
     "name": "weihnachtsferien",
@@ -345,7 +345,7 @@
   },
   {
     "start": "2023-02-06T00:00Z",
-    "end": "2023-02-17T23:59Z",
+    "end": "2023-02-18T00:00Z",
     "year": 2023,
     "stateCode": "MV",
     "name": "winterferien",
@@ -353,7 +353,7 @@
   },
   {
     "start": "2023-04-03T00:00Z",
-    "end": "2023-04-11T23:59Z",
+    "end": "2023-04-12T00:00Z",
     "year": 2023,
     "stateCode": "MV",
     "name": "osterferien",
@@ -361,7 +361,7 @@
   },
   {
     "start": "2023-05-19T00:00Z",
-    "end": "2023-05-19T23:59Z",
+    "end": "2023-05-19T00:00Z",
     "year": 2023,
     "stateCode": "MV",
     "name": "pfingstferien",
@@ -369,7 +369,7 @@
   },
   {
     "start": "2023-05-26T00:00Z",
-    "end": "2023-05-29T23:59Z",
+    "end": "2023-05-30T00:00Z",
     "year": 2023,
     "stateCode": "MV",
     "name": "pfingstferien",
@@ -377,7 +377,7 @@
   },
   {
     "start": "2023-07-17T00:00Z",
-    "end": "2023-08-25T23:59Z",
+    "end": "2023-08-26T00:00Z",
     "year": 2023,
     "stateCode": "MV",
     "name": "sommerferien",
@@ -385,7 +385,7 @@
   },
   {
     "start": "2023-10-09T00:00Z",
-    "end": "2023-10-13T23:59Z",
+    "end": "2023-10-14T00:00Z",
     "year": 2023,
     "stateCode": "MV",
     "name": "herbstferien",
@@ -393,7 +393,7 @@
   },
   {
     "start": "2023-10-30T00:00Z",
-    "end": "2023-10-31T23:59Z",
+    "end": "2023-11-01T00:00Z",
     "year": 2023,
     "stateCode": "MV",
     "name": "herbstferien",
@@ -401,7 +401,7 @@
   },
   {
     "start": "2023-12-21T00:00Z",
-    "end": "2024-01-02T23:59Z",
+    "end": "2024-01-03T00:00Z",
     "year": 2023,
     "stateCode": "MV",
     "name": "weihnachtsferien",
@@ -409,7 +409,7 @@
   },
   {
     "start": "2023-01-30T00:00Z",
-    "end": "2023-01-30T23:59Z",
+    "end": "2023-01-31T00:00Z",
     "year": 2023,
     "stateCode": "NI",
     "name": "winterferien",
@@ -417,7 +417,7 @@
   },
   {
     "start": "2023-03-27T00:00Z",
-    "end": "2023-04-10T23:59Z",
+    "end": "2023-04-11T00:00Z",
     "year": 2023,
     "stateCode": "NI",
     "name": "osterferien",
@@ -425,7 +425,7 @@
   },
   {
     "start": "2023-05-19T00:00Z",
-    "end": "2023-05-19T23:59Z",
+    "end": "2023-05-19T00:00Z",
     "year": 2023,
     "stateCode": "NI",
     "name": "pfingstferien",
@@ -433,7 +433,7 @@
   },
   {
     "start": "2023-05-30T00:00Z",
-    "end": "2023-05-30T23:59Z",
+    "end": "2023-05-30T00:00Z",
     "year": 2023,
     "stateCode": "NI",
     "name": "pfingstferien",
@@ -441,7 +441,7 @@
   },
   {
     "start": "2023-07-06T00:00Z",
-    "end": "2023-08-15T23:59Z",
+    "end": "2023-08-16T00:00Z",
     "year": 2023,
     "stateCode": "NI",
     "name": "sommerferien",
@@ -449,7 +449,7 @@
   },
   {
     "start": "2023-10-02T00:00Z",
-    "end": "2023-10-02T23:59Z",
+    "end": "2023-10-02T00:00Z",
     "year": 2023,
     "stateCode": "NI",
     "name": "herbstferien",
@@ -457,7 +457,7 @@
   },
   {
     "start": "2023-10-16T00:00Z",
-    "end": "2023-10-29T23:59Z",
+    "end": "2023-10-30T00:00Z",
     "year": 2023,
     "stateCode": "NI",
     "name": "herbstferien",
@@ -465,7 +465,7 @@
   },
   {
     "start": "2023-12-27T00:00Z",
-    "end": "2024-01-04T23:59Z",
+    "end": "2024-01-05T00:00Z",
     "year": 2023,
     "stateCode": "NI",
     "name": "weihnachtsferien",
@@ -473,7 +473,7 @@
   },
   {
     "start": "2023-04-03T00:00Z",
-    "end": "2023-04-14T23:59Z",
+    "end": "2023-04-15T00:00Z",
     "year": 2023,
     "stateCode": "NW",
     "name": "osterferien",
@@ -481,7 +481,7 @@
   },
   {
     "start": "2023-05-30T00:00Z",
-    "end": "2023-05-30T23:59Z",
+    "end": "2023-05-30T00:00Z",
     "year": 2023,
     "stateCode": "NW",
     "name": "pfingstferien",
@@ -489,7 +489,7 @@
   },
   {
     "start": "2023-06-22T00:00Z",
-    "end": "2023-08-03T23:59Z",
+    "end": "2023-08-04T00:00Z",
     "year": 2023,
     "stateCode": "NW",
     "name": "sommerferien",
@@ -497,7 +497,7 @@
   },
   {
     "start": "2023-10-02T00:00Z",
-    "end": "2023-10-13T23:59Z",
+    "end": "2023-10-14T00:00Z",
     "year": 2023,
     "stateCode": "NW",
     "name": "herbstferien",
@@ -505,7 +505,7 @@
   },
   {
     "start": "2023-12-21T00:00Z",
-    "end": "2024-01-04T23:59Z",
+    "end": "2024-01-05T00:00Z",
     "year": 2023,
     "stateCode": "NW",
     "name": "weihnachtsferien",
@@ -513,7 +513,7 @@
   },
   {
     "start": "2023-04-03T00:00Z",
-    "end": "2023-04-05T23:59Z",
+    "end": "2023-04-06T00:00Z",
     "year": 2023,
     "stateCode": "RP",
     "name": "osterferien",
@@ -521,7 +521,7 @@
   },
   {
     "start": "2023-05-30T00:00Z",
-    "end": "2023-06-06T23:59Z",
+    "end": "2023-06-07T00:00Z",
     "year": 2023,
     "stateCode": "RP",
     "name": "pfingstferien",
@@ -529,7 +529,7 @@
   },
   {
     "start": "2023-07-24T00:00Z",
-    "end": "2023-08-31T23:59Z",
+    "end": "2023-09-01T00:00Z",
     "year": 2023,
     "stateCode": "RP",
     "name": "sommerferien",
@@ -537,7 +537,7 @@
   },
   {
     "start": "2023-10-16T00:00Z",
-    "end": "2023-10-26T23:59Z",
+    "end": "2023-10-27T00:00Z",
     "year": 2023,
     "stateCode": "RP",
     "name": "herbstferien",
@@ -545,7 +545,7 @@
   },
   {
     "start": "2023-12-27T00:00Z",
-    "end": "2024-01-04T23:59Z",
+    "end": "2024-01-05T00:00Z",
     "year": 2023,
     "stateCode": "RP",
     "name": "weihnachtsferien",
@@ -553,7 +553,7 @@
   },
   {
     "start": "2023-02-20T00:00Z",
-    "end": "2023-02-23T23:59Z",
+    "end": "2023-02-24T00:00Z",
     "year": 2023,
     "stateCode": "SL",
     "name": "winterferien",
@@ -561,7 +561,7 @@
   },
   {
     "start": "2023-04-03T00:00Z",
-    "end": "2023-04-11T23:59Z",
+    "end": "2023-04-12T00:00Z",
     "year": 2023,
     "stateCode": "SL",
     "name": "osterferien",
@@ -569,7 +569,7 @@
   },
   {
     "start": "2023-05-30T00:00Z",
-    "end": "2023-06-01T23:59Z",
+    "end": "2023-06-02T00:00Z",
     "year": 2023,
     "stateCode": "SL",
     "name": "pfingstferien",
@@ -577,7 +577,7 @@
   },
   {
     "start": "2023-07-24T00:00Z",
-    "end": "2023-08-31T23:59Z",
+    "end": "2023-09-01T00:00Z",
     "year": 2023,
     "stateCode": "SL",
     "name": "sommerferien",
@@ -585,7 +585,7 @@
   },
   {
     "start": "2023-10-02T00:00Z",
-    "end": "2023-10-13T23:59Z",
+    "end": "2023-10-14T00:00Z",
     "year": 2023,
     "stateCode": "SL",
     "name": "herbstferien",
@@ -593,7 +593,7 @@
   },
   {
     "start": "2023-10-30T00:00Z",
-    "end": "2023-10-30T23:59Z",
+    "end": "2023-10-30T00:00Z",
     "year": 2023,
     "stateCode": "SL",
     "name": "herbstferien",
@@ -601,7 +601,7 @@
   },
   {
     "start": "2023-12-21T00:00Z",
-    "end": "2024-01-01T23:59Z",
+    "end": "2024-01-02T00:00Z",
     "year": 2023,
     "stateCode": "SL",
     "name": "weihnachtsferien",
@@ -609,7 +609,7 @@
   },
   {
     "start": "2023-02-13T00:00Z",
-    "end": "2023-02-23T23:59Z",
+    "end": "2023-02-24T00:00Z",
     "year": 2023,
     "stateCode": "SN",
     "name": "winterferien",
@@ -617,7 +617,7 @@
   },
   {
     "start": "2023-04-07T00:00Z",
-    "end": "2023-04-14T23:59Z",
+    "end": "2023-04-15T00:00Z",
     "year": 2023,
     "stateCode": "SN",
     "name": "osterferien",
@@ -625,7 +625,7 @@
   },
   {
     "start": "2023-05-19T00:00Z",
-    "end": "2023-05-19T23:59Z",
+    "end": "2023-05-19T00:00Z",
     "year": 2023,
     "stateCode": "SN",
     "name": "pfingstferien",
@@ -633,7 +633,7 @@
   },
   {
     "start": "2023-07-10T00:00Z",
-    "end": "2023-08-17T23:59Z",
+    "end": "2023-08-18T00:00Z",
     "year": 2023,
     "stateCode": "SN",
     "name": "sommerferien",
@@ -641,7 +641,7 @@
   },
   {
     "start": "2023-10-02T00:00Z",
-    "end": "2023-10-02T23:59Z",
+    "end": "2023-10-02T00:00Z",
     "year": 2023,
     "stateCode": "SN",
     "name": "herbstferien",
@@ -649,7 +649,7 @@
   },
   {
     "start": "2023-10-16T00:00Z",
-    "end": "2023-10-29T23:59Z",
+    "end": "2023-10-30T00:00Z",
     "year": 2023,
     "stateCode": "SN",
     "name": "herbstferien",
@@ -657,7 +657,7 @@
   },
   {
     "start": "2023-12-23T00:00Z",
-    "end": "2024-01-01T23:59Z",
+    "end": "2024-01-02T00:00Z",
     "year": 2023,
     "stateCode": "SN",
     "name": "weihnachtsferien",
@@ -665,7 +665,7 @@
   },
   {
     "start": "2023-02-06T00:00Z",
-    "end": "2023-02-10T23:59Z",
+    "end": "2023-02-11T00:00Z",
     "year": 2023,
     "stateCode": "ST",
     "name": "winterferien",
@@ -673,7 +673,7 @@
   },
   {
     "start": "2023-04-13T00:00Z",
-    "end": "2023-04-07T23:59Z",
+    "end": "2023-04-08T00:00Z",
     "year": 2023,
     "stateCode": "ST",
     "name": "osterferien",
@@ -681,7 +681,7 @@
   },
   {
     "start": "2023-05-15T00:00Z",
-    "end": "2023-05-18T23:59Z",
+    "end": "2023-05-19T00:00Z",
     "year": 2023,
     "stateCode": "ST",
     "name": "pfingstferien",
@@ -689,7 +689,7 @@
   },
   {
     "start": "2023-07-06T00:00Z",
-    "end": "2023-08-15T23:59Z",
+    "end": "2023-08-16T00:00Z",
     "year": 2023,
     "stateCode": "ST",
     "name": "sommerferien",
@@ -697,7 +697,7 @@
   },
   {
     "start": "2023-10-02T00:00Z",
-    "end": "2023-10-02T23:59Z",
+    "end": "2023-10-02T00:00Z",
     "year": 2023,
     "stateCode": "ST",
     "name": "herbstferien",
@@ -705,7 +705,7 @@
   },
   {
     "start": "2023-10-16T00:00Z",
-    "end": "2023-10-29T23:59Z",
+    "end": "2023-10-30T00:00Z",
     "year": 2023,
     "stateCode": "ST",
     "name": "herbstferien",
@@ -713,7 +713,7 @@
   },
   {
     "start": "2023-12-21T00:00Z",
-    "end": "2024-01-02T23:59Z",
+    "end": "2024-01-03T00:00Z",
     "year": 2023,
     "stateCode": "ST",
     "name": "weihnachtsferien",
@@ -721,7 +721,7 @@
   },
   {
     "start": "2023-04-06T00:00Z",
-    "end": "2023-04-21T23:59Z",
+    "end": "2023-04-22T00:00Z",
     "year": 2023,
     "stateCode": "SH",
     "name": "osterferien",
@@ -729,7 +729,7 @@
   },
   {
     "start": "2023-05-19T00:00Z",
-    "end": "2023-05-19T23:59Z",
+    "end": "2023-05-20T00:00Z",
     "year": 2023,
     "stateCode": "SH",
     "name": "pfingstferien",
@@ -737,7 +737,7 @@
   },
   {
     "start": "2023-07-07T00:00Z",
-    "end": "2023-08-25T23:59Z",
+    "end": "2023-08-26T00:00Z",
     "year": 2023,
     "stateCode": "SH",
     "name": "sommerferien",
@@ -745,7 +745,7 @@
   },
   {
     "start": "2023-10-16T00:00Z",
-    "end": "2023-10-26T23:59Z",
+    "end": "2023-10-27T00:00Z",
     "year": 2023,
     "stateCode": "SH",
     "name": "herbstferien",
@@ -753,7 +753,7 @@
   },
   {
     "start": "2023-12-27T00:00Z",
-    "end": "2024-01-05T23:59Z",
+    "end": "2024-01-06T00:00Z",
     "year": 2023,
     "stateCode": "SH",
     "name": "weihnachtsferien",
@@ -761,7 +761,7 @@
   },
   {
     "start": "2023-02-13T00:00Z",
-    "end": "2023-02-16T23:59Z",
+    "end": "2023-02-17T00:00Z",
     "year": 2023,
     "stateCode": "TH",
     "name": "winterferien",
@@ -769,7 +769,7 @@
   },
   {
     "start": "2023-04-03T00:00Z",
-    "end": "2023-04-14T23:59Z",
+    "end": "2023-04-15T00:00Z",
     "year": 2023,
     "stateCode": "TH",
     "name": "osterferien",
@@ -777,7 +777,7 @@
   },
   {
     "start": "2023-05-19T00:00Z",
-    "end": "2023-05-19T23:59Z",
+    "end": "2023-05-19T00:00Z",
     "year": 2023,
     "stateCode": "TH",
     "name": "pfingstferien",
@@ -785,7 +785,7 @@
   },
   {
     "start": "2023-07-10T00:00Z",
-    "end": "2023-08-17T23:59Z",
+    "end": "2023-08-18T00:00Z",
     "year": 2023,
     "stateCode": "TH",
     "name": "sommerferien",
@@ -793,7 +793,7 @@
   },
   {
     "start": "2023-10-02T00:00Z",
-    "end": "2023-10-13T23:59Z",
+    "end": "2023-10-14T00:00Z",
     "year": 2023,
     "stateCode": "TH",
     "name": "herbstferien",
@@ -801,7 +801,7 @@
   },
   {
     "start": "2023-12-22T00:00Z",
-    "end": "2024-01-04T23:59Z",
+    "end": "2024-01-05T00:00Z",
     "year": 2023,
     "stateCode": "TH",
     "name": "weihnachtsferien",

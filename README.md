@@ -188,6 +188,7 @@ curl "https://schulferien-api.de/api/v1/2024/BY/"
 - 2025
 - 2026
 - 2027
+- 2028
 
 ## Entwicklung
 

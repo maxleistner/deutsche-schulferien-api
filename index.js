@@ -171,7 +171,7 @@ function getFancyHomePage() {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deutsche Schulferien API</title>
-    <meta name="description" content="Kostenlose API für deutsche Schulferien - alle Bundesländer, Jahre 2022-2027, mit erweiterten Filtermöglichkeiten">
+<meta name="description" content="Kostenlose API für deutsche Schulferien - alle Bundesländer, Jahre 2022-2028, mit erweiterten Filtermöglichkeiten">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>">
     <style>
         * {
@@ -547,7 +547,7 @@ function getFancyHomePage() {
                     <div class="stat-label">Bundesländer</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">6</div>
+<div class="stat-number">7</div>
                     <div class="stat-label">Jahre verfügbar</div>
                 </div>
                 <div class="stat">
@@ -627,7 +627,7 @@ GET /api/v2/search?q=sommer</div>
             <div class="grid-2">
                 <div class="grid-item">
                     <h4>Jahre</h4>
-                    <p>2022, 2023, 2024, 2025, 2026, 2027</p>
+<p>2022, 2023, 2024, 2025, 2026, 2027, 2028</p>
                 </div>
                 <div class="grid-item">
                     <h4>Bundesländer</h4>

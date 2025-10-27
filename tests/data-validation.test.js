@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 describe('Data Validation Tests', () => {
-  const availableYears = [2024, 2025, 2026, 2027];
+  const availableYears = [2024, 2025, 2026, 2027, 2028];
   const expectedStates = ['BW', 'BY', 'BE', 'BB', 'HB', 'HH', 'HE', 'MV', 'NI', 'NW', 'RP', 'SL', 'SN', 'ST', 'SH', 'TH'];
   const validVacationTypes = [
     'winterferien', 'osterferien', 'pfingstferien', 

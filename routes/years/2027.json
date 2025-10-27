@@ -5,6 +5,7 @@
     "year": 2027,
     "stateCode": "BW",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-BW"
   },
   {
@@ -13,6 +14,7 @@
     "year": 2027,
     "stateCode": "BW",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-BW"
   },
   {
@@ -21,6 +23,7 @@
     "year": 2027,
     "stateCode": "BW",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-BW"
   },
   {
@@ -29,6 +32,7 @@
     "year": 2027,
     "stateCode": "BW",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-BW"
   },
   {
@@ -37,6 +41,7 @@
     "year": 2027,
     "stateCode": "BW",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-BW"
   },
   {
@@ -45,6 +50,7 @@
     "year": 2027,
     "stateCode": "BW",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-BW"
   },
   {
@@ -53,6 +59,7 @@
     "year": 2027,
     "stateCode": "BY",
     "name": "winterferien",
+    "name_cp": "Winterferien",
     "slug": "winterferien-2027-BY"
   },
   {
@@ -61,6 +68,7 @@
     "year": 2027,
     "stateCode": "BY",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-BY"
   },
   {
@@ -69,6 +77,7 @@
     "year": 2027,
     "stateCode": "BY",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-BY"
   },
   {
@@ -77,6 +86,7 @@
     "year": 2027,
     "stateCode": "BY",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-BY"
   },
   {
@@ -85,6 +95,7 @@
     "year": 2027,
     "stateCode": "BY",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-BY"
   },
   {
@@ -93,6 +104,7 @@
     "year": 2027,
     "stateCode": "BY",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-BY"
   },
   {
@@ -101,6 +113,7 @@
     "year": 2027,
     "stateCode": "BY",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-BY"
   },
   {
@@ -109,6 +122,7 @@
     "year": 2027,
     "stateCode": "BE",
     "name": "winterferien",
+    "name_cp": "Winterferien",
     "slug": "winterferien-2027-BE"
   },
   {
@@ -117,6 +131,7 @@
     "year": 2027,
     "stateCode": "BE",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-BE"
   },
   {
@@ -125,6 +140,7 @@
     "year": 2027,
     "stateCode": "BE",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-BE"
   },
   {
@@ -133,6 +149,7 @@
     "year": 2027,
     "stateCode": "BE",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-BE"
   },
   {
@@ -141,6 +158,7 @@
     "year": 2027,
     "stateCode": "BE",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-BE"
   },
   {
@@ -149,6 +167,7 @@
     "year": 2027,
     "stateCode": "BE",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-BE"
   },
   {
@@ -157,6 +176,7 @@
     "year": 2027,
     "stateCode": "BE",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-BE"
   },
   {
@@ -165,6 +185,7 @@
     "year": 2027,
     "stateCode": "BB",
     "name": "winterferien",
+    "name_cp": "Winterferien",
     "slug": "winterferien-2027-BB"
   },
   {
@@ -173,6 +194,7 @@
     "year": 2027,
     "stateCode": "BB",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-BB"
   },
   {
@@ -181,6 +203,7 @@
     "year": 2027,
     "stateCode": "BB",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-BB"
   },
   {
@@ -189,6 +212,7 @@
     "year": 2027,
     "stateCode": "BB",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-BB"
   },
   {
@@ -197,6 +221,7 @@
     "year": 2027,
     "stateCode": "BB",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-BB"
   },
   {
@@ -205,6 +230,7 @@
     "year": 2027,
     "stateCode": "BB",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-BB"
   },
   {
@@ -213,6 +239,7 @@
     "year": 2027,
     "stateCode": "BB",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-BB"
   },
   {
@@ -221,6 +248,7 @@
     "year": 2027,
     "stateCode": "HB",
     "name": "winterferien",
+    "name_cp": "Winterferien",
     "slug": "winterferien-2027-HB"
   },
   {
@@ -229,6 +257,7 @@
     "year": 2027,
     "stateCode": "HB",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-HB"
   },
   {
@@ -237,6 +266,7 @@
     "year": 2027,
     "stateCode": "HB",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-HB"
   },
   {
@@ -245,6 +275,7 @@
     "year": 2027,
     "stateCode": "HB",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-HB"
   },
   {
@@ -253,6 +284,7 @@
     "year": 2027,
     "stateCode": "HB",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-HB"
   },
   {
@@ -261,6 +293,7 @@
     "year": 2027,
     "stateCode": "HB",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-HB"
   },
   {
@@ -269,6 +302,7 @@
     "year": 2027,
     "stateCode": "HB",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-HB"
   },
   {
@@ -277,6 +311,7 @@
     "year": 2027,
     "stateCode": "HH",
     "name": "winterferien",
+    "name_cp": "Winterferien",
     "slug": "winterferien-2027-HH"
   },
   {
@@ -285,6 +320,7 @@
     "year": 2027,
     "stateCode": "HH",
     "name": "fruehjahrsferien",
+    "name_cp": "Fruehjahrsferien",
     "slug": "fruehjahrsferien-2027-HH"
   },
   {
@@ -293,6 +329,7 @@
     "year": 2027,
     "stateCode": "HH",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-HH"
   },
   {
@@ -301,6 +338,7 @@
     "year": 2027,
     "stateCode": "HH",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-HH"
   },
   {
@@ -309,6 +347,7 @@
     "year": 2027,
     "stateCode": "HH",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-HH"
   },
   {
@@ -317,6 +356,7 @@
     "year": 2027,
     "stateCode": "HH",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-HH"
   },
   {
@@ -325,6 +365,7 @@
     "year": 2027,
     "stateCode": "HE",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-HE"
   },
   {
@@ -333,6 +374,7 @@
     "year": 2027,
     "stateCode": "HE",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-HE"
   },
   {
@@ -341,6 +383,7 @@
     "year": 2027,
     "stateCode": "HE",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-HE"
   },
   {
@@ -349,6 +392,7 @@
     "year": 2027,
     "stateCode": "HE",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-HE"
   },
   {
@@ -357,6 +401,7 @@
     "year": 2027,
     "stateCode": "MV",
     "name": "winterferien",
+    "name_cp": "Winterferien",
     "slug": "winterferien-2027-MV"
   },
   {
@@ -365,6 +410,7 @@
     "year": 2027,
     "stateCode": "MV",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-MV"
   },
   {
@@ -373,6 +419,7 @@
     "year": 2027,
     "stateCode": "MV",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-MV"
   },
   {
@@ -381,6 +428,7 @@
     "year": 2027,
     "stateCode": "MV",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-MV"
   },
   {
@@ -389,6 +437,7 @@
     "year": 2027,
     "stateCode": "MV",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-MV"
   },
   {
@@ -397,6 +446,7 @@
     "year": 2027,
     "stateCode": "MV",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-MV"
   },
   {
@@ -405,6 +455,7 @@
     "year": 2027,
     "stateCode": "NI",
     "name": "winterferien",
+    "name_cp": "Winterferien",
     "slug": "winterferien-2027-NI"
   },
   {
@@ -413,6 +464,7 @@
     "year": 2027,
     "stateCode": "NI",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-NI"
   },
   {
@@ -421,6 +473,7 @@
     "year": 2027,
     "stateCode": "NI",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-NI"
   },
   {
@@ -429,6 +482,7 @@
     "year": 2027,
     "stateCode": "NI",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-NI"
   },
   {
@@ -437,6 +491,7 @@
     "year": 2027,
     "stateCode": "NI",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-NI"
   },
   {
@@ -445,6 +500,7 @@
     "year": 2027,
     "stateCode": "NI",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-NI"
   },
   {
@@ -453,6 +509,7 @@
     "year": 2027,
     "stateCode": "NW",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-NW"
   },
   {
@@ -461,6 +518,7 @@
     "year": 2027,
     "stateCode": "NW",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-NW"
   },
   {
@@ -469,6 +527,7 @@
     "year": 2027,
     "stateCode": "NW",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-NW"
   },
   {
@@ -477,6 +536,7 @@
     "year": 2027,
     "stateCode": "NW",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-NW"
   },
   {
@@ -485,6 +545,7 @@
     "year": 2027,
     "stateCode": "NW",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-NW"
   },
   {
@@ -493,6 +554,7 @@
     "year": 2027,
     "stateCode": "RP",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-RP"
   },
   {
@@ -501,6 +563,7 @@
     "year": 2027,
     "stateCode": "RP",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-RP"
   },
   {
@@ -509,6 +572,7 @@
     "year": 2027,
     "stateCode": "RP",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-RP"
   },
   {
@@ -517,6 +581,7 @@
     "year": 2027,
     "stateCode": "RP",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-RP"
   },
   {
@@ -525,6 +590,7 @@
     "year": 2027,
     "stateCode": "SL",
     "name": "winterferien",
+    "name_cp": "Winterferien",
     "slug": "winterferien-2027-SL"
   },
   {
@@ -533,6 +599,7 @@
     "year": 2027,
     "stateCode": "SL",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-SL"
   },
   {
@@ -541,6 +608,7 @@
     "year": 2027,
     "stateCode": "SL",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-SL"
   },
   {
@@ -549,6 +617,7 @@
     "year": 2027,
     "stateCode": "SL",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-SL"
   },
   {
@@ -557,6 +626,7 @@
     "year": 2027,
     "stateCode": "SL",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-SL"
   },
   {
@@ -565,6 +635,7 @@
     "year": 2027,
     "stateCode": "SN",
     "name": "winterferien",
+    "name_cp": "Winterferien",
     "slug": "winterferien-2027-SN"
   },
   {
@@ -573,6 +644,7 @@
     "year": 2027,
     "stateCode": "SN",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-SN"
   },
   {
@@ -581,6 +653,7 @@
     "year": 2027,
     "stateCode": "SN",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-SN"
   },
   {
@@ -589,6 +662,7 @@
     "year": 2027,
     "stateCode": "SN",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-SN"
   },
   {
@@ -597,6 +671,7 @@
     "year": 2027,
     "stateCode": "SN",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-SN"
   },
   {
@@ -605,6 +680,7 @@
     "year": 2027,
     "stateCode": "SN",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-SN"
   },
   {
@@ -613,6 +689,7 @@
     "year": 2027,
     "stateCode": "ST",
     "name": "winterferien",
+    "name_cp": "Winterferien",
     "slug": "winterferien-2027-ST"
   },
   {
@@ -621,6 +698,7 @@
     "year": 2027,
     "stateCode": "ST",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-ST"
   },
   {
@@ -629,6 +707,7 @@
     "year": 2027,
     "stateCode": "ST",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-ST"
   },
   {
@@ -637,6 +716,7 @@
     "year": 2027,
     "stateCode": "ST",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-ST"
   },
   {
@@ -645,6 +725,7 @@
     "year": 2027,
     "stateCode": "ST",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-ST"
   },
   {
@@ -653,6 +734,7 @@
     "year": 2027,
     "stateCode": "ST",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-ST"
   },
   {
@@ -661,6 +743,7 @@
     "year": 2027,
     "stateCode": "SH",
     "name": "winterferien",
+    "name_cp": "Winterferien",
     "slug": "winterferien-2027-SH"
   },
   {
@@ -669,6 +752,7 @@
     "year": 2027,
     "stateCode": "SH",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-SH"
   },
   {
@@ -677,6 +761,7 @@
     "year": 2027,
     "stateCode": "SH",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-SH"
   },
   {
@@ -685,6 +770,7 @@
     "year": 2027,
     "stateCode": "SH",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-SH"
   },
   {
@@ -693,6 +779,7 @@
     "year": 2027,
     "stateCode": "SH",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-SH"
   },
   {
@@ -701,6 +788,7 @@
     "year": 2027,
     "stateCode": "SH",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-SH"
   },
   {
@@ -709,6 +797,7 @@
     "year": 2027,
     "stateCode": "TH",
     "name": "winterferien",
+    "name_cp": "Winterferien",
     "slug": "winterferien-2027-TH"
   },
   {
@@ -717,6 +806,7 @@
     "year": 2027,
     "stateCode": "TH",
     "name": "osterferien",
+    "name_cp": "Osterferien",
     "slug": "osterferien-2027-TH"
   },
   {
@@ -725,6 +815,7 @@
     "year": 2027,
     "stateCode": "TH",
     "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
     "slug": "pfingstferien-2027-TH"
   },
   {
@@ -733,6 +824,7 @@
     "year": 2027,
     "stateCode": "TH",
     "name": "sommerferien",
+    "name_cp": "Sommerferien",
     "slug": "sommerferien-2027-TH"
   },
   {
@@ -741,6 +833,7 @@
     "year": 2027,
     "stateCode": "TH",
     "name": "herbstferien",
+    "name_cp": "Herbstferien",
     "slug": "herbstferien-2027-TH"
   },
   {
@@ -749,6 +842,7 @@
     "year": 2027,
     "stateCode": "TH",
     "name": "weihnachtsferien",
+    "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-TH"
   }
 ]

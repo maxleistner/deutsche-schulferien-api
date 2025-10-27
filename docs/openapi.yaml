@@ -44,7 +44,7 @@ paths:
           schema:
             type: integer
             minimum: 2022
-            maximum: 2027
+            maximum: 2028
           example: 2024
       responses:
         '200':
@@ -72,7 +72,7 @@ paths:
           schema:
             type: integer
             minimum: 2022
-            maximum: 2027
+            maximum: 2028
           example: 2024
         - name: state
           in: path
@@ -138,7 +138,7 @@ paths:
           in: query
           schema:
             type: string
-          example: "start,end,name,stateCode"
+          example: "start,end,name,name_cp,stateCode"
           description: Comma-separated list of fields to include
       responses:
         '200':
@@ -446,8 +446,8 @@ components:
         end:
           type: string
           format: date-time
-          example: "2024-09-08T00:00Z"
-          description: End date of holiday (ISO 8601)
+          example: "2024-09-08T23:59Z"
+          description: End date of holiday (ISO 8601, inclusive 23:59Z)
         year:
           type: integer
           example: 2024
@@ -460,6 +460,10 @@ components:
           type: string
           example: "sommerferien"
           description: Holiday type name in German
+        name_cp:
+          type: string
+          example: "Sommerferien"
+          description: Capitalized holiday type (first letter uppercase)
         slug:
           type: string
           example: "sommerferien-2024-BY"

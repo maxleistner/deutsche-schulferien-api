@@ -44,7 +44,7 @@ curl "https://schulferien-api.de/api/v2/2024?type=sommerferien,winterferien"
 curl "https://schulferien-api.de/api/v2/2024?states=BY,BW,BE"
 
 # Nur bestimmte Felder zurückgeben
-curl "https://schulferien-api.de/api/v2/2024?fields=start,end,name,stateCode"
+curl "https://schulferien-api.de/api/v2/2024?fields=start,end,name,name_cp,stateCode"
 
 # Kombinierte Filter
 curl "https://schulferien-api.de/api/v2/2024?type=sommerferien&states=BY&fields=start,end,name"
@@ -142,7 +142,7 @@ curl "https://schulferien-api.de/status"
 - Hamburg: `fruehjahrsferien` (statt `osterferien`)
 
 **Felder**:
-- `start`, `end`, `year`, `stateCode`, `name`, `slug`
+- `start`, `end`, `year`, `stateCode`, `name`, `name_cp`, `slug`
 
 ---
 
@@ -332,6 +332,7 @@ Jeder Ferieneintrag enthält:
   "year": 2024,
   "stateCode": "BW",
   "name": "sommerferien",
+  "name_cp": "Sommerferien",
   "slug": "sommerferien-2024-BW"
 }
 ```

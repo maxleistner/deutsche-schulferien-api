@@ -139,9 +139,9 @@
     "end": "2026-05-15T23:59Z",
     "year": 2026,
     "stateCode": "BE",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2026-BE"
+    "name": "variabler_ferientag",
+    "name_cp": "Variabler Ferientag",
+    "slug": "variabler-ferientag-2026-BE"
   },
   {
     "start": "2026-05-26T00:00Z",
@@ -202,9 +202,9 @@
     "end": "2026-05-15T23:59Z",
     "year": 2026,
     "stateCode": "BB",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2026-BB"
+    "name": "variabler_ferientag",
+    "name_cp": "Variabler Ferientag",
+    "slug": "variabler-ferientag-2026-BB"
   },
   {
     "start": "2026-05-26T00:00Z",

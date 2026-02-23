@@ -757,7 +757,7 @@
   },
   {
     "start": "2027-05-07T00:00Z",
-    "end": "2027-05-08T23:59Z",
+    "end": "2027-05-07T23:59Z",
     "year": 2027,
     "stateCode": "SH",
     "name": "pfingstferien",
@@ -811,7 +811,7 @@
   },
   {
     "start": "2027-05-07T00:00Z",
-    "end": "2027-05-08T23:59Z",
+    "end": "2027-05-07T23:59Z",
     "year": 2027,
     "stateCode": "TH",
     "name": "pfingstferien",

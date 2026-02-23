@@ -1,15 +1,6 @@
 [
   {
     "start": "2027-03-25T00:00Z",
-    "end": "2027-03-30T23:59Z",
-    "year": 2027,
-    "stateCode": "BW",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2027-BW"
-  },
-  {
-    "start": "2027-03-30T00:00Z",
     "end": "2027-04-03T23:59Z",
     "year": 2027,
     "stateCode": "BW",
@@ -100,7 +91,7 @@
   },
   {
     "start": "2027-11-17T00:00Z",
-    "end": "2027-11-18T23:59Z",
+    "end": "2027-11-17T23:59Z",
     "year": 2027,
     "stateCode": "BY",
     "name": "herbstferien",
@@ -136,7 +127,7 @@
   },
   {
     "start": "2027-05-07T00:00Z",
-    "end": "2027-05-08T23:59Z",
+    "end": "2027-05-07T23:59Z",
     "year": 2027,
     "stateCode": "BE",
     "name": "osterferien",
@@ -199,7 +190,7 @@
   },
   {
     "start": "2027-05-07T00:00Z",
-    "end": "2027-05-08T23:59Z",
+    "end": "2027-05-07T23:59Z",
     "year": 2027,
     "stateCode": "BB",
     "name": "osterferien",
@@ -208,7 +199,7 @@
   },
   {
     "start": "2027-05-18T00:00Z",
-    "end": "2027-05-19T23:59Z",
+    "end": "2027-05-18T23:59Z",
     "year": 2027,
     "stateCode": "BB",
     "name": "pfingstferien",
@@ -262,7 +253,7 @@
   },
   {
     "start": "2027-05-07T00:00Z",
-    "end": "2027-05-08T23:59Z",
+    "end": "2027-05-07T23:59Z",
     "year": 2027,
     "stateCode": "HB",
     "name": "pfingstferien",
@@ -271,7 +262,7 @@
   },
   {
     "start": "2027-05-18T00:00Z",
-    "end": "2027-05-19T23:59Z",
+    "end": "2027-05-18T23:59Z",
     "year": 2027,
     "stateCode": "HB",
     "name": "pfingstferien",
@@ -415,6 +406,15 @@
   },
   {
     "start": "2027-05-07T00:00Z",
+    "end": "2027-05-07T23:59Z",
+    "year": 2027,
+    "stateCode": "MV",
+    "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
+    "slug": "pfingstferien-2027-MV"
+  },
+  {
+    "start": "2027-05-14T00:00Z",
     "end": "2027-05-18T23:59Z",
     "year": 2027,
     "stateCode": "MV",
@@ -469,6 +469,15 @@
   },
   {
     "start": "2027-05-07T00:00Z",
+    "end": "2027-05-07T23:59Z",
+    "year": 2027,
+    "stateCode": "NI",
+    "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
+    "slug": "pfingstferien-2027-NI"
+  },
+  {
+    "start": "2027-05-18T00:00Z",
     "end": "2027-05-18T23:59Z",
     "year": 2027,
     "stateCode": "NI",
@@ -514,7 +523,7 @@
   },
   {
     "start": "2027-05-18T00:00Z",
-    "end": "2027-05-19T23:59Z",
+    "end": "2027-05-18T23:59Z",
     "year": 2027,
     "stateCode": "NW",
     "name": "pfingstferien",
@@ -649,6 +658,15 @@
   },
   {
     "start": "2027-05-07T00:00Z",
+    "end": "2027-05-07T23:59Z",
+    "year": 2027,
+    "stateCode": "SN",
+    "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
+    "slug": "pfingstferien-2027-SN"
+  },
+  {
+    "start": "2027-05-15T00:00Z",
     "end": "2027-05-18T23:59Z",
     "year": 2027,
     "stateCode": "SN",

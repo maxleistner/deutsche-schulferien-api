@@ -4,29 +4,16 @@
   "functions": {
     "index.js": {
       "maxDuration": 10,
-      "includeFiles": "routes/**, utils/**, docs/**, public/**, lib/**"
+      "includeFiles": "{routes/**,public/**,lib/**}"
     }
   },
   "routes": [
-    {
-      "src": "/(health|status|ready)",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/docs",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "/index.js"
-    },
     {
       "src": "/(.*)",
       "dest": "/index.js"
     }
   ],
   "env": {
-    "NODE_ENV": "production",
-    "MIXPANEL_TOKEN": "1584facf326d548bc26be8daf9aa6b3e"
+    "NODE_ENV": "production"
   }
 }

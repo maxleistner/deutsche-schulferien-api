@@ -1,6 +1,8 @@
 const express = require('express');
 const dataLoader = require('../../lib/dataLoader');
+const { buildCalendar } = require('../../lib/ical');
 const {
+  VALID_STATES,
   badRequest,
   parseYear,
   filterByDateRange,
@@ -215,6 +217,27 @@ router.get('/compare/:yearA/:yearB', (req, res) => {
   });
 
   res.json(comparison);
+});
+
+// GET /api/v2/ical/:state.ics - Subscribable calendar (all available years) for one state
+router.get('/ical/:state.ics', (req, res) => {
+  const stateCode = req.params.state.toUpperCase();
+
+  if (!VALID_STATES.includes(stateCode)) {
+    throw badRequest(`Invalid state code: ${req.params.state}. Valid codes are: ${VALID_STATES.join(', ')}`);
+  }
+
+  let holidays = dataLoader.getAllData().filter(holiday => holiday.stateCode === stateCode);
+
+  if (req.query.type) {
+    holidays = filterByTypes(holidays, req.query.type);
+  }
+
+  holidays.sort((a, b) => a.start.localeCompare(b.start));
+
+  res.set('Content-Type', 'text/calendar; charset=utf-8');
+  res.set('Content-Disposition', `inline; filename="schulferien-${stateCode}.ics"`);
+  res.send(buildCalendar(holidays, stateCode));
 });
 
 // GET /api/v2/:year - Enhanced year endpoint with filtering

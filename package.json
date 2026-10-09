@@ -1,6 +1,6 @@
 {
   "name": "schulferien-api",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "API für die Schulferien in Deutschland, filterbar nach Jahr und/oder Bundesland",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,8 @@
     "test:system": "jest tests/system.test.js",
     "deploy": "npx vercel",
     "deploy:prod": "npx vercel --prod",
-    "dev:vercel": "npx vercel dev"
+    "dev:vercel": "npx vercel dev",
+    "test:ical": "jest tests/ical.test.js"
   },
   "author": "Maximilian Leistner (https://maxleistner.de)",
   "license": "Creative Commons Attribution 4.0",

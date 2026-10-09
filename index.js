@@ -24,6 +24,35 @@ app.disable("x-powered-by");
 app.use(cors());
 app.use(logger("tiny"));
 
+// Basic in-memory rate limiting to protect against resource exhaustion (CWE-770)
+const RATE_LIMIT_WINDOW_MS = 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 100;
+const requestCounts = new Map();
+
+app.use((req, res, next) => {
+  const key = req.ip;
+  const now = Date.now();
+  const entry = requestCounts.get(key);
+
+  if (!entry || now - entry.start > RATE_LIMIT_WINDOW_MS) {
+    requestCounts.set(key, { start: now, count: 1 });
+    return next();
+  }
+
+  entry.count += 1;
+  if (entry.count > RATE_LIMIT_MAX_REQUESTS) {
+    res.set("Retry-After", String(Math.ceil((entry.start + RATE_LIMIT_WINDOW_MS - now) / 1000)));
+    return res.status(429).json({
+      error: {
+        message: "Too many requests, please try again later.",
+        statusCode: 429,
+      },
+    });
+  }
+
+  next();
+});
+
 // Serve static files (favicon); the index page is rendered below
 app.use(express.static(path.join(__dirname, "public"), { index: false }));
 

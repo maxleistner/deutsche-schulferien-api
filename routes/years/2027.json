@@ -298,7 +298,7 @@
   },
   {
     "start": "2027-01-29T00:00Z",
-    "end": "2027-01-30T23:59Z",
+    "end": "2027-01-29T23:59Z",
     "year": 2027,
     "stateCode": "HH",
     "name": "winterferien",
@@ -316,7 +316,7 @@
   },
   {
     "start": "2027-05-07T00:00Z",
-    "end": "2027-05-15T23:59Z",
+    "end": "2027-05-14T23:59Z",
     "year": 2027,
     "stateCode": "HH",
     "name": "pfingstferien",
@@ -754,15 +754,6 @@
     "name": "weihnachtsferien",
     "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2027-ST"
-  },
-  {
-    "start": "2027-02-01T00:00Z",
-    "end": "2027-02-02T23:59Z",
-    "year": 2027,
-    "stateCode": "SH",
-    "name": "winterferien",
-    "name_cp": "Winterferien",
-    "slug": "winterferien-2027-SH"
   },
   {
     "start": "2027-03-30T00:00Z",

@@ -45,7 +45,7 @@ To add vacation data for a new year:
 ### Application Layout
 - **Entry Point**: `index.js` - Express 5 app (index page, `/docs`, caching, 404/error handlers); exported for Vercel and tests
 - **Routes**: `routes/v1/index.js` (legacy), `routes/v2/index.js` (filtering, search, stats), `routes/system.js` (health/status)
-- **Shared logic**: `lib/dataLoader.js` (year files + cache), `lib/filters.js` (validation and filters), `lib/openapi-spec.js` (served at `/docs/openapi.json`)
+- **Shared logic**: `lib/dataLoader.js` (year files + cache), `lib/filters.js` (validation, filters, state names), `lib/ical.js` (iCalendar export for `/api/v2/ical/:state.ics`), `lib/openapi-spec.js` (served at `/docs/openapi.json`)
 - **Index page**: `public/index.html` with `{{YEARS}}`-style placeholders filled from the available data
 - **Data Storage**: `routes/years/*.json` - One JSON file per year containing all German states' school holidays
 
@@ -107,8 +107,9 @@ Each vacation record contains:
 - `sommerferien` - Summer holidays
 - `herbstferien` - Autumn holidays
 - `weihnachtsferien` - Christmas holidays
-- `fruehjahrsferien` - Spring holidays (e.g. Hamburg instead of `osterferien`)
-- `variabler_ferientag` - Single movable holiday (slug uses hyphens: `variabler-ferientag-2026-BE`)
+- `fruehjahrsferien` - Accepted as filter for compatibility, no longer used in data (Hamburg spring holidays are `osterferien`, following the KMK column)
+- `variabler_ferientag` - Brandenburg only: default holiday unless the school decides otherwise (slug uses hyphens: `variabler-ferientag-2026-BB`)
+- Single days get the type of the KMK column they are listed in (Friday after Ascension = `pfingstferien`)
 
 ### Date Format
 All dates use ISO 8601 format with UTC timezone: `YYYY-MM-DDTHH:mmZ`

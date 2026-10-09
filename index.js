@@ -1,12 +1,14 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const logger = require("morgan");
 const cors = require("cors");
 const path = require("path");
-const swaggerJsdoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
-const fs = require('fs');
-const yaml = require('js-yaml');
+const fs = require("fs");
+
+const dataLoader = require("./lib/dataLoader");
+const openApiSpec = require("./lib/openapi-spec");
+const v1Router = require("./routes/v1/index.js");
+const v2Router = require("./routes/v2/index.js");
+const systemRouter = require("./routes/system");
 
 const app = express();
 
@@ -16,793 +18,159 @@ const NODE_ENV = process.env.NODE_ENV || "development";
 
 app.set("port", PORT);
 app.set("env", NODE_ENV);
+app.disable("x-powered-by");
 
 app.use(cors());
 app.use(logger("tiny"));
-app.use(bodyParser.json());
 
-// No analytics tracking
+// Serve static files (favicon); the index page is rendered below
+app.use(express.static(path.join(__dirname, "public"), { index: false }));
 
-// Serve static files (serverless-safe)
-app.use(express.static(path.join(__dirname, 'public'), {
-  index: false, // Don't serve index.html automatically
-  fallthrough: true
-}));
+// Index page: public/index.html with the available years filled in
+const years = dataLoader.getAvailableYears();
+const homePage = fs
+  .readFileSync(path.join(__dirname, "public", "index.html"), "utf8")
+  .replaceAll("{{YEAR_RANGE}}", `${years[0]}–${years[years.length - 1]}`)
+  .replaceAll("{{YEARS}}", years.join(", "))
+  .replaceAll("{{YEAR_COUNT}}", String(years.length))
+  .replaceAll("{{COPYRIGHT_YEARS}}", `2022–${new Date().getFullYear()}`);
 
-// Favicon route - serve embedded favicon content
-app.get('/favicon.ico', (req, res) => {
-  res.setHeader('Content-Type', 'image/x-icon');
-  res.setHeader('Cache-Control', 'public, max-age=31536000'); // 1 year cache
-  // Use the SVG emoji favicon from your HTML
-  const svgFavicon = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>`;
-  res.send(Buffer.from(svgFavicon, 'utf8'));
+app.get("/", (req, res) => {
+  res.set("Cache-Control", "public, max-age=3600, s-maxage=86400");
+  res.type("html").send(homePage);
 });
 
-// Import routers
-const v1Router = require("./routes/v1/index.js");
-const v2Router = require("./routes/v2/index.js");
-const systemRouter = require("./routes/system");
+// Swagger UI, loaded from a CDN so nothing has to be served from node_modules on Vercel
+const SWAGGER_UI_VERSION = "5.17.14";
 
-// Setup Swagger documentation
-let openApiSpec = null;
-
-// Try to load OpenAPI spec from file first
-try {
-  const possiblePaths = [
-    path.join(__dirname, 'docs', 'openapi.yaml'),
-    path.join(__dirname, 'docs/openapi.yaml'),
-    path.join(process.cwd(), 'docs', 'openapi.yaml'),
-    path.join(process.cwd(), 'docs/openapi.yaml')
-  ];
-  
-  for (const docsPath of possiblePaths) {
-    if (fs.existsSync(docsPath)) {
-      try {
-        openApiSpec = yaml.load(fs.readFileSync(docsPath, 'utf8'));
-        console.log(`✅ OpenAPI spec loaded from ${docsPath}`);
-        break;
-      } catch (readError) {
-        console.warn(`Failed to read ${docsPath}:`, readError.message);
-      }
-    }
-  }
-  
-  if (!openApiSpec) {
-    console.warn('⚠️  OpenAPI file not found, using complete fallback spec');
-    // Load the complete OpenAPI specification from our module
-    openApiSpec = require('./lib/openapi-spec');
-  }
-  
-  // Setup Swagger UI with the spec (either from file or fallback)
-  // Use CDN-hosted assets for better compatibility with serverless environments
-  const swaggerOptions = {
-    customCssUrl: 'https://unpkg.com/swagger-ui-dist@4.15.5/swagger-ui.css',
-    customJs: [
-      'https://unpkg.com/swagger-ui-dist@4.15.5/swagger-ui-bundle.js',
-      'https://unpkg.com/swagger-ui-dist@4.15.5/swagger-ui-standalone-preset.js'
-    ],
-    swaggerOptions: {
-      url: null,
-      spec: openApiSpec
-    }
-  };
-  
-  app.use('/docs', swaggerUi.serve, swaggerUi.setup(openApiSpec, swaggerOptions));
-  console.log('✅ Swagger documentation setup completed');
-  
-} catch (error) {
-  console.warn('❌ Could not setup Swagger documentation:', error.message);
-  
-  // Final fallback - simple documentation page
-  app.get('/docs', (req, res) => {
-    res.send(`
-    <!DOCTYPE html>
-    <html lang="de">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>API Documentation | Deutsche Schulferien API</title>
-        <style>
-            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 2rem; max-width: 800px; margin: 0 auto; }
-            h1 { color: #333; border-bottom: 2px solid #000; padding-bottom: 1rem; }
-            .endpoint { background: #f5f5f5; padding: 1rem; margin: 1rem 0; border-left: 4px solid #000; }
-            .method { font-weight: bold; color: #0066cc; }
-            .path { font-family: monospace; background: #e8e8e8; padding: 0.2rem 0.5rem; }
-            .description { color: #666; margin-top: 0.5rem; }
-            .example { background: #fff; border: 1px solid #ddd; padding: 0.5rem; margin-top: 0.5rem; font-family: monospace; }
-        </style>
-    </head>
-    <body>
-        <h1>Deutsche Schulferien API Documentation</h1>
-        <p>Willkommen zur API Dokumentation für deutsche Schulferien.</p>
-        
-        <div class="endpoint">
-            <div class="method">GET</div>
-            <div class="path">/api/v1/{year}</div>
-            <div class="description">Alle Ferien für ein bestimmtes Jahr abrufen</div>
-            <div class="example">Beispiel: <a href="/api/v1/2024">/api/v1/2024</a></div>
-        </div>
-        
-        <div class="endpoint">
-            <div class="method">GET</div>
-            <div class="path">/api/v1/{year}/{state}</div>
-            <div class="description">Ferien für ein Jahr und Bundesland abrufen</div>
-            <div class="example">Beispiel: <a href="/api/v1/2024/BY">/api/v1/2024/BY</a></div>
-        </div>
-        
-        <div class="endpoint">
-            <div class="method">GET</div>
-            <div class="path">/api/v2/{year}?type={type}&states={states}</div>
-            <div class="description">Erweiterte Filterung nach Ferientyp und Bundesländern</div>
-            <div class="example">Beispiel: <a href="/api/v2/2024?type=sommerferien&states=BY,BW">/api/v2/2024?type=sommerferien&states=BY,BW</a></div>
-        </div>
-        
-        <div class="endpoint">
-            <div class="method">GET</div>
-            <div class="path">/api/v2/current</div>
-            <div class="description">Aktuelle Ferien abrufen</div>
-            <div class="example">Beispiel: <a href="/api/v2/current">/api/v2/current</a></div>
-        </div>
-        
-        <p><a href="/">← Zurück zur Startseite</a></p>
-    </body>
-    </html>
-    `);
-  });
-}
-
-// Serve index page explicitly (serverless-safe) BEFORE other routers
-app.get('/', (req, res) => {
-  res.setHeader('Content-Type', 'text/html; charset=utf-8');
-  res.send(getFancyHomePage());
+app.get("/docs/openapi.json", (req, res) => {
+  res.json(openApiSpec);
 });
 
-// Mount specific routes
-app.use("/api/v1", v1Router);
-app.use("/api/v2", v2Router);
-app.use("/", systemRouter);
-
-
-// Fancy home page function - embedded HTML content (from public/index.html)
-function getFancyHomePage() {
-  return `<!DOCTYPE html>
+app.get("/docs", (req, res) => {
+  res.type("html").send(`<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deutsche Schulferien API</title>
-<meta name="description" content="Kostenlose API für deutsche Schulferien - alle Bundesländer, Jahre 2022-2028, mit erweiterten Filtermöglichkeiten">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>">
+    <title>API Dokumentation | Deutsche Schulferien API</title>
+    <meta name="color-scheme" content="light">
+    <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@${SWAGGER_UI_VERSION}/swagger-ui.css">
+    <style>body { margin: 0; background: #fff; }</style>
+</head>
+<body>
+    <div id="swagger-ui"></div>
+    <script src="https://unpkg.com/swagger-ui-dist@${SWAGGER_UI_VERSION}/swagger-ui-bundle.js"></script>
+    <script>
+        SwaggerUIBundle({ url: "/docs/openapi.json", dom_id: "#swagger-ui" });
+    </script>
+</body>
+</html>`);
+});
+
+// Holiday data only changes with a deployment (which purges the Vercel CDN cache),
+// so API responses can be cached at the edge. Time-dependent v2 endpoints override this.
+app.use("/api", (req, res, next) => {
+  res.set("Cache-Control", "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800");
+  next();
+});
+
+app.use("/api/v1", v1Router);
+app.use("/api/v2", v2Router);
+app.use("/", systemRouter);
+
+// Simple HTML page for 404s and errors outside the API
+const renderMessagePage = (title, message) => `<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title} | Deutsche Schulferien API</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #222;
-            background: #fff;
-            min-height: 100vh;
-            font-weight: 400;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #fff; color: #000; text-align: center; padding: 2rem;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
         }
-        
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            overflow-x: hidden;
+            max-width: 500px; border: 1px solid #000; padding: 3rem 2rem;
+            position: relative; background: #fff;
         }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0 1.5rem 0;
-            border-bottom: 1px solid #000;
+        .container::before {
+            content: ''; position: absolute; top: -1px; left: -1px;
+            right: -1px; bottom: -1px; background: #000; z-index: -1;
+            transform: translate(6px, 6px);
         }
-        
-        .header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.8rem;
-            font-weight: 400;
-            letter-spacing: -1px;
-        }
-        
-        .header p {
-            font-size: 1.1rem;
-            color: #555;
-            font-weight: 400;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .section {
-            margin-bottom: 3rem;
-            padding: 1.5rem 0;
-        }
-        
-        .section:not(:last-child) {
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            letter-spacing: -0.5px;
-            color: #111;
-        }
-        
-        .api-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin: 3rem 0;
-        }
-        
-        .api-version {
-            border: 1px solid #ccc;
-            padding: 2.5rem;
-            position: relative;
-            background: #fff;
-        }
-        
-        .api-version::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            bottom: -1px;
-            background: #f5f5f5;
-            z-index: -1;
-            transform: translate(8px, 8px);
-        }
-        
-        .version-badge {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            border: 1px solid #000;
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            background: #fff;
-            letter-spacing: 1px;
-        }
-        
-        .api-version h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-            color: #111;
-        }
-        
-        .api-version p {
-            margin-bottom: 1.5rem;
-            color: #555;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-        
-        .feature-list {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-        
-        .feature-list li {
-            padding: 0.6rem 0;
-            position: relative;
-            padding-left: 1.5rem;
-            border-bottom: 1px solid #f0f0f0;
-            font-weight: 400;
-            color: #444;
-        }
-        
-        .feature-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .feature-list li:before {
-            content: '—';
-            position: absolute;
-            left: 0;
-            font-weight: 600;
-            color: #666;
-        }
-        
-        .endpoint {
-            background: #f5f5f5;
-            color: #333;
-            padding: 1rem 1.5rem;
-            margin: 1rem 0;
-            font-family: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', monospace;
-            border: 1px solid #ccc;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            overflow-x: auto;
-            font-weight: 500;
-            border-radius: 4px;
-        }
-        
-        .example {
-            background: #f8f8f8;
-            color: #222;
-            padding: 1rem 1.5rem;
-            margin: 1rem 0;
-            font-family: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', monospace;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            overflow-x: auto;
-            border: 1px solid #ddd;
-            font-weight: 500;
-            border-radius: 4px;
-        }
-        
-        .cta-section {
-            text-align: center;
-            padding: 3rem 2rem;
-            border: 1px solid #000;
-            position: relative;
-            background: #fff;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            bottom: -1px;
-            background: #000;
-            z-index: -1;
-            transform: translate(8px, 8px);
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            margin: 0.5rem;
-            border: 1px solid #000;
-            text-decoration: none;
-            font-weight: 400;
+        h1 { font-size: 2rem; margin-bottom: 2rem; font-weight: 300; }
+        p { margin-bottom: 2rem; color: #666; }
+        a {
+            display: inline-block; padding: 1rem 2rem; background: #000;
+            color: #fff; text-decoration: none; border: 1px solid #000;
             transition: all 0.2s ease;
-            background: #fff;
-            color: #000;
-            position: relative;
         }
-        
-        .btn:hover {
-            background: #000;
-            color: #fff;
-        }
-        
-        .btn-primary {
-            background: #000;
-            color: #fff;
-        }
-        
-        .btn-primary:hover {
-            background: #fff;
-            color: #000;
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .stat {
-            text-align: center;
-            padding: 1.5rem 1rem;
-            border: 1px solid #ccc;
-        }
-        
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #111;
-            margin-bottom: 0.3rem;
-        }
-        
-        .stat-label {
-            font-size: 0.8rem;
-            color: #555;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-        }
-        
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .grid-item {
-            padding: 1rem 0;
-            position: relative;
-        }
-        
-        
-        .grid-item h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 0.5rem;
-            color: #222;
-        }
-        
-        .grid-item p {
-            color: #555;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-        
-        .examples-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .example-item {
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-        
-        .example-item:last-child {
-            border-bottom: none;
-        }
-        
-        .example-item strong {
-            color: #222;
-            font-weight: 600;
-        }
-        
-        .example-item code {
-            background: #f5f5f5;
-            color: #333;
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-            font-family: 'SF Mono', 'Monaco', 'Consolas', 'Liberation Mono', monospace;
-            font-size: 0.9rem;
-            margin-left: 0.5rem;
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 3rem;
-            padding: 2rem 0;
-            border-top: 1px solid #000;
-            color: #555;
-        }
-        
-        .footer p {
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer a {
-            color: #222;
-            text-decoration: none;
-            border-bottom: 1px solid #222;
-            font-weight: 500;
-        }
-        
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .container {
-                padding: 1rem;
-            }
-            
-            .api-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .api-version::before {
-                transform: translate(4px, 4px);
-            }
-            
-            .cta-section::before {
-                transform: translate(4px, 4px);
-            }
-            
-            .example {
-                margin: 1rem 0;
-                padding: 1rem;
-            }
-            
-            .endpoint {
-                margin: 1rem 0;
-                padding: 1rem;
-            }
-        }
+        a:hover { background: #fff; color: #000; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Deutsche Schulferien API</h1>
-            <p>Kostenlose API für alle deutschen Schulferien — einfach, schnell und zuverlässig</p>
-        </div>
-
-        <div class="cta-section">
-            <h2 class="section-title">Jetzt loslegen</h2>
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-number">16</div>
-                    <div class="stat-label">Bundesländer</div>
-                </div>
-                <div class="stat">
-<div class="stat-number">7</div>
-                    <div class="stat-label">Jahre verfügbar</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Kostenlos</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Verfügbar</div>
-                </div>
-            </div>
-            <a href="/docs" class="btn btn-primary">API Dokumentation</a>
-            <a href="/api/v2/2024?states=BY" class="btn">Beispiel testen</a>
-        </div>
-
-        <div class="section">
-            <div class="api-grid">
-                <div class="api-version">
-                    <span class="version-badge">V1 - BEWÄHRT</span>
-                    <h3>Klassische API</h3>
-                    <p>Die ursprüngliche, bewährte API für alle, die bereits bestehende Integrationen haben.</p>
-                    
-                    <ul class="feature-list">
-                        <li>Einfache Abfragen nach Jahr</li>
-                        <li>Filterung nach Bundesland</li>
-                        <li>100% Abwärtskompatibilität</li>
-                        <li>Bewährt und stabil</li>
-                    </ul>
-
-                    <div class="endpoint">GET /api/v1/2024/
-GET /api/v1/2024/BY</div>
-                </div>
-
-                <div class="api-version">
-                    <span class="version-badge">V2 - ERWEITERT</span>
-                    <h3>Erweiterte API</h3>
-                    <p>Die neue Generation mit mächtigen Filtermöglichkeiten und zusätzlichen Features.</p>
-                    
-                    <ul class="feature-list">
-                        <li>Erweiterte Filterung (Datum, Typ, Bundesländer)</li>
-                        <li>Aktuelle und kommende Ferien</li>
-                        <li>Suche und Statistiken</li>
-                        <li>Datumsabfragen</li>
-                        <li>Jahresvergleiche</li>
-                        <li>Flexible Feldauswahl</li>
-                    </ul>
-
-                    <div class="endpoint">GET /api/v2/2024?type=sommerferien&states=BY,BW
-GET /api/v2/current
-GET /api/v2/search?q=sommer</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Praktische Beispiele</h2>
-            <p style="text-align: center; margin-bottom: 2rem; color: #555; font-weight: 400;">Hier sind einige häufig verwendete Abfragen:</p>
-
-            <div class="examples-list">
-                <div class="example-item">
-                    <strong>Aktuelle Ferien abrufen:</strong> <code>GET /api/v2/current</code>
-                </div>
-                <div class="example-item">
-                    <strong>Sommerferien für Bayern und Baden-Württemberg:</strong> <code>GET /api/v2/2024?type=sommerferien&states=BY,BW</code>
-                </div>
-                <div class="example-item">
-                    <strong>Ist heute ein Ferientag?</strong> <code>GET /api/v2/date/2024-07-25</code>
-                </div>
-                <div class="example-item">
-                    <strong>Suche nach allen Osterferien:</strong> <code>GET /api/v2/search?q=oster</code>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Verfügbare Daten</h2>
-            <div class="grid-2">
-                <div class="grid-item">
-                    <h4>Jahre</h4>
-<p>2022, 2023, 2024, 2025, 2026, 2027, 2028</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Bundesländer</h4>
-                    <p>Alle 16 deutschen Bundesländer (BW, BY, BE, BB, HB, HH, HE, MV, NI, NW, RP, SL, SN, ST, SH, TH)</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Ferientypen</h4>
-                    <p>Winter-, Oster-, Pfingst-, Sommer-, Herbst-, Weihnachtsferien</p>
-                </div>
-                <div class="grid-item">
-                    <h4>System</h4>
-                    <p>Gesundheitschecks, Status, Überwachung</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Warum diese API?</h2>
-            <div class="grid-2">
-                <div class="grid-item">
-                    <h4>Kostenlos</h4>
-                    <p>Komplett kostenlos, ohne API-Keys oder Registrierung</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Schnell</h4>
-                    <p>Optimiert für niedrige Latenz mit In-Memory-Caching</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Zuverlässig</h4>
-                    <p>99.9% Verfügbarkeit mit umfassenden Tests</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Dokumentiert</h4>
-                    <p>Vollständige interaktive API-Dokumentation</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="cta-section">
-            <h2 class="section-title">Ressourcen</h2>
-            <p style="margin-bottom: 2rem; color: #555; font-weight: 400;">Alles, was Sie für den Einstieg benötigen:</p>
-            <a href="/docs" class="btn btn-primary">Swagger UI — Interaktive Dokumentation</a>
-            <a href="/health" class="btn">API Gesundheitsstatus</a>
-            <a href="/status" class="btn">Detaillierter Systemstatus</a>
-            <a href="https://github.com/maxleistner/schulferien-api" class="btn">GitHub Repository</a>
-        </div>
-
-        <div class="footer">
-            <p>Made with care for the German developer community</p>
-            <p>© 2024 Maximilian Leistner • <a href="https://maxleistner.de">maxleistner.de</a></p>
-        </div>
+        <h1>${title}</h1>
+        <p>${message}</p>
+        <a href="/">Startseite</a>
+        <a href="/docs">API Dokumentation</a>
     </div>
 </body>
 </html>`;
-}
 
 // 404 handler
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404);
-  
-  if (req.path.startsWith('/api')) {
+
+  if (req.path.startsWith("/api")) {
     res.json({
       error: {
-        message: `API endpoint ${req.method} ${req.url} not found`,
+        message: `API endpoint ${req.method} ${req.path} not found`,
         statusCode: 404,
-        documentation: '/docs'
-      }
+        documentation: "/docs",
+      },
     });
   } else {
-    res.send(`
-    <!DOCTYPE html>
-    <html lang="de">
-    <head>
-        <meta charset="UTF-8">
-        <title>404 | Deutsche Schulferien API</title>
-        <style>
-            body { 
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                background: #fff; color: #000; text-align: center; padding: 2rem;
-                min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            }
-            .container {
-                max-width: 500px; border: 1px solid #000; padding: 3rem 2rem;
-                position: relative; background: #fff;
-            }
-            .container::before {
-                content: ''; position: absolute; top: -1px; left: -1px;
-                right: -1px; bottom: -1px; background: #000; z-index: -1;
-                transform: translate(6px, 6px);
-            }
-            h1 { font-size: 2rem; margin-bottom: 2rem; font-weight: 300; }
-            p { margin-bottom: 2rem; color: #666; }
-            a {
-                display: inline-block; padding: 1rem 2rem; background: #000;
-                color: #fff; text-decoration: none; border: 1px solid #000;
-                transition: all 0.2s ease;
-            }
-            a:hover { background: #fff; color: #000; }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>404</h1>
-            <p>Die angeforderte Seite existiert nicht.</p>
-            <a href="/">Startseite</a>
-            <a href="/docs">API Dokumentation</a>
-        </div>
-    </body>
-    </html>
-    `);
+    res.send(renderMessagePage("404", "Die angeforderte Seite existiert nicht."));
   }
 });
 
 // Error handler
 app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(err.status || 500);
-  
-  if (req.path.startsWith('/api')) {
+  const status = err.status || err.statusCode || 500;
+
+  // Only expected client errors are shown verbatim; internals (paths, stack) stay in the logs
+  if (status >= 500) {
+    console.error(err);
+  }
+  const message = status < 500 ? err.message : "Internal server error";
+
+  res.status(status);
+  if (status >= 500) {
+    res.set("Cache-Control", "no-store");
+  }
+
+  if (req.path.startsWith("/api")) {
     res.json({
       error: {
-        message: err.message,
-        statusCode: err.status || 500,
-        documentation: '/docs'
+        message,
+        statusCode: status,
+        documentation: "/docs",
       },
     });
   } else {
-    res.send(`
-    <!DOCTYPE html>
-    <html lang="de">
-    <head>
-        <meta charset="UTF-8">
-        <title>Fehler | Deutsche Schulferien API</title>
-        <style>
-            body { 
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                background: #fff; color: #000; text-align: center; padding: 2rem;
-                min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            }
-            .container {
-                max-width: 500px; border: 1px solid #000; padding: 3rem 2rem;
-                position: relative; background: #fff;
-            }
-            .container::before {
-                content: ''; position: absolute; top: -1px; left: -1px;
-                right: -1px; bottom: -1px; background: #000; z-index: -1;
-                transform: translate(6px, 6px);
-            }
-            h1 { font-size: 2rem; margin-bottom: 2rem; font-weight: 300; }
-            p { margin-bottom: 2rem; color: #666; }
-            a {
-                display: inline-block; padding: 1rem 2rem; background: #000;
-                color: #fff; text-decoration: none; border: 1px solid #000;
-                transition: all 0.2s ease;
-            }
-            a:hover { background: #fff; color: #000; }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Ein Fehler ist aufgetreten</h1>
-            <p>${err.message}</p>
-            <a href="/">Zurück zur Startseite</a>
-        </div>
-    </body>
-    </html>
-    `);
+    res.send(renderMessagePage("Ein Fehler ist aufgetreten", "Bitte versuchen Sie es später erneut."));
   }
 });
 
-// Export app for Vercel
+// Export app for Vercel and tests
 module.exports = app;
 
-// Only listen when not running on Vercel
-if (!process.env.VERCEL) {
+// Only listen when started directly (node index.js), not when imported
+if (require.main === module && !process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(
       `Express Server started on Port ${app.get(

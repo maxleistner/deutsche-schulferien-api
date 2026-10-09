@@ -1,51 +1,44 @@
 {
   "name": "schulferien-api",
-  "version": "2.0.0",
+  "version": "2.2.0",
   "description": "API für die Schulferien in Deutschland, filterbar nach Jahr und/oder Bundesland",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon --exec 'npm start'",
-    "docs": "node -e \"console.log('Swagger UI available at: http://localhost:3000/docs')\"; npm start",
+    "dev": "node --watch index.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:api": "jest tests/api.test.js",
     "test:data": "jest tests/data-validation.test.js",
-    "test:routes": "jest tests/routes.test.js",
     "test:v2": "jest tests/v2.test.js",
     "test:filters": "jest tests/filters.test.js",
     "test:system": "jest tests/system.test.js",
-    "deploy": "vercel",
-    "deploy:prod": "vercel --prod",
-    "dev:vercel": "vercel dev"
+    "deploy": "npx vercel",
+    "deploy:prod": "npx vercel --prod",
+    "dev:vercel": "npx vercel dev"
   },
   "author": "Maximilian Leistner (https://maxleistner.de)",
   "license": "Creative Commons Attribution 4.0",
   "engines": {
-    "node": ">=18"
+    "node": "24.x"
   },
   "dependencies": {
-    "body-parser": "^1.20.0",
-    "cors": "^2.8.5",
-    "express": "^4.18.1",
-    "js-yaml": "^4.1.0",
-    "morgan": "^1.10.0",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^4.6.3"
-  },
-  "devDependencies": {
-    "jest": "^29.0.0",
-    "nodemon": "^2.0.19",
-    "supertest": "^6.3.0",
-    "vercel": "^48.2.9"
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "morgan": "^1.12.1"
   },
   "jest": {
     "testEnvironment": "node",
     "collectCoverageFrom": [
       "*.js",
-      "routes/*.js",
+      "lib/*.js",
+      "routes/**/*.js",
       "!node_modules/**"
     ]
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "supertest": "^7.3.1"
   }
 }

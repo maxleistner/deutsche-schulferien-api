@@ -1,41 +1,7 @@
 const request = require('supertest');
-const express = require('express');
-const bodyParser = require('body-parser');
-const logger = require('morgan');
-const cors = require('cors');
-const path = require('path');
 
-// Import the routes
-const vacationsRouter = require('../routes/vacations');
-
-// Create test app (similar to index.js but without listen)
-const createApp = () => {
-  const app = express();
-  
-  app.use(cors());
-  app.use(logger('tiny'));
-  app.use(bodyParser.json());
-  
-  app.use('/', vacationsRouter);
-  
-  // Error handling middleware
-  app.use((req, res, next) => {
-    const err = new Error(`${req.method} ${req.url} Not Found`);
-    err.status = 404;
-    next(err);
-  });
-  
-  app.use((err, req, res, next) => {
-    res.status(err.status || 500);
-    res.json({
-      error: {
-        message: err.message,
-      },
-    });
-  });
-  
-  return app;
-};
+// Test against the real app so routing, caching and error handling match production
+const createApp = () => require('../index');
 
 describe('German School Holidays API', () => {
   let app;
@@ -133,10 +99,28 @@ describe('German School Holidays API', () => {
 
       test('should return error for invalid year format', async () => {
         const response = await request(app)
-          .get('/api/v1/abc');
+          .get('/api/v1/abc')
+          .expect(400);
 
-        expect([404, 500]).toContain(response.status);
         expect(response.body).toHaveProperty('error');
+      });
+
+      test('should not read files outside the data directory', async () => {
+        const response = await request(app)
+          .get('/api/v1/..%2F..%2Fpackage')
+          .expect(400);
+
+        expect(response.body).not.toHaveProperty('name');
+        expect(response.body.error.message).toContain('four-digit');
+      });
+
+      test('should return 404 without internal paths for unknown year', async () => {
+        const response = await request(app)
+          .get('/api/v1/2031')
+          .expect(404);
+
+        expect(response.body.error.statusCode).toBe(404);
+        expect(response.body.error.message).not.toMatch(/routes|\.json|ENOENT/);
       });
     });
   });
@@ -303,10 +287,27 @@ describe('German School Holidays API', () => {
     test('should return 404 for non-API routes', async () => {
       const response = await request(app)
         .get('/invalid-route')
+        .expect(404)
+        .expect('Content-Type', /html/);
+
+      expect(response.text).toContain('Die angeforderte Seite existiert nicht.');
+    });
+
+    test('should return JSON 404 for unknown API routes', async () => {
+      const response = await request(app)
+        .get('/api/v3/2024')
         .expect(404);
 
-      expect(response.body).toHaveProperty('error');
-      expect(response.body.error.message).toContain('Not Found');
+      expect(response.body.error.statusCode).toBe(404);
+    });
+
+    test('should allow CDN caching of API responses', async () => {
+      const response = await request(app)
+        .get('/api/v1/2024')
+        .expect(200);
+
+      expect(response.headers['cache-control']).toContain('s-maxage=86400');
+      expect(response.headers).not.toHaveProperty('x-powered-by');
     });
 
     test('should handle HEAD requests', async () => {

@@ -1,14 +1,12 @@
 const fs = require('fs');
 const path = require('path');
+const { VALID_STATES, VALID_TYPES } = require('../lib/filters');
 
 describe('Data Validation Tests', () => {
-  const availableYears = [2024, 2025, 2026, 2027, 2028];
-  const expectedStates = ['BW', 'BY', 'BE', 'BB', 'HB', 'HH', 'HE', 'MV', 'NI', 'NW', 'RP', 'SL', 'SN', 'ST', 'SH', 'TH'];
-  const validVacationTypes = [
-    'winterferien', 'osterferien', 'pfingstferien', 
-    'sommerferien', 'herbstferien', 'weihnachtsferien', 
-    'fruehjahrsferien' // Hamburg special case
-  ];
+  // Every year file shipped with the API gets validated
+  const availableYears = require('../lib/dataLoader').getAvailableYears();
+  const expectedStates = VALID_STATES;
+  const validVacationTypes = VALID_TYPES;
 
   let allData = {};
 
@@ -89,7 +87,8 @@ describe('Data Validation Tests', () => {
       const data = allData[year];
       
       data.forEach((vacation, index) => {
-        const expectedSlug = `${vacation.name}-${vacation.year}-${vacation.stateCode}`;
+        // Slugs use hyphens only (variabler_ferientag -> variabler-ferientag)
+        const expectedSlug = `${vacation.name.replace(/_/g, '-')}-${vacation.year}-${vacation.stateCode}`;
         expect(vacation.slug).toBe(expectedSlug);
       });
     });

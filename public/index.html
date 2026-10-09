@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deutsche Schulferien API</title>
-<meta name="description" content="Kostenlose API für deutsche Schulferien - alle Bundesländer, Jahre 2022-2028, mit erweiterten Filtermöglichkeiten">
+<meta name="description" content="Kostenlose API für deutsche Schulferien - alle Bundesländer, Jahre {{YEAR_RANGE}}, mit erweiterten Filtermöglichkeiten">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>">
     <style>
         * {
@@ -380,7 +380,7 @@
                     <div class="stat-label">Bundesländer</div>
                 </div>
                 <div class="stat">
-<div class="stat-number">7</div>
+                    <div class="stat-number">{{YEAR_COUNT}}</div>
                     <div class="stat-label">Jahre verfügbar</div>
                 </div>
                 <div class="stat">
@@ -460,7 +460,7 @@ GET /api/v2/search?q=sommer</div>
             <div class="grid-2">
                 <div class="grid-item">
                     <h4>Jahre</h4>
-<p>2022, 2023, 2024, 2025, 2026, 2027, 2028</p>
+                    <p>{{YEARS}}</p>
                 </div>
                 <div class="grid-item">
                     <h4>Bundesländer</h4>
@@ -468,7 +468,7 @@ GET /api/v2/search?q=sommer</div>
                 </div>
                 <div class="grid-item">
                     <h4>Ferientypen</h4>
-                    <p>Winter-, Oster-, Pfingst-, Sommer-, Herbst-, Weihnachtsferien</p>
+                    <p>Winter-, Frühjahrs-, Oster-, Pfingst-, Sommer-, Herbst-, Weihnachtsferien sowie variable Ferientage</p>
                 </div>
                 <div class="grid-item">
                     <h4>System</h4>
@@ -505,12 +505,12 @@ GET /api/v2/search?q=sommer</div>
             <a href="/docs" class="btn btn-primary">Swagger UI — Interaktive Dokumentation</a>
             <a href="/health" class="btn">API Gesundheitsstatus</a>
             <a href="/status" class="btn">Detaillierter Systemstatus</a>
-            <a href="https://github.com/maxleistner/schulferien-api" class="btn">GitHub Repository</a>
+            <a href="https://github.com/maxleistner/deutsche-schulferien-api" class="btn">GitHub Repository</a>
         </div>
 
         <div class="footer">
             <p>Made with care for the German developer community</p>
-            <p>© 2024 Maximilian Leistner • <a href="https://maxleistner.de">maxleistner.de</a></p>
+            <p>© {{COPYRIGHT_YEARS}} Maximilian Leistner • <a href="https://maxleistner.de">maxleistner.de</a></p>
         </div>
     </div>
 </body>

@@ -1,30 +1,8 @@
 const request = require('supertest');
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
 
-// Import the V2 router and create test app
-const v2Router = require('../routes/v2');
-
-const createTestApp = () => {
-  const app = express();
-  
-  app.use(cors());
-  app.use(bodyParser.json());
-  app.use('/api/v2', v2Router);
-  
-  // Error handling middleware
-  app.use((err, req, res, next) => {
-    res.status(err.status || 500);
-    res.json({
-      error: {
-        message: err.message,
-      },
-    });
-  });
-  
-  return app;
-};
+// Test against the real app so routing, caching and error handling match production
+const createApp = () => require('../index');
+const createTestApp = createApp;
 
 describe('V2 API Endpoints', () => {
   let app;
@@ -458,6 +436,63 @@ describe('V2 API Endpoints', () => {
         expect(holiday.start).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z$/);
         expect(holiday.end).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z$/);
       });
+    });
+  });
+
+  describe('Fixes from the 2026 review', () => {
+    test('should allow selecting name_cp', async () => {
+      const response = await request(app)
+        .get('/api/v2/2024/BY?fields=start,name,name_cp')
+        .expect(200);
+
+      expect(Object.keys(response.body[0]).sort()).toEqual(['name', 'name_cp', 'start']);
+    });
+
+    test('should allow filtering by variabler_ferientag', async () => {
+      const response = await request(app)
+        .get('/api/v2/2026?type=variabler_ferientag')
+        .expect(200);
+
+      expect(response.body.length).toBeGreaterThan(0);
+      response.body.forEach(holiday => expect(holiday.name).toBe('variabler_ferientag'));
+    });
+
+    test('should accept repeated query keys', async () => {
+      const response = await request(app)
+        .get('/api/v2/2024?type=sommerferien&states=BY&states=BW')
+        .expect(200);
+
+      expect([...new Set(response.body.map(h => h.stateCode))].sort()).toEqual(['BW', 'BY']);
+    });
+
+    test('should reject years with trailing characters', async () => {
+      await request(app)
+        .get('/api/v2/2024abc/BY')
+        .expect(400);
+    });
+
+    test('should return 404 for years without data', async () => {
+      const response = await request(app)
+        .get('/api/v2/2031')
+        .expect(404);
+
+      expect(response.body.error.message).toContain('Available years');
+    });
+
+    test('should count a single-day holiday as one day in stats', async () => {
+      const response = await request(app)
+        .get('/api/v2/stats/2026')
+        .expect(200);
+
+      expect(response.body.shortestHoliday.duration).toBe(1);
+    });
+
+    test('should cache time-dependent endpoints only briefly', async () => {
+      const response = await request(app)
+        .get('/api/v2/current')
+        .expect(200);
+
+      expect(response.headers['cache-control']).toContain('s-maxage=900');
     });
   });
 });

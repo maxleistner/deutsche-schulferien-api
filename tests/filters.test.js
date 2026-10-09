@@ -311,4 +311,23 @@ describe('Filters Utility', () => {
       expect(result[0].name).toBe('sommerferien');
     });
   });
+
+  describe('German local time', () => {
+    test('should treat the first holiday day as current shortly after midnight in Germany', () => {
+      // 2024-07-24T22:30Z is 00:30 on 2024-07-25 in Berlin (CEST)
+      const result = getCurrentHolidays(sampleHolidays, new Date('2024-07-24T22:30:00.000Z'));
+      expect(result.map(h => h.name)).toContain('sommerferien');
+    });
+
+    test('should not treat the day after the last holiday day as current', () => {
+      // 2024-09-08T23:30Z is 01:30 on 2024-09-09 in Berlin
+      const result = getCurrentHolidays(sampleHolidays, new Date('2024-09-08T23:30:00.000Z'));
+      expect(result.map(h => h.name)).not.toContain('sommerferien');
+    });
+
+    test('should include holidays starting today in upcoming holidays', () => {
+      const result = getUpcomingHolidays(sampleHolidays, 1, new Date('2024-07-24T22:30:00.000Z'));
+      expect(result.map(h => h.name)).toContain('sommerferien');
+    });
+  });
 });

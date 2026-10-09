@@ -1,30 +1,8 @@
 const request = require('supertest');
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
 
-// Import the system router and create test app
-const systemRouter = require('../routes/system');
-
-const createTestApp = () => {
-  const app = express();
-  
-  app.use(cors());
-  app.use(bodyParser.json());
-  app.use('/', systemRouter);
-  
-  // Error handling middleware
-  app.use((err, req, res, next) => {
-    res.status(err.status || 500);
-    res.json({
-      error: {
-        message: err.message,
-      },
-    });
-  });
-  
-  return app;
-};
+// Test against the real app so routing, caching and error handling match production
+const createApp = () => require('../index');
+const createTestApp = createApp;
 
 describe('System Endpoints', () => {
   let app;

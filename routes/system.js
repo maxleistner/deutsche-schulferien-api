@@ -1,5 +1,6 @@
 const express = require('express');
 const dataLoader = require('../lib/dataLoader');
+const { version } = require('../package.json');
 
 const router = express.Router();
 
@@ -14,7 +15,7 @@ router.get('/health', (req, res) => {
     status: 'ok',
     uptime: uptime,
     timestamp: new Date().toISOString(),
-    version: process.env.npm_package_version || '2.0.0'
+    version: version
   });
 });
 
@@ -56,7 +57,7 @@ router.get('/status', (req, res) => {
     
     const status = {
       service: 'German School Holidays API',
-      version: process.env.npm_package_version || '2.0.0',
+      version: version,
       status: isHealthy ? 'operational' : 'degraded',
       uptime: uptime,
       timestamp: new Date().toISOString(),
@@ -89,7 +90,7 @@ router.get('/status', (req, res) => {
   } catch (error) {
     res.status(500).json({
       service: 'German School Holidays API',
-      version: process.env.npm_package_version || '2.0.0',
+      version: version,
       status: 'error',
       error: error.message,
       timestamp: new Date().toISOString()

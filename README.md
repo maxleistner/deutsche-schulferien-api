@@ -25,7 +25,7 @@ Die API bietet zwei Versionen:
 Die V2 API erweitert die ursprüngliche Funktionalität um leistungsstarke Filter- und Suchfunktionen.
 
 ### 📚 Interactive Documentation
-**Swagger UI**: http://localhost:3000/docs (wenn lokal ausgeführt)
+**Swagger UI**: https://schulferien-api.de/docs · **OpenAPI-Spezifikation**: https://schulferien-api.de/docs/openapi.json
 
 ### 🔍 Erweiterte Filterung
 
@@ -139,7 +139,10 @@ curl "https://schulferien-api.de/status"
 
 **Ferientypen**:
 - `winterferien`, `osterferien`, `pfingstferien`, `sommerferien`, `herbstferien`, `weihnachtsferien`
-- Hamburg: `fruehjahrsferien` (statt `osterferien`)
+- `fruehjahrsferien` (z. B. Hamburg, statt `osterferien`)
+- `variabler_ferientag` (einzelne bewegliche Ferientage, z. B. Berlin/Brandenburg)
+
+Mehrere Werte können kommagetrennt (`states=BY,BW`) oder als wiederholter Parameter (`states=BY&states=BW`) übergeben werden.
 
 **Felder**:
 - `start`, `end`, `year`, `stateCode`, `name`, `name_cp`, `slug`
@@ -189,14 +192,15 @@ curl "https://schulferien-api.de/api/v1/2024/BY/"
 - 2026
 - 2027
 - 2028
+- 2029 (Thüringen: Herbst- und Weihnachtsferien folgen)
 
 ## Entwicklung
 
 ### Installation
 
 ```bash
-# LTS Node.js Version verwenden (empfohlen für beste Unterstützung)
-nvm install --lts && nvm use
+# Node.js 24 verwenden (wie auf Vercel)
+nvm install 24 && nvm use 24
 
 # Abhängigkeiten installieren
 npm install
@@ -231,7 +235,7 @@ curl "http://localhost:3000/docs" # Swagger UI
 
 ## Automatisierte Tests
 
-Diese API verfügt über eine umfassende Testsuite mit über 160 Tests, die alle V1- und V2-Funktionen abdeckt.
+Diese API verfügt über eine umfassende Testsuite, die alle V1- und V2-Funktionen abdeckt. Die Tests laufen bei jedem Push und Pull Request automatisch über GitHub Actions.
 
 ### Test-Befehle
 
@@ -251,14 +255,13 @@ npm run test:v2           # V2 API-Endpunkt-Tests
 npm run test:filters      # Filter-Utility-Tests
 npm run test:system       # System-Endpunkt-Tests
 npm run test:data         # Datenvalidierungs-Tests
-npm run test:routes       # Route-Unit-Tests
 ```
 
 ### Was wird getestet?
 
 #### API-Funktionalität
 - ✅ Alle Endpunkte (`GET /api/v1/:year` und `GET /api/v1/:year/:state`)
-- ✅ Gültige Anfragen für alle verfügbaren Jahre (2024-2027)
+- ✅ Gültige Anfragen für alle verfügbaren Jahre
 - ✅ Alle 16 deutschen Bundesländer
 - ✅ Fehlerbehandlung für ungültige Parameter
 - ✅ CORS-Unterstützung
@@ -268,7 +271,7 @@ npm run test:routes       # Route-Unit-Tests
 - ✅ JSON-Struktur und Datentypen
 - ✅ ISO 8601 Datumsformat (`YYYY-MM-DDTHH:mmZ`)
 - ✅ Bundesland-Codes (BW, BY, BE, etc.)
-- ✅ Ferientypen (winterferien, osterferien, pfingstferien, sommerferien, herbstferien, weihnachtsferien)
+- ✅ Ferientypen (winterferien, fruehjahrsferien, osterferien, pfingstferien, sommerferien, herbstferien, weihnachtsferien, variabler_ferientag)
 - ✅ Slug-Format (`ferientype-jahr-bundesland`)
 - ✅ Datumslogik (Start ≤ Ende)
 - ✅ Vollständigkeit aller Bundesländer
@@ -285,23 +288,6 @@ npm run test:routes       # Route-Unit-Tests
 - ✅ Antwortzeiten unter 1 Sekunde
 - ✅ Fehlerbehandlung bei fehlenden Dateien
 - ✅ JSON-Parse-Fehler-Behandlung
-
-### Testausführung
-
-Beispiel einer erfolgreichen Testausführung:
-
-```bash
-$ npm test
-
- PASS  tests/api.test.js
- PASS  tests/data-validation.test.js
- PASS  tests/routes.test.js
-
-Test Suites: 3 passed, 3 total
-Tests:       88 passed, 88 total
-Snapshots:   0 total
-Time:        0.729 s
-```
 
 ## Datenqualität
 

@@ -78,10 +78,8 @@ router.get('/status', (req, res) => {
           `${Math.min(...availableYears)} - ${Math.max(...availableYears)}` : 'None',
         cacheStatus: 'enabled'
       },
+      // Runtime details (Node version, platform, memory) are deliberately not exposed
       system: {
-        nodeVersion: process.version,
-        platform: process.platform,
-        memoryUsage: process.memoryUsage(),
         environment: process.env.NODE_ENV || 'development'
       }
     };
@@ -92,7 +90,7 @@ router.get('/status', (req, res) => {
       service: 'German School Holidays API',
       version: version,
       status: 'error',
-      error: error.message,
+      error: 'Status check failed',
       timestamp: new Date().toISOString()
     });
   }

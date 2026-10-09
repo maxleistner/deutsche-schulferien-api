@@ -113,20 +113,11 @@ describe('System Endpoints', () => {
         expect(typeof response.body.data.totalYears).toBe('number');
 
         // Validate system section
-        expect(response.body.system).toHaveProperty('nodeVersion');
-        expect(response.body.system).toHaveProperty('platform');
-        expect(response.body.system).toHaveProperty('memoryUsage');
         expect(response.body.system).toHaveProperty('environment');
-        expect(typeof response.body.system.nodeVersion).toBe('string');
-        expect(typeof response.body.system.platform).toBe('string');
-        expect(typeof response.body.system.memoryUsage).toBe('object');
+        expect(response.body.system).not.toHaveProperty('memoryUsage');
+        expect(response.body.system).not.toHaveProperty('nodeVersion');
         expect(typeof response.body.system.environment).toBe('string');
 
-        // Validate memory usage structure
-        expect(response.body.system.memoryUsage).toHaveProperty('rss');
-        expect(response.body.system.memoryUsage).toHaveProperty('heapTotal');
-        expect(response.body.system.memoryUsage).toHaveProperty('heapUsed');
-        expect(response.body.system.memoryUsage).toHaveProperty('external');
       } else {
         expect(response.body).toHaveProperty('error');
       }

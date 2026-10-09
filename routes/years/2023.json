@@ -198,6 +198,15 @@
     "slug": "osterferien-2023-BB"
   },
   {
+    "start": "2023-05-19T00:00Z",
+    "end": "2023-05-19T23:59Z",
+    "year": 2023,
+    "stateCode": "BB",
+    "name": "variabler_ferientag",
+    "name_cp": "Variabler Ferientag",
+    "slug": "variabler-ferientag-2023-BB"
+  },
+  {
     "start": "2023-07-13T00:00Z",
     "end": "2023-08-25T23:59Z",
     "year": 2023,
@@ -205,6 +214,15 @@
     "name": "sommerferien",
     "name_cp": "Sommerferien",
     "slug": "sommerferien-2023-BB"
+  },
+  {
+    "start": "2023-10-02T00:00Z",
+    "end": "2023-10-02T23:59Z",
+    "year": 2023,
+    "stateCode": "BB",
+    "name": "variabler_ferientag",
+    "name_cp": "Variabler Ferientag",
+    "slug": "variabler-ferientag-2023-BB"
   },
   {
     "start": "2023-10-23T00:00Z",

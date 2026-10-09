@@ -211,18 +211,18 @@
     "end": "2029-04-30T23:59Z",
     "year": 2029,
     "stateCode": "BB",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2029-BB"
+    "name": "variabler_ferientag",
+    "name_cp": "Variabler Ferientag",
+    "slug": "variabler-ferientag-2029-BB"
   },
   {
     "start": "2029-05-11T00:00Z",
     "end": "2029-05-11T23:59Z",
     "year": 2029,
     "stateCode": "BB",
-    "name": "pfingstferien",
-    "name_cp": "Pfingstferien",
-    "slug": "pfingstferien-2029-BB"
+    "name": "variabler_ferientag",
+    "name_cp": "Variabler Ferientag",
+    "slug": "variabler-ferientag-2029-BB"
   },
   {
     "start": "2029-05-22T00:00Z",

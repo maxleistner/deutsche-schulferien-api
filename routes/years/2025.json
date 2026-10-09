@@ -148,9 +148,9 @@
     "end": "2025-05-30T23:59Z",
     "year": 2025,
     "stateCode": "BE",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2025-BE"
+    "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
+    "slug": "pfingstferien-2025-BE"
   },
   {
     "start": "2025-06-10T00:00Z",
@@ -211,18 +211,18 @@
     "end": "2025-05-02T23:59Z",
     "year": 2025,
     "stateCode": "BB",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2025-BB"
+    "name": "variabler_ferientag",
+    "name_cp": "Variabler Ferientag",
+    "slug": "variabler-ferientag-2025-BB"
   },
   {
     "start": "2025-05-30T00:00Z",
     "end": "2025-05-30T23:59Z",
     "year": 2025,
     "stateCode": "BB",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2025-BB"
+    "name": "variabler_ferientag",
+    "name_cp": "Variabler Ferientag",
+    "slug": "variabler-ferientag-2025-BB"
   },
   {
     "start": "2025-06-10T00:00Z",
@@ -283,18 +283,18 @@
     "end": "2025-04-30T23:59Z",
     "year": 2025,
     "stateCode": "HB",
-    "name": "pfingstferien",
-    "name_cp": "Pfingstferien",
-    "slug": "pfingstferien-2025-HB"
+    "name": "osterferien",
+    "name_cp": "Osterferien",
+    "slug": "osterferien-2025-HB"
   },
   {
     "start": "2025-05-02T00:00Z",
     "end": "2025-05-02T23:59Z",
     "year": 2025,
     "stateCode": "HB",
-    "name": "pfingstferien",
-    "name_cp": "Pfingstferien",
-    "slug": "pfingstferien-2025-HB"
+    "name": "osterferien",
+    "name_cp": "Osterferien",
+    "slug": "osterferien-2025-HB"
   },
   {
     "start": "2025-05-30T00:00Z",
@@ -364,9 +364,9 @@
     "end": "2025-05-02T23:59Z",
     "year": 2025,
     "stateCode": "HH",
-    "name": "pfingstferien",
-    "name_cp": "Pfingstferien",
-    "slug": "pfingstferien-2025-HH"
+    "name": "osterferien",
+    "name_cp": "Osterferien",
+    "slug": "osterferien-2025-HH"
   },
   {
     "start": "2025-05-26T00:00Z",
@@ -463,9 +463,9 @@
     "end": "2025-05-30T23:59Z",
     "year": 2025,
     "stateCode": "MV",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2025-MV"
+    "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
+    "slug": "pfingstferien-2025-MV"
   },
   {
     "start": "2025-06-06T00:00Z",
@@ -553,9 +553,9 @@
     "end": "2025-05-02T23:59Z",
     "year": 2025,
     "stateCode": "NI",
-    "name": "pfingstferien",
-    "name_cp": "Pfingstferien",
-    "slug": "pfingstferien-2025-NI"
+    "name": "osterferien",
+    "name_cp": "Osterferien",
+    "slug": "osterferien-2025-NI"
   },
   {
     "start": "2025-05-30T00:00Z",
@@ -805,9 +805,9 @@
     "end": "2025-05-30T23:59Z",
     "year": 2025,
     "stateCode": "SN",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2025-SN"
+    "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
+    "slug": "pfingstferien-2025-SN"
   },
   {
     "start": "2025-06-28T00:00Z",
@@ -837,26 +837,8 @@
     "slug": "weihnachtsferien-2025-SN"
   },
   {
-    "start": "2025-02-03T00:00Z",
-    "end": "2025-02-03T23:59Z",
-    "year": 2025,
-    "stateCode": "SH",
-    "name": "winterferien",
-    "name_cp": "Winterferien",
-    "slug": "winterferien-2025-SH"
-  },
-  {
     "start": "2025-04-11T00:00Z",
     "end": "2025-04-25T23:59Z",
-    "year": 2025,
-    "stateCode": "SH",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2025-SH"
-  },
-  {
-    "start": "2025-05-02T00:00Z",
-    "end": "2025-05-02T23:59Z",
     "year": 2025,
     "stateCode": "SH",
     "name": "osterferien",
@@ -884,15 +866,6 @@
   {
     "start": "2025-10-20T00:00Z",
     "end": "2025-10-30T23:59Z",
-    "year": 2025,
-    "stateCode": "SH",
-    "name": "herbstferien",
-    "name_cp": "Herbstferien",
-    "slug": "herbstferien-2025-SH"
-  },
-  {
-    "start": "2025-11-28T00:00Z",
-    "end": "2025-11-28T23:59Z",
     "year": 2025,
     "stateCode": "SH",
     "name": "herbstferien",

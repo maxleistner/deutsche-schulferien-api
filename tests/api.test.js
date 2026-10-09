@@ -161,16 +161,16 @@ describe('German School Holidays API', () => {
         expect(vacationTypes).toContain('weihnachtsferien');
       });
 
-      test('should return Hamburg vacations with special naming', async () => {
+      test('should return Hamburg spring holidays as osterferien', async () => {
         const response = await request(app)
           .get('/api/v1/2027/HH')
           .expect(200);
 
         expect(Array.isArray(response.body)).toBe(true);
         
-        // Hamburg uses "fruehjahrsferien" instead of "osterferien"
+        // Hamburg's Frühjahrsferien follow the KMK column "Ostern/Frühjahr"
         const vacationTypes = [...new Set(response.body.map(v => v.name))];
-        expect(vacationTypes).toContain('fruehjahrsferien');
+        expect(vacationTypes).toContain('osterferien');
         expect(vacationTypes).toContain('sommerferien');
         expect(vacationTypes).toContain('weihnachtsferien');
       });

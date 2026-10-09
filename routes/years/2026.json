@@ -139,9 +139,9 @@
     "end": "2026-05-15T23:59Z",
     "year": 2026,
     "stateCode": "BE",
-    "name": "variabler_ferientag",
-    "name_cp": "Variabler Ferientag",
-    "slug": "variabler-ferientag-2026-BE"
+    "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
+    "slug": "pfingstferien-2026-BE"
   },
   {
     "start": "2026-05-26T00:00Z",
@@ -733,9 +733,9 @@
     "end": "2026-05-15T23:59Z",
     "year": 2026,
     "stateCode": "SN",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2026-SN"
+    "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
+    "slug": "pfingstferien-2026-SN"
   },
   {
     "start": "2026-07-04T00:00Z",
@@ -763,15 +763,6 @@
     "name": "weihnachtsferien",
     "name_cp": "Weihnachtsferien",
     "slug": "weihnachtsferien-2026-SN"
-  },
-  {
-    "start": "2026-02-02T00:00Z",
-    "end": "2026-02-03T23:59Z",
-    "year": 2026,
-    "stateCode": "SH",
-    "name": "winterferien",
-    "name_cp": "Winterferien",
-    "slug": "winterferien-2026-SH"
   },
   {
     "start": "2026-03-26T00:00Z",

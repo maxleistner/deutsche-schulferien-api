@@ -198,6 +198,15 @@
     "slug": "osterferien-2024-BB"
   },
   {
+    "start": "2024-05-10T00:00Z",
+    "end": "2024-05-10T23:59Z",
+    "year": 2024,
+    "stateCode": "BB",
+    "name": "variabler_ferientag",
+    "name_cp": "Variabler Ferientag",
+    "slug": "variabler-ferientag-2024-BB"
+  },
+  {
     "start": "2024-07-18T00:00Z",
     "end": "2024-08-31T23:59Z",
     "year": 2024,
@@ -211,9 +220,9 @@
     "end": "2024-10-04T23:59Z",
     "year": 2024,
     "stateCode": "BB",
-    "name": "herbstferien",
-    "name_cp": "Herbstferien",
-    "slug": "herbstferien-2024-BB"
+    "name": "variabler_ferientag",
+    "name_cp": "Variabler Ferientag",
+    "slug": "variabler-ferientag-2024-BB"
   },
   {
     "start": "2024-10-21T00:00Z",

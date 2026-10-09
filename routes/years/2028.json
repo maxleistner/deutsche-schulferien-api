@@ -139,9 +139,9 @@
     "end": "2028-05-26T23:59Z",
     "year": 2028,
     "stateCode": "BE",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2028-BE"
+    "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
+    "slug": "pfingstferien-2028-BE"
   },
   {
     "start": "2028-06-01T00:00Z",
@@ -202,9 +202,9 @@
     "end": "2028-05-26T23:59Z",
     "year": 2028,
     "stateCode": "BB",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2028-BB"
+    "name": "variabler_ferientag",
+    "name_cp": "Variabler Ferientag",
+    "slug": "variabler-ferientag-2028-BB"
   },
   {
     "start": "2028-06-29T00:00Z",
@@ -229,9 +229,9 @@
     "end": "2028-10-30T23:59Z",
     "year": 2028,
     "stateCode": "BB",
-    "name": "herbstferien",
-    "name_cp": "Herbstferien",
-    "slug": "herbstferien-2028-BB"
+    "name": "variabler_ferientag",
+    "name_cp": "Variabler Ferientag",
+    "slug": "variabler-ferientag-2028-BB"
   },
   {
     "start": "2028-12-22T00:00Z",
@@ -436,9 +436,9 @@
     "end": "2028-05-26T23:59Z",
     "year": 2028,
     "stateCode": "MV",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2028-MV"
+    "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
+    "slug": "pfingstferien-2028-MV"
   },
   {
     "start": "2028-06-02T00:00Z",
@@ -706,9 +706,9 @@
     "end": "2028-05-26T23:59Z",
     "year": 2028,
     "stateCode": "SN",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2028-SN"
+    "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
+    "slug": "pfingstferien-2028-SN"
   },
   {
     "start": "2028-07-22T00:00Z",

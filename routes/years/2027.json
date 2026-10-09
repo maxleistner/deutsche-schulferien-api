@@ -130,9 +130,9 @@
     "end": "2027-05-07T23:59Z",
     "year": 2027,
     "stateCode": "BE",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2027-BE"
+    "name": "pfingstferien",
+    "name_cp": "Pfingstferien",
+    "slug": "pfingstferien-2027-BE"
   },
   {
     "start": "2027-05-18T00:00Z",
@@ -193,9 +193,9 @@
     "end": "2027-05-07T23:59Z",
     "year": 2027,
     "stateCode": "BB",
-    "name": "osterferien",
-    "name_cp": "Osterferien",
-    "slug": "osterferien-2027-BB"
+    "name": "variabler_ferientag",
+    "name_cp": "Variabler Ferientag",
+    "slug": "variabler-ferientag-2027-BB"
   },
   {
     "start": "2027-05-18T00:00Z",
@@ -310,9 +310,9 @@
     "end": "2027-03-12T23:59Z",
     "year": 2027,
     "stateCode": "HH",
-    "name": "fruehjahrsferien",
-    "name_cp": "Fruehjahrsferien",
-    "slug": "fruehjahrsferien-2027-HH"
+    "name": "osterferien",
+    "name_cp": "Osterferien",
+    "slug": "osterferien-2027-HH"
   },
   {
     "start": "2027-05-07T00:00Z",

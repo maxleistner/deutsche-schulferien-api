@@ -134,21 +134,21 @@ describe('Data Validation Tests', () => {
       });
     });
 
-    test('should handle Hamburg special naming convention', () => {
-      // Hamburg uses "fruehjahrsferien" instead of "osterferien"
+    test('should list Hamburg spring holidays as osterferien', () => {
+      // The KMK lists them in the "Ostern/Frühjahr" column, so they share the type with all other states
       availableYears.forEach(year => {
-        const hamburgData = allData[year].filter(v => v.stateCode === 'HH');
-        
-        if (hamburgData.length > 0) {
-          const vacationTypes = [...new Set(hamburgData.map(v => v.name))];
-          
-          // Hamburg might use either convention depending on the year
-          const hasSpringHolidays = vacationTypes.includes('fruehjahrsferien');
-          const hasEasterHolidays = vacationTypes.includes('osterferien');
-          
-          // Hamburg should have one or the other, but not necessarily both
-          expect(hasSpringHolidays || hasEasterHolidays).toBe(true);
-        }
+        const hamburgTypes = allData[year].filter(v => v.stateCode === 'HH').map(v => v.name);
+        expect(hamburgTypes).toContain('osterferien');
+        expect(hamburgTypes).not.toContain('fruehjahrsferien');
+      });
+    });
+
+    test('should only use variabler_ferientag for Brandenburg', () => {
+      // Only Brandenburg has statewide default days that each school may change
+      availableYears.forEach(year => {
+        allData[year]
+          .filter(v => v.name === 'variabler_ferientag')
+          .forEach(v => expect(v.stateCode).toBe('BB'));
       });
     });
 

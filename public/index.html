@@ -280,6 +280,21 @@
             line-height: 1.5;
         }
         
+        .calendar-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .calendar-links .btn {
+            margin: 0;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
         .examples-list {
             max-width: 800px;
             margin: 0 auto;
@@ -393,7 +408,7 @@
                 </div>
             </div>
             <a href="/docs" class="btn btn-primary">API Dokumentation</a>
-            <a href="/api/v2/2024?states=BY" class="btn">Beispiel testen</a>
+            <a href="/api/v2/{{EXAMPLE_YEAR}}?states=BY" class="btn">Beispiel testen</a>
         </div>
 
         <div class="section">
@@ -410,8 +425,8 @@
                         <li>Bewährt und stabil</li>
                     </ul>
 
-                    <div class="endpoint">GET /api/v1/2024/
-GET /api/v1/2024/BY</div>
+                    <div class="endpoint">GET /api/v1/{{EXAMPLE_YEAR}}/
+GET /api/v1/{{EXAMPLE_YEAR}}/BY</div>
                 </div>
 
                 <div class="api-version">
@@ -426,11 +441,12 @@ GET /api/v1/2024/BY</div>
                         <li>Datumsabfragen</li>
                         <li>Jahresvergleiche</li>
                         <li>Flexible Feldauswahl</li>
+                        <li>Kalender-Abo (iCal)</li>
                     </ul>
 
-                    <div class="endpoint">GET /api/v2/2024?type=sommerferien&states=BY,BW
+                    <div class="endpoint">GET /api/v2/{{EXAMPLE_YEAR}}?type=sommerferien&states=BY,BW
 GET /api/v2/current
-GET /api/v2/search?q=sommer</div>
+GET /api/v2/ical/BY.ics</div>
                 </div>
             </div>
         </div>
@@ -444,14 +460,22 @@ GET /api/v2/search?q=sommer</div>
                     <strong>Aktuelle Ferien abrufen:</strong> <code>GET /api/v2/current</code>
                 </div>
                 <div class="example-item">
-                    <strong>Sommerferien für Bayern und Baden-Württemberg:</strong> <code>GET /api/v2/2024?type=sommerferien&states=BY,BW</code>
+                    <strong>Sommerferien für Bayern und Baden-Württemberg:</strong> <code>GET /api/v2/{{EXAMPLE_YEAR}}?type=sommerferien&states=BY,BW</code>
                 </div>
                 <div class="example-item">
-                    <strong>Ist heute ein Ferientag?</strong> <code>GET /api/v2/date/2024-07-25</code>
+                    <strong>Ist der 25. Juli ein Ferientag?</strong> <code>GET /api/v2/date/{{EXAMPLE_YEAR}}-07-25</code>
                 </div>
                 <div class="example-item">
                     <strong>Suche nach allen Osterferien:</strong> <code>GET /api/v2/search?q=oster</code>
                 </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Ferienkalender abonnieren</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #555; font-weight: 400;">Alle Ferien Ihres Bundeslands direkt im Kalender, neue Jahre kommen automatisch dazu. In Google Kalender über „Per URL hinzufügen“ z. B. <code>https://schulferien-api.de/api/v2/ical/BY.ics</code> eintragen.</p>
+            <div class="calendar-links">
+{{ICAL_LINKS}}
             </div>
         </div>
 
@@ -468,7 +492,7 @@ GET /api/v2/search?q=sommer</div>
                 </div>
                 <div class="grid-item">
                     <h4>Ferientypen</h4>
-                    <p>Winter-, Frühjahrs-, Oster-, Pfingst-, Sommer-, Herbst-, Weihnachtsferien sowie variable Ferientage</p>
+                    <p>Winter-, Oster-/Frühjahrs-, Pfingst-, Sommer-, Herbst-, Weihnachtsferien sowie variable Ferientage (Brandenburg)</p>
                 </div>
                 <div class="grid-item">
                     <h4>System</h4>

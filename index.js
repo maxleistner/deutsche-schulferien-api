@@ -5,6 +5,7 @@ const path = require("path");
 const fs = require("fs");
 
 const dataLoader = require("./lib/dataLoader");
+const { STATE_NAMES } = require("./lib/filters");
 const openApiSpec = require("./lib/openapi-spec");
 const v1Router = require("./routes/v1/index.js");
 const v2Router = require("./routes/v2/index.js");
@@ -28,12 +29,19 @@ app.use(express.static(path.join(__dirname, "public"), { index: false }));
 
 // Index page: public/index.html with the available years filled in
 const years = dataLoader.getAvailableYears();
+const currentYear = new Date().getFullYear();
+const exampleYear = years.includes(currentYear) ? currentYear : years[years.length - 1];
+const icalLinks = Object.entries(STATE_NAMES)
+  .map(([code, name]) => `                <a href="webcal://schulferien-api.de/api/v2/ical/${code}.ics" class="btn">${name}</a>`)
+  .join("\n");
 const homePage = fs
   .readFileSync(path.join(__dirname, "public", "index.html"), "utf8")
   .replaceAll("{{YEAR_RANGE}}", `${years[0]}–${years[years.length - 1]}`)
   .replaceAll("{{YEARS}}", years.join(", "))
   .replaceAll("{{YEAR_COUNT}}", String(years.length))
-  .replaceAll("{{COPYRIGHT_YEARS}}", `2022–${new Date().getFullYear()}`);
+  .replaceAll("{{EXAMPLE_YEAR}}", String(exampleYear))
+  .replaceAll("{{ICAL_LINKS}}", icalLinks)
+  .replaceAll("{{COPYRIGHT_YEARS}}", `2022–${currentYear}`);
 
 app.get("/", (req, res) => {
   res.set("Cache-Control", "public, max-age=3600, s-maxage=86400");

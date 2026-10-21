@@ -79,13 +79,14 @@ https://schulferien-api.de/api/v2/ical/BY.ics
   "stateCode": "BY",
   "name": "sommerferien",
   "name_cp": "Sommerferien",
-  "slug": "sommerferien-2026-BY"
+  "slug": "sommerferien-2026-BY",
+  "id": "sommerferien-2026-BY-2026-08-03"
 }
 ```
 
 - `start` ist der erste, `end` der **letzte** Ferientag (inklusiv, 23:59Z). Die Daten sind Kalendertage in Deutschland.
 - Weihnachtsferien gehören zum Jahr, in dem sie beginnen.
-- Ein Ferientyp kann pro Land mehrfach vorkommen (z. B. Herbstferien plus einzelner Brückentag); `slug` ist daher nicht eindeutig.
+- Ein Ferientyp kann pro Land mehrfach vorkommen (z. B. Herbstferien plus einzelner Brückentag oder in Bayern der Buß- und Bettag); `slug` ist daher nicht eindeutig. Zum eindeutigen Identifizieren gibt es `id` (`slug` plus Startdatum).
 
 ### Ferientypen
 

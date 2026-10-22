@@ -7,6 +7,7 @@ const fs = require("fs");
 const dataLoader = require("./lib/dataLoader");
 const { STATE_NAMES } = require("./lib/filters");
 const openApiSpec = require("./lib/openapi-spec");
+const { apiRateLimit } = require("./lib/rateLimit");
 const v1Router = require("./routes/v1/index.js");
 const v2Router = require("./routes/v2/index.js");
 const systemRouter = require("./routes/system");
@@ -20,6 +21,9 @@ const NODE_ENV = process.env.NODE_ENV || "development";
 app.set("port", PORT);
 app.set("env", NODE_ENV);
 app.disable("x-powered-by");
+// Vercel sits as exactly one proxy in front of the app and sets X-Forwarded-For itself.
+// Trusting only that hop makes req.ip the client address without letting clients spoof it.
+app.set("trust proxy", 1);
 
 app.use(cors());
 app.use(logger("tiny"));
@@ -82,6 +86,8 @@ app.use("/api", (req, res, next) => {
   res.set("Cache-Control", "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800");
   next();
 });
+
+app.use("/api", apiRateLimit());
 
 app.use("/api/v1", v1Router);
 app.use("/api/v2", v2Router);

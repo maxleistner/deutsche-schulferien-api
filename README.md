@@ -55,6 +55,8 @@ Alle Endpunkte und Parameter sind in der [interaktiven Dokumentation](https://sc
 { "error": { "message": "…", "statusCode": 404, "documentation": "/docs" } }
 ```
 
+**Rate Limiting:** `/api` erlaubt 100 Anfragen pro Minute und Client (danach `429`, Header `RateLimit`). Die Zähler liegen im Speicher der jeweiligen Serverless-Instanz, das Limit ist also ein Best-Effort-Schutz. Die meisten Antworten kommen ohnehin aus dem CDN-Cache.
+
 ## 📅 Kalender abonnieren
 
 Jedes Bundesland gibt es als abonnierbaren Kalender mit allen verfügbaren Jahren – neue Jahre erscheinen automatisch:

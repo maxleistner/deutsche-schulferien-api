@@ -55,6 +55,8 @@ Alle Endpunkte und Parameter sind in der [interaktiven Dokumentation](https://sc
 { "error": { "message": "…", "statusCode": 404, "documentation": "/docs" } }
 ```
 
+**Rate Limiting:** `/api` erlaubt standardmäßig 100 Anfragen pro Minute und Client (`429` bei Überschreitung, Header `RateLimit`). Anpassbar über `RATE_LIMIT_MAX` und `RATE_LIMIT_WINDOW_MS`. Die Zähler liegen im Speicher der jeweiligen Serverless-Instanz, das Limit ist also nur ein Best-Effort-Schutz. Für ein hartes, globales Limit eine Rate-Limit-Regel in der Vercel Firewall einrichten.
+
 ## 📅 Kalender abonnieren
 
 Jedes Bundesland gibt es als abonnierbaren Kalender mit allen verfügbaren Jahren – neue Jahre erscheinen automatisch:
